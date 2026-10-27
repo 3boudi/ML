@@ -64,6 +64,8 @@
 
     if (openVideo) renderPlayer(openVideo);
     if (typeof updateCaptionButtons === 'function') updateCaptionButtons();
+    if (typeof updatePlayerMarkButton === 'function') updatePlayerMarkButton();
+    if (typeof updateProgress === 'function') updateProgress();
     if (applyFilters) applyFilters();
   }
 
@@ -236,6 +238,7 @@
     if (link) link.href = `${video.url}${hlParam}`;
     if (video.n) dialog.setAttribute('data-playing', String(video.n));
     updateCaptionButtons();
+    if (typeof updatePlayerMarkButton === 'function') updatePlayerMarkButton();
   }
 
   function openPlayer(n, trigger) {
@@ -289,11 +292,9 @@
     if (openPlayer(link.getAttribute('data-video'), link)) event.preventDefault();
   });
 
-  /* ---------- the library ---------- */
+  /* ---------- watched state & learning progress ---------- */
 
-  const library = one('#library');
-  const libraryRows = library ? all('.lib__row', library) : [];
-  let applyFilters = null;
+  const CONSENT_KEY = 'ml7-consent';
   let watched = new Set();
 
   try {
@@ -305,10 +306,192 @@
     try { localStorage.setItem(WATCH_KEY, JSON.stringify([...watched].sort((a, b) => a - b))); } catch {}
   }
 
-  function updateWatchedCount() {
+  function updateProgress() {
+    const allVideos = window.ML && Array.isArray(window.ML.videos) ? window.ML.videos : [];
+    const totalCount = allVideos.length || 106;
+    const watchedCount = watched.size;
+    const globalPct = Math.min(100, Math.round((watchedCount / totalCount) * 100));
+
+    // Nav pill
+    const navFill = one('#nav-progress-fill');
+    const navNum = one('#nav-progress-num');
+    if (navFill) navFill.style.width = `${globalPct}%`;
+    if (navNum) navNum.textContent = `${globalPct}%`;
+
+    // Library counter
     const out = one('#lib-watched');
-    if (out) out.textContent = String(watched.size);
+    if (out) out.textContent = String(watchedCount);
+
+    // Chapter badges on index.html and chapter hero progress pill
+    if (window.ML && Array.isArray(window.ML.chapters)) {
+      for (const ch of window.ML.chapters) {
+        const chVideoSet = new Set();
+        if (Array.isArray(ch.lessons)) {
+          for (const l of ch.lessons) {
+            if (Array.isArray(l.groups)) {
+              for (const g of l.groups) {
+                if (Array.isArray(g.videos)) {
+                  for (const v of g.videos) chVideoSet.add(Number(v.n));
+                }
+              }
+            }
+          }
+        }
+        const total = chVideoSet.size;
+        let done = 0;
+        for (const n of chVideoSet) {
+          if (watched.has(n)) done++;
+        }
+        const pct = total ? Math.round((done / total) * 100) : 0;
+
+        // Chapter hero progress pill on chapter-*.html
+        const pillFill = one(`[data-chapter-fill="${ch.id}"]`);
+        const pillPct = one(`[data-chapter-pct="${ch.id}"]`);
+        if (pillFill) pillFill.style.width = `${pct}%`;
+        if (pillPct) pillPct.textContent = `${pct}%`;
+
+        // Chapter badges on index.html
+        const badge = one(`[data-ch-badge="${ch.id}"]`);
+        if (badge) {
+          badge.textContent = `${pct}%`;
+          badge.hidden = false;
+          badge.classList.toggle('is-started', pct > 0 && pct < 100);
+          badge.classList.toggle('is-complete', pct === 100);
+        }
+      }
+    }
   }
+
+  function updatePlayerMarkButton() {
+    const markBtn = one('#player-mark-btn', dialog);
+    if (!markBtn || !openVideo) return;
+    const isDone = watched.has(Number(openVideo.n));
+    markBtn.setAttribute('aria-pressed', isDone ? 'true' : 'false');
+    markBtn.classList.toggle('is-watched', isDone);
+    const label = one('.player__watched-text', markBtn);
+    if (label) {
+      if (currentLang === 'ar') {
+        label.textContent = isDone ? '✓ تم الإكمال' : 'علّم كمنتهي';
+      } else {
+        label.textContent = isDone ? '✓ Finished' : 'Mark as watched';
+      }
+    }
+  }
+
+  function syncAllWatchUI() {
+    // Sync all input[data-watch] checkboxes across chapter pages and library
+    for (const box of all('input[data-watch]')) {
+      const n = Number(box.getAttribute('data-watch'));
+      const isDone = watched.has(n);
+      box.checked = isDone;
+      const row = box.closest('.lib__row') || box.closest('.video-row');
+      if (row) row.classList.toggle('is-watched', isDone);
+    }
+
+    updatePlayerMarkButton();
+    updateProgress();
+    if (applyFilters) applyFilters();
+  }
+
+  function toggleWatch(n) {
+    n = Number(n);
+    if (!Number.isFinite(n)) return;
+    if (watched.has(n)) watched.delete(n);
+    else watched.add(n);
+    saveWatched();
+    syncAllWatchUI();
+  }
+
+  // Handle all checkbox changes across the document
+  document.addEventListener('change', (event) => {
+    const box = event.target.closest('input[data-watch]');
+    if (!box) return;
+    const n = Number(box.getAttribute('data-watch'));
+    if (box.checked) watched.add(n);
+    else watched.delete(n);
+    saveWatched();
+    syncAllWatchUI();
+  });
+
+  // Player mark finished button
+  const playerMarkBtn = one('#player-mark-btn');
+  if (playerMarkBtn) {
+    playerMarkBtn.addEventListener('click', () => {
+      if (!openVideo) return;
+      toggleWatch(openVideo.n);
+    });
+  }
+
+  // Nav progress click shortcut
+  const navProgressPill = one('#nav-progress');
+  if (navProgressPill) {
+    navProgressPill.addEventListener('click', () => {
+      const target = one('#chapters') || one('#library');
+      if (target) {
+        target.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      } else {
+        window.location.href = 'index.html#chapters';
+      }
+    });
+  }
+
+  // Cookie consent banner & Dua popup
+  const cookieBannerEl = one('#cookie-banner');
+  const cookieAcceptBtn = one('#cookie-accept');
+  const duaDialog = one('#dua-dialog');
+  const duaCloseBtn = one('#dua-close');
+
+  if (cookieBannerEl) {
+    let consent = null;
+    try { consent = localStorage.getItem(CONSENT_KEY); } catch {}
+    if (consent !== 'accepted') {
+      cookieBannerEl.hidden = false;
+    }
+    if (cookieAcceptBtn) {
+      cookieAcceptBtn.addEventListener('click', () => {
+        try { localStorage.setItem(CONSENT_KEY, 'accepted'); } catch {}
+        cookieBannerEl.hidden = true;
+        if (duaDialog && typeof duaDialog.showModal === 'function') {
+          duaDialog.showModal();
+        }
+      });
+    }
+  }
+
+  if (duaDialog) {
+    if (duaCloseBtn) {
+      duaCloseBtn.addEventListener('click', () => duaDialog.close());
+    }
+    duaDialog.addEventListener('click', (event) => {
+      if (event.target === duaDialog) duaDialog.close();
+    });
+  }
+
+  // Privacy page clear data button
+  const clearDataBtn = one('#privacy-clear-data');
+  const clearFeedback = one('#privacy-clear-feedback');
+  if (clearDataBtn) {
+    clearDataBtn.addEventListener('click', () => {
+      try {
+        localStorage.removeItem(WATCH_KEY);
+        localStorage.removeItem(LANG_KEY);
+        localStorage.removeItem(CAPTION_KEY);
+        localStorage.removeItem(CONSENT_KEY);
+      } catch {}
+      watched.clear();
+      syncAllWatchUI();
+      if (clearFeedback) clearFeedback.hidden = false;
+      setTimeout(() => {
+        if (clearFeedback) clearFeedback.hidden = true;
+      }, 3500);
+    });
+  }
+
+  /* ---------- the library ---------- */
+
+  const library = one('#library');
+  const libraryRows = library ? all('.lib__row', library) : [];
+  let applyFilters = null;
 
   if (libraryRows.length) {
     const search = one('#lib-search');
@@ -337,20 +520,7 @@
       if (empty) empty.hidden = shown !== 0;
     };
 
-    for (const box of all('input[data-watch]', library)) {
-      const n = Number(box.getAttribute('data-watch'));
-      const row = box.closest('.lib__row');
-      box.checked = watched.has(n);
-      if (row) row.classList.toggle('is-watched', box.checked);
-      box.addEventListener('change', () => {
-        if (box.checked) watched.add(n); else watched.delete(n);
-        if (row) row.classList.toggle('is-watched', box.checked);
-        saveWatched();
-        updateWatchedCount();
-        applyFilters();
-      });
-    }
-    updateWatchedCount();
+    updateProgress();
 
     for (const control of [search, chapter, status]) {
       if (control) control.addEventListener('input', applyFilters);
@@ -440,5 +610,6 @@
     window.addEventListener('load', purgeNetlifyBadge);
   } catch {}
 
+  syncAllWatchUI();
   applyLanguage(currentLang, false);
 })();

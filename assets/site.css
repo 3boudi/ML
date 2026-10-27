@@ -1152,3 +1152,294 @@ div:has(> iframe[src*="netlify"]) {
   position: absolute !important;
   left: -9999px !important;
 }
+
+/* ---------- learning progress & nav ---------- */
+.nav__progress {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 4px 12px;
+  border: var(--rule-hair) solid var(--color-rule-2);
+  border-radius: 999px;
+  background: var(--color-paper-2);
+  font-family: var(--font-display);
+  font-variation-settings: var(--label-settings);
+  font-weight: 800;
+  font-size: var(--text-xs);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: border-color var(--dur-short) var(--ease-out), background var(--dur-short) var(--ease-out);
+}
+.nav__progress:hover {
+  border-color: var(--color-accent);
+  background: var(--color-paper);
+}
+.nav__progress-track {
+  width: 44px;
+  height: 5px;
+  background: var(--color-rule-2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.nav__progress-fill {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.nav__progress-text {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.nav__progress-text strong {
+  color: var(--color-accent);
+}
+@media (max-width: 42rem) {
+  .nav__progress-track { display: none; }
+  .nav__progress { padding: 2px 8px; font-size: 0.7rem; }
+}
+
+/* ---------- chapter & lesson video rows with watch check ---------- */
+.video-row {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  align-items: center;
+  border-bottom: var(--rule);
+}
+.video-row .watch {
+  width: 32px;
+  height: 32px;
+  margin-inline-start: 0;
+}
+.video-row .video {
+  border-bottom: 0;
+}
+.video-row.is-watched .video__title span {
+  color: var(--color-muted);
+}
+.video-row.is-watched .video__n {
+  color: var(--color-rule-2);
+}
+
+/* contents row badge */
+.contents__badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border: var(--rule-hair) solid var(--color-rule-2);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-variation-settings: var(--label-settings);
+  font-weight: 800;
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+  margin-inline-start: auto;
+}
+.contents__badge.is-started {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: color-mix(in oklab, var(--color-accent) 8%, transparent);
+}
+.contents__badge.is-complete {
+  color: #15803d;
+  border-color: #15803d;
+  background: color-mix(in oklab, #15803d 10%, transparent);
+}
+
+/* chapter page hero progress pill */
+.chapter__num-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+.chapter-progress-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 4px 10px;
+  border: var(--rule-hair) solid var(--color-rule-2);
+  border-radius: 999px;
+  background: var(--color-paper);
+  font-family: var(--font-display);
+  font-variation-settings: var(--label-settings);
+  font-weight: 800;
+  font-size: var(--text-xs);
+  width: fit-content;
+}
+.chapter-progress-pill__bar {
+  width: 44px;
+  height: 5px;
+  background: var(--color-rule-2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.chapter-progress-pill__fill {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.chapter-progress-pill__text strong {
+  color: var(--color-accent);
+}
+
+/* ---------- player mark finished button ---------- */
+.player__watched-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: 0 var(--space-sm);
+  min-height: 32px;
+  background: transparent;
+  border: var(--rule-hair) solid color-mix(in oklab, var(--color-paper) 30%, transparent);
+  color: var(--color-paper);
+  font-family: var(--font-display);
+  font-variation-settings: var(--label-settings);
+  font-weight: 800;
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition: all var(--dur-short) var(--ease-out);
+  white-space: nowrap;
+}
+.player__watched-btn:hover {
+  background: color-mix(in oklab, var(--color-paper) 15%, transparent);
+  border-color: var(--color-paper);
+}
+.player__watched-btn[aria-pressed="true"],
+.player__watched-btn.is-watched {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+/* ---------- cookie banner ---------- */
+.cookie-banner {
+  position: fixed;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100vw - 2 * var(--space-md)), 860px);
+  z-index: 900;
+  background: var(--color-paper);
+  border: var(--rule-strong);
+  box-shadow: 0 12px 32px color-mix(in oklab, var(--color-ink) 18%, transparent);
+  padding: var(--space-md) var(--space-lg);
+  animation: slideUp 0.3s var(--ease-out);
+}
+.cookie-banner[hidden] {
+  display: none !important;
+}
+.cookie-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+.cookie-banner__content {
+  flex: 1 1 320px;
+}
+.cookie-banner__title {
+  margin: 0 0 var(--space-2xs);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-variation-settings: var(--label-settings);
+  font-weight: 800;
+  font-size: var(--text-sm);
+  letter-spacing: -0.01em;
+}
+.cookie-banner__text {
+  margin: 0;
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+.cookie-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+.btn--sm {
+  min-height: 38px;
+  padding: 0 var(--space-md);
+  font-size: var(--text-sm);
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translate(-50%, 16px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ---------- privacy policy page ---------- */
+.privacy-page { max-width: 820px; }
+.privacy-grid { display: grid; gap: var(--space-xl); margin-top: var(--space-xl); }
+.privacy-card { padding: var(--space-lg); border: var(--rule); background: var(--color-paper); }
+.privacy-card__title { margin: 0 0 var(--space-sm); font-size: var(--text-lg); color: var(--color-ink); }
+.privacy-list { margin: var(--space-sm) 0 0; padding-inline-start: var(--space-lg); }
+.privacy-list li { margin-bottom: var(--space-xs); font-size: var(--text-md); color: var(--color-ink-2); }
+.privacy-actions { display: flex; align-items: center; gap: var(--space-md); margin-top: var(--space-md); flex-wrap: wrap; }
+.privacy-clear-feedback { color: #15803d; font-family: var(--font-display); font-variation-settings: var(--label-settings); font-weight: 800; font-size: var(--text-sm); }
+
+/* ---------- dua popup dialog ---------- */
+.dua-dialog:not([open]) {
+  display: none !important;
+}
+.dua-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(92vw, 540px);
+  max-width: none;
+  padding: var(--space-2xl) var(--space-xl);
+  background: var(--color-paper);
+  border: var(--rule-heavy) solid var(--color-ink);
+  color: var(--color-ink);
+  box-shadow: 0 20px 48px color-mix(in oklab, var(--color-ink) 25%, transparent);
+  text-align: center;
+  z-index: 10000;
+  border-radius: 0;
+  animation: popDua 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dua-dialog::backdrop {
+  background: color-mix(in oklab, var(--color-ink) 70%, transparent);
+  backdrop-filter: blur(4px);
+}
+.dua-dialog__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+.dua-dialog__icon {
+  font-size: 2.75rem;
+  line-height: 1;
+}
+.dua-dialog__text {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--display-settings);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  line-height: 1.45;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+.dua-dialog__sub {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--text-md);
+  line-height: 1.4;
+}
+.dua-dialog__btn {
+  margin-top: var(--space-sm);
+  min-width: 170px;
+  min-height: 46px;
+  font-size: var(--text-md);
+}
+@keyframes popDua {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+

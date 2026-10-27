@@ -31,6 +31,10 @@
         <img class="wordmark__logo" src="assets/logo.png" alt="ML" width="28" height="28">
         ML VII <span data-ar="السداسي 7" dir="auto">Semester 7</span>
       </a>
+      <div class="nav__progress" id="nav-progress" title="Your overall ML learning progress" data-ar-title="نسبة تقدّمك العامة في تعلّم الآلة" aria-label="Learning progress" data-ar-aria="نسبة التعلّم">
+        <div class="nav__progress-track" aria-hidden="true"><div class="nav__progress-fill" id="nav-progress-fill" style="width: 0%;"></div></div>
+        <span class="nav__progress-text"><strong id="nav-progress-num">0%</strong> <span data-ar="مكتمل">learned</span></span>
+      </div>
       <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
         <a href="index.html#chapters" data-ar="الفصول">Chapters</a>
         <a href="library.html" data-ar="المكتبة">Library</a>
@@ -41,7 +45,13 @@
   <main id="main">
 <section class="chapter">
     <div class="container chapter__grid">
-      <span class="chapter__num" aria-hidden="true">05</span>
+      <div class="chapter__num-col">
+        <span class="chapter__num" aria-hidden="true">05</span>
+        <div class="chapter-progress-pill" data-chapter-pill="5">
+          <span class="chapter-progress-pill__bar"><span class="chapter-progress-pill__fill" data-chapter-fill="5" style="width: 0%;"></span></span>
+          <span class="chapter-progress-pill__text"><strong data-chapter-pct="5">0%</strong> <span data-ar="مكتمل">completed</span></span>
+        </div>
+      </div>
       <div class="chapter__copy">
         <h1 data-ar="التعلّم شبه الموجّه والتعلّم المعزّز">Semi-Supervised and Reinforcement Learning</h1>
         <p class="lead" data-ar="التعلّم من إشراف قليل، والتعلّم من المكافأة.">Learning from a little supervision, and learning from reward.</p>
@@ -123,16 +133,28 @@
 <div class="vgroup">
           <h4 data-ar="متطلبات سابقة">Prerequisites</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=efR1C6CvhmE" data-video="72">
-            <span class="video__n">072</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines Part 1 (of 3): Main Ideas!!!</span></span>
-            <span class="video__time">20:32</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=H3EjCKtlVog" data-video="45">
-            <span class="video__n">045</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gaussian Naive Bayes, Clearly Explained!!!</span></span>
-            <span class="video__time">9:26</span>
-          </a></li>
+<li class="video-row" data-n="72">
+            <label class="watch">
+              <input type="checkbox" data-watch="72" aria-label="Mark Support Vector Machines Part 1 (of 3): Main Ideas!!! as watched" data-ar-aria="علّم Support Vector Machines Part 1 (of 3): Main Ideas!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=efR1C6CvhmE" data-video="72">
+              <span class="video__n">072</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines Part 1 (of 3): Main Ideas!!!</span></span>
+              <span class="video__time">20:32</span>
+            </a>
+          </li>
+<li class="video-row" data-n="45">
+            <label class="watch">
+              <input type="checkbox" data-watch="45" aria-label="Mark Gaussian Naive Bayes, Clearly Explained!!! as watched" data-ar-aria="علّم Gaussian Naive Bayes, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=H3EjCKtlVog" data-video="45">
+              <span class="video__n">045</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gaussian Naive Bayes, Clearly Explained!!!</span></span>
+              <span class="video__time">9:26</span>
+            </a>
+          </li>
           </ul>
         </div>
 
@@ -161,26 +183,50 @@
 <div class="vgroup">
           <h4 data-ar="المفاهيم والتعلّم العميق">Concepts and deep RL</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=Z-T0iJEXiwM" data-video="103">
-            <span class="video__n">103</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Reinforcement Learning: Essential Concepts</span></span>
-            <span class="video__time">18:13</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=9hbQieQh7-o" data-video="104">
-            <span class="video__n">104</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Reinforcement Learning with Neural Networks: Essential Concepts</span></span>
-            <span class="video__time">24:00</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=DVGmsnxB2UQ" data-video="105">
-            <span class="video__n">105</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Reinforcement Learning with Neural Networks: Mathematical Details</span></span>
-            <span class="video__time">25:01</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=qPN_XZcJf_s" data-video="106">
-            <span class="video__n">106</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!!</span></span>
-            <span class="video__time">18:02</span>
-          </a></li>
+<li class="video-row" data-n="103">
+            <label class="watch">
+              <input type="checkbox" data-watch="103" aria-label="Mark Reinforcement Learning: Essential Concepts as watched" data-ar-aria="علّم Reinforcement Learning: Essential Concepts كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=Z-T0iJEXiwM" data-video="103">
+              <span class="video__n">103</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Reinforcement Learning: Essential Concepts</span></span>
+              <span class="video__time">18:13</span>
+            </a>
+          </li>
+<li class="video-row" data-n="104">
+            <label class="watch">
+              <input type="checkbox" data-watch="104" aria-label="Mark Reinforcement Learning with Neural Networks: Essential Concepts as watched" data-ar-aria="علّم Reinforcement Learning with Neural Networks: Essential Concepts كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=9hbQieQh7-o" data-video="104">
+              <span class="video__n">104</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Reinforcement Learning with Neural Networks: Essential Concepts</span></span>
+              <span class="video__time">24:00</span>
+            </a>
+          </li>
+<li class="video-row" data-n="105">
+            <label class="watch">
+              <input type="checkbox" data-watch="105" aria-label="Mark Reinforcement Learning with Neural Networks: Mathematical Details as watched" data-ar-aria="علّم Reinforcement Learning with Neural Networks: Mathematical Details كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=DVGmsnxB2UQ" data-video="105">
+              <span class="video__n">105</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Reinforcement Learning with Neural Networks: Mathematical Details</span></span>
+              <span class="video__time">25:01</span>
+            </a>
+          </li>
+<li class="video-row" data-n="106">
+            <label class="watch">
+              <input type="checkbox" data-watch="106" aria-label="Mark Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!! as watched" data-ar-aria="علّم Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=qPN_XZcJf_s" data-video="106">
+              <span class="video__n">106</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!!</span></span>
+              <span class="video__time">18:02</span>
+            </a>
+          </li>
           </ul>
         </div>
 
@@ -211,6 +257,34 @@
     </div>
   </nav>
   </main>
+  <aside class="cookie-banner" id="cookie-banner" hidden aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__content">
+        <p class="cookie-banner__title" data-ar="التخزين المحلي والخصوصية">Local Storage &amp; Privacy</p>
+        <p class="cookie-banner__text" data-ar="نستخدم التخزين المحلي (LocalStorage) في متصفحك لحفظ تقدمك الدراسي (% ما تعلمته في تعلّم الآلة)، وتفضيلات اللغة والترجمة. لا نجمع أي بيانات شخصية ولا نستخدم كوكيز إعلانية.">
+          We use local browser storage (LocalStorage) to save your study progress (% of ML learned), language, and caption preferences. No personal tracking or ad cookies.
+        </p>
+      </div>
+      <div class="cookie-banner__actions">
+        <button type="button" class="btn btn--primary btn--sm" id="cookie-accept" data-ar="قبول">Accept</button>
+        <a href="privacy.html" class="btn btn--quiet btn--sm" data-ar="الخصوصية وملفات تعريف الارتباط">Privacy &amp; Cookies</a>
+      </div>
+    </div>
+  </aside>
+  <dialog class="dua-dialog" id="dua-dialog" aria-labelledby="dua-text">
+    <div class="dua-dialog__inner">
+      <span class="dua-dialog__icon" aria-hidden="true">🤲</span>
+      <p class="dua-dialog__text" id="dua-text" data-ar="دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب">
+        دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب
+      </p>
+      <p class="dua-dialog__sub" data-ar="اللهم وفّق كل طالب علم ويسّر له أمره">
+        Keep us in your prayers, for a supplication in absence is answered.
+      </p>
+      <button type="button" class="btn btn--primary dua-dialog__btn" id="dua-close" data-ar="آمين يا رب">
+        آمين يا رب
+      </button>
+    </div>
+  </dialog>
   <footer class="letter letter--short" id="about">
     <div class="container letter__grid">
       <div>
@@ -223,6 +297,7 @@
           <a href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="قائمة التشغيل">Playlist</a>
           <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" data-ar="قناة StatQuest">StatQuest channel</a>
           <a href="library.html" data-ar="كل الفيديوهات">All 106 videos</a>
+          <a href="privacy.html" data-ar="الخصوصية وملفات تعريف الارتباط">Privacy &amp; Cookies</a>
         </nav>
         <p class="letter__legal" data-ar="المقرر: Halitim Amin. الفيديوهات: StatQuest على يوتيوب. الرسوم مرسومة لهذا الدليل. لا صور فوتوغرافية.">Course material: Halitim Amin. Videos: StatQuest, YouTube. Diagrams drawn for this guide. No photographs.</p>
       </div>
@@ -232,6 +307,10 @@
     <div class="player__bar">
       <h2 id="player-title">Video</h2>
       <div class="player__actions">
+        <button type="button" class="player__watched-btn" id="player-mark-btn" aria-pressed="false" title="Mark video as finished" data-ar-title="علّم الفيديو كمنتهي">
+          <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false"><path d="M13.5 3.5 6 11 2.5 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="player__watched-text" data-ar="تمت المشاهدة">Mark as watched</span>
+        </button>
         <div class="player__captions" role="group" aria-label="Caption language" data-ar-aria="لغة الترجمة المصاحبة">
           <span class="player__captions-label">
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/></svg>

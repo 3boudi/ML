@@ -31,6 +31,10 @@
         <img class="wordmark__logo" src="assets/logo.png" alt="ML" width="28" height="28">
         ML VII <span data-ar="السداسي 7" dir="auto">Semester 7</span>
       </a>
+      <div class="nav__progress" id="nav-progress" title="Your overall ML learning progress" data-ar-title="نسبة تقدّمك العامة في تعلّم الآلة" aria-label="Learning progress" data-ar-aria="نسبة التعلّم">
+        <div class="nav__progress-track" aria-hidden="true"><div class="nav__progress-fill" id="nav-progress-fill" style="width: 0%;"></div></div>
+        <span class="nav__progress-text"><strong id="nav-progress-num">0%</strong> <span data-ar="مكتمل">learned</span></span>
+      </div>
       <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
         <a href="index.html#chapters" data-ar="الفصول">Chapters</a>
         <a href="library.html" data-ar="المكتبة">Library</a>
@@ -41,7 +45,13 @@
   <main id="main">
 <section class="chapter">
     <div class="container chapter__grid">
-      <span class="chapter__num" aria-hidden="true">02</span>
+      <div class="chapter__num-col">
+        <span class="chapter__num" aria-hidden="true">02</span>
+        <div class="chapter-progress-pill" data-chapter-pill="2">
+          <span class="chapter-progress-pill__bar"><span class="chapter-progress-pill__fill" data-chapter-fill="2" style="width: 0%;"></span></span>
+          <span class="chapter-progress-pill__text"><strong data-chapter-pct="2">0%</strong> <span data-ar="مكتمل">completed</span></span>
+        </div>
+      </div>
       <div class="chapter__copy">
         <h1 data-ar="التعلّم الموجّه">Supervised Learning</h1>
         <p class="lead" data-ar="النماذج التي تقوم بالعمل: الخطوط، والأشجار، والغابات، والتعزيز، والهوامش.">The models that do the work: lines, trees, forests, boosting, margins.</p>
@@ -117,106 +127,214 @@
 <div class="vgroup">
           <h4 data-ar="الانحدار الخطي">Linear regression</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=PaFPbb66DxQ" data-video="9">
-            <span class="video__n">009</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>The Main Ideas of Fitting a Line to Data (The Main Ideas of Least Squares and Linear Regression.)</span></span>
-            <span class="video__time">9:22</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=7ArmBVF2dCs" data-video="10">
-            <span class="video__n">010</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Linear Regression, Clearly Explained!!!</span></span>
-            <span class="video__time">27:27</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=zITIFTsivN8" data-video="11">
-            <span class="video__n">011</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Multiple Regression, Clearly Explained!!!</span></span>
-            <span class="video__time">5:25</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=CqLGvwi-5Pc" data-video="13">
-            <span class="video__n">013</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Design Matrices For Linear Models, Clearly Explained!!!</span></span>
-            <span class="video__time">14:40</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=NF5_btOaCig" data-video="12">
-            <span class="video__n">012</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Using Linear Models for t-tests and ANOVA, Clearly Explained!!!</span></span>
-            <span class="video__time">11:38</span>
-          </a></li>
+<li class="video-row" data-n="9">
+            <label class="watch">
+              <input type="checkbox" data-watch="9" aria-label="Mark The Main Ideas of Fitting a Line to Data (The Main Ideas of Least Squares and Linear Regression.) as watched" data-ar-aria="علّم The Main Ideas of Fitting a Line to Data (The Main Ideas of Least Squares and Linear Regression.) كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=PaFPbb66DxQ" data-video="9">
+              <span class="video__n">009</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>The Main Ideas of Fitting a Line to Data (The Main Ideas of Least Squares and Linear Regression.)</span></span>
+              <span class="video__time">9:22</span>
+            </a>
+          </li>
+<li class="video-row" data-n="10">
+            <label class="watch">
+              <input type="checkbox" data-watch="10" aria-label="Mark Linear Regression, Clearly Explained!!! as watched" data-ar-aria="علّم Linear Regression, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=7ArmBVF2dCs" data-video="10">
+              <span class="video__n">010</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Linear Regression, Clearly Explained!!!</span></span>
+              <span class="video__time">27:27</span>
+            </a>
+          </li>
+<li class="video-row" data-n="11">
+            <label class="watch">
+              <input type="checkbox" data-watch="11" aria-label="Mark Multiple Regression, Clearly Explained!!! as watched" data-ar-aria="علّم Multiple Regression, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=zITIFTsivN8" data-video="11">
+              <span class="video__n">011</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Multiple Regression, Clearly Explained!!!</span></span>
+              <span class="video__time">5:25</span>
+            </a>
+          </li>
+<li class="video-row" data-n="13">
+            <label class="watch">
+              <input type="checkbox" data-watch="13" aria-label="Mark Design Matrices For Linear Models, Clearly Explained!!! as watched" data-ar-aria="علّم Design Matrices For Linear Models, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=CqLGvwi-5Pc" data-video="13">
+              <span class="video__n">013</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Design Matrices For Linear Models, Clearly Explained!!!</span></span>
+              <span class="video__time">14:40</span>
+            </a>
+          </li>
+<li class="video-row" data-n="12">
+            <label class="watch">
+              <input type="checkbox" data-watch="12" aria-label="Mark Using Linear Models for t-tests and ANOVA, Clearly Explained!!! as watched" data-ar-aria="علّم Using Linear Models for t-tests and ANOVA, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=NF5_btOaCig" data-video="12">
+              <span class="video__n">012</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Using Linear Models for t-tests and ANOVA, Clearly Explained!!!</span></span>
+              <span class="video__time">11:38</span>
+            </a>
+          </li>
           </ul>
         </div>
 <div class="vgroup">
           <h4 data-ar="الانحدار اللوجستي">Logistic regression</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=yIYKR4sgzI8" data-video="16">
-            <span class="video__n">016</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Logistic Regression</span></span>
-            <span class="video__time">8:48</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=vN5cNN2-HWE" data-video="17">
-            <span class="video__n">017</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Logistic Regression Details Pt1: Coefficients</span></span>
-            <span class="video__time">19:02</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=BfKanl1aSG0" data-video="18">
-            <span class="video__n">018</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Logistic Regression Details Pt 2: Maximum Likelihood</span></span>
-            <span class="video__time">10:23</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=xxFYro8QuXA" data-video="19">
-            <span class="video__n">019</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Logistic Regression Details Pt 3: R-squared and p-value</span></span>
-            <span class="video__time">15:25</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=9T0wlKdew6I" data-video="20">
-            <span class="video__n">020</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Saturated Models and Deviance</span></span>
-            <span class="video__time">18:40</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=JC56jS2gVUE" data-video="22">
-            <span class="video__n">022</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Deviance Residuals</span></span>
-            <span class="video__time">6:18</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=4jRBRDbJemM" data-video="23">
-            <span class="video__n">023</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>ROC and AUC, Clearly Explained!</span></span>
-            <span class="video__time">16:17</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=C4N3_XJJ-jU" data-video="21">
-            <span class="video__n">021</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Logistic Regression in R, Clearly Explained!!!!</span></span>
-            <span class="video__time">17:15</span>
-          </a></li>
+<li class="video-row" data-n="16">
+            <label class="watch">
+              <input type="checkbox" data-watch="16" aria-label="Mark StatQuest: Logistic Regression as watched" data-ar-aria="علّم StatQuest: Logistic Regression كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=yIYKR4sgzI8" data-video="16">
+              <span class="video__n">016</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Logistic Regression</span></span>
+              <span class="video__time">8:48</span>
+            </a>
+          </li>
+<li class="video-row" data-n="17">
+            <label class="watch">
+              <input type="checkbox" data-watch="17" aria-label="Mark Logistic Regression Details Pt1: Coefficients as watched" data-ar-aria="علّم Logistic Regression Details Pt1: Coefficients كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=vN5cNN2-HWE" data-video="17">
+              <span class="video__n">017</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Logistic Regression Details Pt1: Coefficients</span></span>
+              <span class="video__time">19:02</span>
+            </a>
+          </li>
+<li class="video-row" data-n="18">
+            <label class="watch">
+              <input type="checkbox" data-watch="18" aria-label="Mark Logistic Regression Details Pt 2: Maximum Likelihood as watched" data-ar-aria="علّم Logistic Regression Details Pt 2: Maximum Likelihood كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=BfKanl1aSG0" data-video="18">
+              <span class="video__n">018</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Logistic Regression Details Pt 2: Maximum Likelihood</span></span>
+              <span class="video__time">10:23</span>
+            </a>
+          </li>
+<li class="video-row" data-n="19">
+            <label class="watch">
+              <input type="checkbox" data-watch="19" aria-label="Mark Logistic Regression Details Pt 3: R-squared and p-value as watched" data-ar-aria="علّم Logistic Regression Details Pt 3: R-squared and p-value كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=xxFYro8QuXA" data-video="19">
+              <span class="video__n">019</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Logistic Regression Details Pt 3: R-squared and p-value</span></span>
+              <span class="video__time">15:25</span>
+            </a>
+          </li>
+<li class="video-row" data-n="20">
+            <label class="watch">
+              <input type="checkbox" data-watch="20" aria-label="Mark Saturated Models and Deviance as watched" data-ar-aria="علّم Saturated Models and Deviance كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=9T0wlKdew6I" data-video="20">
+              <span class="video__n">020</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Saturated Models and Deviance</span></span>
+              <span class="video__time">18:40</span>
+            </a>
+          </li>
+<li class="video-row" data-n="22">
+            <label class="watch">
+              <input type="checkbox" data-watch="22" aria-label="Mark Deviance Residuals as watched" data-ar-aria="علّم Deviance Residuals كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=JC56jS2gVUE" data-video="22">
+              <span class="video__n">022</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Deviance Residuals</span></span>
+              <span class="video__time">6:18</span>
+            </a>
+          </li>
+<li class="video-row" data-n="23">
+            <label class="watch">
+              <input type="checkbox" data-watch="23" aria-label="Mark ROC and AUC, Clearly Explained! as watched" data-ar-aria="علّم ROC and AUC, Clearly Explained! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=4jRBRDbJemM" data-video="23">
+              <span class="video__n">023</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>ROC and AUC, Clearly Explained!</span></span>
+              <span class="video__time">16:17</span>
+            </a>
+          </li>
+<li class="video-row" data-n="21">
+            <label class="watch">
+              <input type="checkbox" data-watch="21" aria-label="Mark Logistic Regression in R, Clearly Explained!!!! as watched" data-ar-aria="علّم Logistic Regression in R, Clearly Explained!!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=C4N3_XJJ-jU" data-video="21">
+              <span class="video__n">021</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Logistic Regression in R, Clearly Explained!!!!</span></span>
+              <span class="video__time">17:15</span>
+            </a>
+          </li>
           </ul>
         </div>
 <div class="vgroup">
           <h4 data-ar="التنظيم">Regularization</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=Q81RR3yKn30" data-video="25">
-            <span class="video__n">025</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Regularization Part 1: Ridge (L2) Regression</span></span>
-            <span class="video__time">20:27</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=NGf0voTMlcs" data-video="26">
-            <span class="video__n">026</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Regularization Part 2: Lasso (L1) Regression</span></span>
-            <span class="video__time">8:19</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=Xm2C_gTAl8c" data-video="27">
-            <span class="video__n">027</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Ridge vs Lasso Regression, Visualized!!!</span></span>
-            <span class="video__time">9:06</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=1dKRdX9bfIo" data-video="28">
-            <span class="video__n">028</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Regularization Part 3: Elastic Net Regression</span></span>
-            <span class="video__time">5:19</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=ctmNq7FgbvI" data-video="29">
-            <span class="video__n">029</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Ridge, Lasso and Elastic-Net Regression in R</span></span>
-            <span class="video__time">17:51</span>
-          </a></li>
+<li class="video-row" data-n="25">
+            <label class="watch">
+              <input type="checkbox" data-watch="25" aria-label="Mark Regularization Part 1: Ridge (L2) Regression as watched" data-ar-aria="علّم Regularization Part 1: Ridge (L2) Regression كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=Q81RR3yKn30" data-video="25">
+              <span class="video__n">025</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Regularization Part 1: Ridge (L2) Regression</span></span>
+              <span class="video__time">20:27</span>
+            </a>
+          </li>
+<li class="video-row" data-n="26">
+            <label class="watch">
+              <input type="checkbox" data-watch="26" aria-label="Mark Regularization Part 2: Lasso (L1) Regression as watched" data-ar-aria="علّم Regularization Part 2: Lasso (L1) Regression كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=NGf0voTMlcs" data-video="26">
+              <span class="video__n">026</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Regularization Part 2: Lasso (L1) Regression</span></span>
+              <span class="video__time">8:19</span>
+            </a>
+          </li>
+<li class="video-row" data-n="27">
+            <label class="watch">
+              <input type="checkbox" data-watch="27" aria-label="Mark Ridge vs Lasso Regression, Visualized!!! as watched" data-ar-aria="علّم Ridge vs Lasso Regression, Visualized!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=Xm2C_gTAl8c" data-video="27">
+              <span class="video__n">027</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Ridge vs Lasso Regression, Visualized!!!</span></span>
+              <span class="video__time">9:06</span>
+            </a>
+          </li>
+<li class="video-row" data-n="28">
+            <label class="watch">
+              <input type="checkbox" data-watch="28" aria-label="Mark Regularization Part 3: Elastic Net Regression as watched" data-ar-aria="علّم Regularization Part 3: Elastic Net Regression كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=1dKRdX9bfIo" data-video="28">
+              <span class="video__n">028</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Regularization Part 3: Elastic Net Regression</span></span>
+              <span class="video__time">5:19</span>
+            </a>
+          </li>
+<li class="video-row" data-n="29">
+            <label class="watch">
+              <input type="checkbox" data-watch="29" aria-label="Mark Ridge, Lasso and Elastic-Net Regression in R as watched" data-ar-aria="علّم Ridge, Lasso and Elastic-Net Regression in R كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=ctmNq7FgbvI" data-video="29">
+              <span class="video__n">029</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Ridge, Lasso and Elastic-Net Regression in R</span></span>
+              <span class="video__time">17:51</span>
+            </a>
+          </li>
           </ul>
         </div>
 
@@ -244,116 +362,236 @@
 <div class="vgroup">
           <h4 data-ar="أشجار القرار">Decision trees</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=_L39rN6gz7Y" data-video="46">
-            <span class="video__n">046</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Decision and Classification Trees, Clearly Explained!!!</span></span>
-            <span class="video__time">18:08</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=g9c66TUylZ4" data-video="48">
-            <span class="video__n">048</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Regression Trees, Clearly Explained!!!</span></span>
-            <span class="video__time">22:33</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=D0efHEJsfHo" data-video="49">
-            <span class="video__n">049</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>How to Prune Regression Trees, Clearly Explained!!!</span></span>
-            <span class="video__time">16:15</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=wpNl-JwwplA" data-video="47">
-            <span class="video__n">047</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Decision Trees, Part 2 - Feature Selection and Missing Data</span></span>
-            <span class="video__time">5:16</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=q90UDEgYqeI" data-video="51">
-            <span class="video__n">051</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Classification Trees in Python from Start to Finish</span></span>
-            <span class="video__time">1:06:24</span>
-          </a></li>
+<li class="video-row" data-n="46">
+            <label class="watch">
+              <input type="checkbox" data-watch="46" aria-label="Mark Decision and Classification Trees, Clearly Explained!!! as watched" data-ar-aria="علّم Decision and Classification Trees, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=_L39rN6gz7Y" data-video="46">
+              <span class="video__n">046</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Decision and Classification Trees, Clearly Explained!!!</span></span>
+              <span class="video__time">18:08</span>
+            </a>
+          </li>
+<li class="video-row" data-n="48">
+            <label class="watch">
+              <input type="checkbox" data-watch="48" aria-label="Mark Regression Trees, Clearly Explained!!! as watched" data-ar-aria="علّم Regression Trees, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=g9c66TUylZ4" data-video="48">
+              <span class="video__n">048</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Regression Trees, Clearly Explained!!!</span></span>
+              <span class="video__time">22:33</span>
+            </a>
+          </li>
+<li class="video-row" data-n="49">
+            <label class="watch">
+              <input type="checkbox" data-watch="49" aria-label="Mark How to Prune Regression Trees, Clearly Explained!!! as watched" data-ar-aria="علّم How to Prune Regression Trees, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=D0efHEJsfHo" data-video="49">
+              <span class="video__n">049</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>How to Prune Regression Trees, Clearly Explained!!!</span></span>
+              <span class="video__time">16:15</span>
+            </a>
+          </li>
+<li class="video-row" data-n="47">
+            <label class="watch">
+              <input type="checkbox" data-watch="47" aria-label="Mark StatQuest: Decision Trees, Part 2 - Feature Selection and Missing Data as watched" data-ar-aria="علّم StatQuest: Decision Trees, Part 2 - Feature Selection and Missing Data كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=wpNl-JwwplA" data-video="47">
+              <span class="video__n">047</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Decision Trees, Part 2 - Feature Selection and Missing Data</span></span>
+              <span class="video__time">5:16</span>
+            </a>
+          </li>
+<li class="video-row" data-n="51">
+            <label class="watch">
+              <input type="checkbox" data-watch="51" aria-label="Mark Classification Trees in Python from Start to Finish as watched" data-ar-aria="علّم Classification Trees in Python from Start to Finish كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=q90UDEgYqeI" data-video="51">
+              <span class="video__n">051</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Classification Trees in Python from Start to Finish</span></span>
+              <span class="video__time">1:06:24</span>
+            </a>
+          </li>
           </ul>
         </div>
 <div class="vgroup">
           <h4 data-ar="الغابات العشوائية">Random forests</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ" data-video="52">
-            <span class="video__n">052</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Random Forests Part 1 - Building, Using and Evaluating</span></span>
-            <span class="video__time">9:54</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=mIlw5j3WyVk" data-video="53">
-            <span class="video__n">053</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Random Forests Part 2: Missing data and clustering</span></span>
-            <span class="video__time">10:48</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=6EXPYzbfLCE" data-video="54">
-            <span class="video__n">054</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Random Forests in R</span></span>
-            <span class="video__time">15:10</span>
-          </a></li>
+<li class="video-row" data-n="52">
+            <label class="watch">
+              <input type="checkbox" data-watch="52" aria-label="Mark StatQuest: Random Forests Part 1 - Building, Using and Evaluating as watched" data-ar-aria="علّم StatQuest: Random Forests Part 1 - Building, Using and Evaluating كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ" data-video="52">
+              <span class="video__n">052</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Random Forests Part 1 - Building, Using and Evaluating</span></span>
+              <span class="video__time">9:54</span>
+            </a>
+          </li>
+<li class="video-row" data-n="53">
+            <label class="watch">
+              <input type="checkbox" data-watch="53" aria-label="Mark StatQuest: Random Forests Part 2: Missing data and clustering as watched" data-ar-aria="علّم StatQuest: Random Forests Part 2: Missing data and clustering كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=mIlw5j3WyVk" data-video="53">
+              <span class="video__n">053</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Random Forests Part 2: Missing data and clustering</span></span>
+              <span class="video__time">10:48</span>
+            </a>
+          </li>
+<li class="video-row" data-n="54">
+            <label class="watch">
+              <input type="checkbox" data-watch="54" aria-label="Mark StatQuest: Random Forests in R as watched" data-ar-aria="علّم StatQuest: Random Forests in R كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=6EXPYzbfLCE" data-video="54">
+              <span class="video__n">054</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Random Forests in R</span></span>
+              <span class="video__time">15:10</span>
+            </a>
+          </li>
           </ul>
         </div>
 <div class="vgroup">
           <h4 data-ar="التعزيز">Boosting</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=LsK-xG1cLYA" data-video="58">
-            <span class="video__n">058</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>AdaBoost, Clearly Explained</span></span>
-            <span class="video__time">20:54</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=3CC4N4z3GJc" data-video="59">
-            <span class="video__n">059</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Boost Part 1 (of 4): Regression Main Ideas</span></span>
-            <span class="video__time">15:52</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=2xudPOBz-vs" data-video="60">
-            <span class="video__n">060</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Boost Part 2 (of 4): Regression Details</span></span>
-            <span class="video__time">26:46</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=jxuNLH5dXCs" data-video="61">
-            <span class="video__n">061</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Boost Part 3 (of 4): Classification</span></span>
-            <span class="video__time">17:03</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=StWY5QWMXCw" data-video="62">
-            <span class="video__n">062</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Boost Part 4 (of 4): Classification Details</span></span>
-            <span class="video__time">37:00</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=OtD8wVaFm6E" data-video="64">
-            <span class="video__n">064</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost Part 1 (of 4): Regression</span></span>
-            <span class="video__time">25:46</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=8b1JEDvenQU" data-video="65">
-            <span class="video__n">065</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost Part 2 (of 4): Classification</span></span>
-            <span class="video__time">25:18</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=ZVFeW798-2I" data-video="66">
-            <span class="video__n">066</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost Part 3 (of 4): Mathematical Details</span></span>
-            <span class="video__time">27:24</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=oRrKeUCEbq8" data-video="67">
-            <span class="video__n">067</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost Part 4 (of 4): Crazy Cool Optimizations</span></span>
-            <span class="video__time">24:27</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=GrJP9FLV3FE" data-video="68">
-            <span class="video__n">068</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost in Python from Start to Finish</span></span>
-            <span class="video__time">56:43</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=KXOTSkPL2X4" data-video="69">
-            <span class="video__n">069</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>CatBoost Part 1: Ordered Target Encoding</span></span>
-            <span class="video__time">8:32</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=3Bg2XRFOTzg" data-video="70">
-            <span class="video__n">070</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>CatBoost Part 2: Building and Using Trees</span></span>
-            <span class="video__time">16:16</span>
-          </a></li>
+<li class="video-row" data-n="58">
+            <label class="watch">
+              <input type="checkbox" data-watch="58" aria-label="Mark AdaBoost, Clearly Explained as watched" data-ar-aria="علّم AdaBoost, Clearly Explained كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=LsK-xG1cLYA" data-video="58">
+              <span class="video__n">058</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>AdaBoost, Clearly Explained</span></span>
+              <span class="video__time">20:54</span>
+            </a>
+          </li>
+<li class="video-row" data-n="59">
+            <label class="watch">
+              <input type="checkbox" data-watch="59" aria-label="Mark Gradient Boost Part 1 (of 4): Regression Main Ideas as watched" data-ar-aria="علّم Gradient Boost Part 1 (of 4): Regression Main Ideas كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=3CC4N4z3GJc" data-video="59">
+              <span class="video__n">059</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Boost Part 1 (of 4): Regression Main Ideas</span></span>
+              <span class="video__time">15:52</span>
+            </a>
+          </li>
+<li class="video-row" data-n="60">
+            <label class="watch">
+              <input type="checkbox" data-watch="60" aria-label="Mark Gradient Boost Part 2 (of 4): Regression Details as watched" data-ar-aria="علّم Gradient Boost Part 2 (of 4): Regression Details كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=2xudPOBz-vs" data-video="60">
+              <span class="video__n">060</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Boost Part 2 (of 4): Regression Details</span></span>
+              <span class="video__time">26:46</span>
+            </a>
+          </li>
+<li class="video-row" data-n="61">
+            <label class="watch">
+              <input type="checkbox" data-watch="61" aria-label="Mark Gradient Boost Part 3 (of 4): Classification as watched" data-ar-aria="علّم Gradient Boost Part 3 (of 4): Classification كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=jxuNLH5dXCs" data-video="61">
+              <span class="video__n">061</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Boost Part 3 (of 4): Classification</span></span>
+              <span class="video__time">17:03</span>
+            </a>
+          </li>
+<li class="video-row" data-n="62">
+            <label class="watch">
+              <input type="checkbox" data-watch="62" aria-label="Mark Gradient Boost Part 4 (of 4): Classification Details as watched" data-ar-aria="علّم Gradient Boost Part 4 (of 4): Classification Details كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=StWY5QWMXCw" data-video="62">
+              <span class="video__n">062</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Boost Part 4 (of 4): Classification Details</span></span>
+              <span class="video__time">37:00</span>
+            </a>
+          </li>
+<li class="video-row" data-n="64">
+            <label class="watch">
+              <input type="checkbox" data-watch="64" aria-label="Mark XGBoost Part 1 (of 4): Regression as watched" data-ar-aria="علّم XGBoost Part 1 (of 4): Regression كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=OtD8wVaFm6E" data-video="64">
+              <span class="video__n">064</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost Part 1 (of 4): Regression</span></span>
+              <span class="video__time">25:46</span>
+            </a>
+          </li>
+<li class="video-row" data-n="65">
+            <label class="watch">
+              <input type="checkbox" data-watch="65" aria-label="Mark XGBoost Part 2 (of 4): Classification as watched" data-ar-aria="علّم XGBoost Part 2 (of 4): Classification كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=8b1JEDvenQU" data-video="65">
+              <span class="video__n">065</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost Part 2 (of 4): Classification</span></span>
+              <span class="video__time">25:18</span>
+            </a>
+          </li>
+<li class="video-row" data-n="66">
+            <label class="watch">
+              <input type="checkbox" data-watch="66" aria-label="Mark XGBoost Part 3 (of 4): Mathematical Details as watched" data-ar-aria="علّم XGBoost Part 3 (of 4): Mathematical Details كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=ZVFeW798-2I" data-video="66">
+              <span class="video__n">066</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost Part 3 (of 4): Mathematical Details</span></span>
+              <span class="video__time">27:24</span>
+            </a>
+          </li>
+<li class="video-row" data-n="67">
+            <label class="watch">
+              <input type="checkbox" data-watch="67" aria-label="Mark XGBoost Part 4 (of 4): Crazy Cool Optimizations as watched" data-ar-aria="علّم XGBoost Part 4 (of 4): Crazy Cool Optimizations كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=oRrKeUCEbq8" data-video="67">
+              <span class="video__n">067</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost Part 4 (of 4): Crazy Cool Optimizations</span></span>
+              <span class="video__time">24:27</span>
+            </a>
+          </li>
+<li class="video-row" data-n="68">
+            <label class="watch">
+              <input type="checkbox" data-watch="68" aria-label="Mark XGBoost in Python from Start to Finish as watched" data-ar-aria="علّم XGBoost in Python from Start to Finish كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=GrJP9FLV3FE" data-video="68">
+              <span class="video__n">068</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>XGBoost in Python from Start to Finish</span></span>
+              <span class="video__time">56:43</span>
+            </a>
+          </li>
+<li class="video-row" data-n="69">
+            <label class="watch">
+              <input type="checkbox" data-watch="69" aria-label="Mark CatBoost Part 1: Ordered Target Encoding as watched" data-ar-aria="علّم CatBoost Part 1: Ordered Target Encoding كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=KXOTSkPL2X4" data-video="69">
+              <span class="video__n">069</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>CatBoost Part 1: Ordered Target Encoding</span></span>
+              <span class="video__time">8:32</span>
+            </a>
+          </li>
+<li class="video-row" data-n="70">
+            <label class="watch">
+              <input type="checkbox" data-watch="70" aria-label="Mark CatBoost Part 2: Building and Using Trees as watched" data-ar-aria="علّم CatBoost Part 2: Building and Using Trees كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=3Bg2XRFOTzg" data-video="70">
+              <span class="video__n">070</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>CatBoost Part 2: Building and Using Trees</span></span>
+              <span class="video__time">16:16</span>
+            </a>
+          </li>
           </ul>
         </div>
 
@@ -380,56 +618,110 @@
 <div class="vgroup">
           <h4 data-ar="آلات المتجهات الداعمة">Support vector machines</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=efR1C6CvhmE" data-video="72">
-            <span class="video__n">072</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines Part 1 (of 3): Main Ideas!!!</span></span>
-            <span class="video__time">20:32</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=Toet3EiSFcM" data-video="73">
-            <span class="video__n">073</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines Part 2: The Polynomial Kernel (Part 2 of 3)</span></span>
-            <span class="video__time">7:15</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=Qc5IyLW_hns" data-video="74">
-            <span class="video__n">074</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines Part 3: The Radial (RBF) Kernel (Part 3 of 3)</span></span>
-            <span class="video__time">15:52</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=8A7L0GsBiLQ" data-video="75">
-            <span class="video__n">075</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines in Python from Start to Finish.</span></span>
-            <span class="video__time">44:49</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=e9U0QAFbfLI" data-video="71">
-            <span class="video__n">071</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Cosine Similarity, Clearly Explained!!!</span></span>
-            <span class="video__time">10:14</span>
-          </a></li>
+<li class="video-row" data-n="72">
+            <label class="watch">
+              <input type="checkbox" data-watch="72" aria-label="Mark Support Vector Machines Part 1 (of 3): Main Ideas!!! as watched" data-ar-aria="علّم Support Vector Machines Part 1 (of 3): Main Ideas!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=efR1C6CvhmE" data-video="72">
+              <span class="video__n">072</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines Part 1 (of 3): Main Ideas!!!</span></span>
+              <span class="video__time">20:32</span>
+            </a>
+          </li>
+<li class="video-row" data-n="73">
+            <label class="watch">
+              <input type="checkbox" data-watch="73" aria-label="Mark Support Vector Machines Part 2: The Polynomial Kernel (Part 2 of 3) as watched" data-ar-aria="علّم Support Vector Machines Part 2: The Polynomial Kernel (Part 2 of 3) كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=Toet3EiSFcM" data-video="73">
+              <span class="video__n">073</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines Part 2: The Polynomial Kernel (Part 2 of 3)</span></span>
+              <span class="video__time">7:15</span>
+            </a>
+          </li>
+<li class="video-row" data-n="74">
+            <label class="watch">
+              <input type="checkbox" data-watch="74" aria-label="Mark Support Vector Machines Part 3: The Radial (RBF) Kernel (Part 3 of 3) as watched" data-ar-aria="علّم Support Vector Machines Part 3: The Radial (RBF) Kernel (Part 3 of 3) كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=Qc5IyLW_hns" data-video="74">
+              <span class="video__n">074</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines Part 3: The Radial (RBF) Kernel (Part 3 of 3)</span></span>
+              <span class="video__time">15:52</span>
+            </a>
+          </li>
+<li class="video-row" data-n="75">
+            <label class="watch">
+              <input type="checkbox" data-watch="75" aria-label="Mark Support Vector Machines in Python from Start to Finish. as watched" data-ar-aria="علّم Support Vector Machines in Python from Start to Finish. كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=8A7L0GsBiLQ" data-video="75">
+              <span class="video__n">075</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Support Vector Machines in Python from Start to Finish.</span></span>
+              <span class="video__time">44:49</span>
+            </a>
+          </li>
+<li class="video-row" data-n="71">
+            <label class="watch">
+              <input type="checkbox" data-watch="71" aria-label="Mark Cosine Similarity, Clearly Explained!!! as watched" data-ar-aria="علّم Cosine Similarity, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=e9U0QAFbfLI" data-video="71">
+              <span class="video__n">071</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Cosine Similarity, Clearly Explained!!!</span></span>
+              <span class="video__time">10:14</span>
+            </a>
+          </li>
           </ul>
         </div>
 <div class="vgroup">
           <h4 data-ar="التحسين">Optimization</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=sDv4f4s2SB8" data-video="56">
-            <span class="video__n">056</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Descent, Step-by-Step</span></span>
-            <span class="video__time">23:54</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=vMh0zPT0tLI" data-video="57">
-            <span class="video__n">057</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Stochastic Gradient Descent, Clearly Explained!!!</span></span>
-            <span class="video__time">10:53</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=wl1myxrtQHQ" data-video="55">
-            <span class="video__n">055</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>The Chain Rule, Clearly Explained!!!</span></span>
-            <span class="video__time">18:24</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=FHdlXe1bSe4" data-video="98">
-            <span class="video__n">098</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>The StatQuest Introduction to PyTorch</span></span>
-            <span class="video__time">23:22</span>
-          </a></li>
+<li class="video-row" data-n="56">
+            <label class="watch">
+              <input type="checkbox" data-watch="56" aria-label="Mark Gradient Descent, Step-by-Step as watched" data-ar-aria="علّم Gradient Descent, Step-by-Step كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=sDv4f4s2SB8" data-video="56">
+              <span class="video__n">056</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Descent, Step-by-Step</span></span>
+              <span class="video__time">23:54</span>
+            </a>
+          </li>
+<li class="video-row" data-n="57">
+            <label class="watch">
+              <input type="checkbox" data-watch="57" aria-label="Mark Stochastic Gradient Descent, Clearly Explained!!! as watched" data-ar-aria="علّم Stochastic Gradient Descent, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=vMh0zPT0tLI" data-video="57">
+              <span class="video__n">057</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Stochastic Gradient Descent, Clearly Explained!!!</span></span>
+              <span class="video__time">10:53</span>
+            </a>
+          </li>
+<li class="video-row" data-n="55">
+            <label class="watch">
+              <input type="checkbox" data-watch="55" aria-label="Mark The Chain Rule, Clearly Explained!!! as watched" data-ar-aria="علّم The Chain Rule, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=wl1myxrtQHQ" data-video="55">
+              <span class="video__n">055</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>The Chain Rule, Clearly Explained!!!</span></span>
+              <span class="video__time">18:24</span>
+            </a>
+          </li>
+<li class="video-row" data-n="98">
+            <label class="watch">
+              <input type="checkbox" data-watch="98" aria-label="Mark The StatQuest Introduction to PyTorch as watched" data-ar-aria="علّم The StatQuest Introduction to PyTorch كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=FHdlXe1bSe4" data-video="98">
+              <span class="video__n">098</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>The StatQuest Introduction to PyTorch</span></span>
+              <span class="video__time">23:22</span>
+            </a>
+          </li>
           </ul>
         </div>
 
@@ -456,6 +748,34 @@
     </div>
   </nav>
   </main>
+  <aside class="cookie-banner" id="cookie-banner" hidden aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__content">
+        <p class="cookie-banner__title" data-ar="التخزين المحلي والخصوصية">Local Storage &amp; Privacy</p>
+        <p class="cookie-banner__text" data-ar="نستخدم التخزين المحلي (LocalStorage) في متصفحك لحفظ تقدمك الدراسي (% ما تعلمته في تعلّم الآلة)، وتفضيلات اللغة والترجمة. لا نجمع أي بيانات شخصية ولا نستخدم كوكيز إعلانية.">
+          We use local browser storage (LocalStorage) to save your study progress (% of ML learned), language, and caption preferences. No personal tracking or ad cookies.
+        </p>
+      </div>
+      <div class="cookie-banner__actions">
+        <button type="button" class="btn btn--primary btn--sm" id="cookie-accept" data-ar="قبول">Accept</button>
+        <a href="privacy.html" class="btn btn--quiet btn--sm" data-ar="الخصوصية وملفات تعريف الارتباط">Privacy &amp; Cookies</a>
+      </div>
+    </div>
+  </aside>
+  <dialog class="dua-dialog" id="dua-dialog" aria-labelledby="dua-text">
+    <div class="dua-dialog__inner">
+      <span class="dua-dialog__icon" aria-hidden="true">🤲</span>
+      <p class="dua-dialog__text" id="dua-text" data-ar="دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب">
+        دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب
+      </p>
+      <p class="dua-dialog__sub" data-ar="اللهم وفّق كل طالب علم ويسّر له أمره">
+        Keep us in your prayers, for a supplication in absence is answered.
+      </p>
+      <button type="button" class="btn btn--primary dua-dialog__btn" id="dua-close" data-ar="آمين يا رب">
+        آمين يا رب
+      </button>
+    </div>
+  </dialog>
   <footer class="letter letter--short" id="about">
     <div class="container letter__grid">
       <div>
@@ -468,6 +788,7 @@
           <a href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="قائمة التشغيل">Playlist</a>
           <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" data-ar="قناة StatQuest">StatQuest channel</a>
           <a href="library.html" data-ar="كل الفيديوهات">All 106 videos</a>
+          <a href="privacy.html" data-ar="الخصوصية وملفات تعريف الارتباط">Privacy &amp; Cookies</a>
         </nav>
         <p class="letter__legal" data-ar="المقرر: Halitim Amin. الفيديوهات: StatQuest على يوتيوب. الرسوم مرسومة لهذا الدليل. لا صور فوتوغرافية.">Course material: Halitim Amin. Videos: StatQuest, YouTube. Diagrams drawn for this guide. No photographs.</p>
       </div>
@@ -477,6 +798,10 @@
     <div class="player__bar">
       <h2 id="player-title">Video</h2>
       <div class="player__actions">
+        <button type="button" class="player__watched-btn" id="player-mark-btn" aria-pressed="false" title="Mark video as finished" data-ar-title="علّم الفيديو كمنتهي">
+          <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false"><path d="M13.5 3.5 6 11 2.5 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="player__watched-text" data-ar="تمت المشاهدة">Mark as watched</span>
+        </button>
         <div class="player__captions" role="group" aria-label="Caption language" data-ar-aria="لغة الترجمة المصاحبة">
           <span class="player__captions-label">
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/></svg>

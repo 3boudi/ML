@@ -168,6 +168,16 @@ const T = {
   playerDefault: ['Video', 'فيديو'],
   chapterWord: ['Chapter', 'الفصل'],
   languageToggle: 'العربية',
+  privacy: ['Privacy & Cookies', 'الخصوصية وملفات تعريف الارتباط'],
+  cookieAccept: ['Accept', 'قبول'],
+  cookieTitle: ['Local Storage & Privacy', 'التخزين المحلي والخصوصية'],
+  cookieText: [
+    'We use local browser storage (LocalStorage) to save your study progress (% of ML learned), language, and caption preferences. No personal tracking or ad cookies.',
+    'نستخدم التخزين المحلي (LocalStorage) في متصفحك لحفظ تقدمك الدراسي (% ما تعلمته في تعلّم الآلة)، وتفضيلات اللغة والترجمة. لا نجمع أي بيانات شخصية ولا نستخدم كوكيز إعلانية.',
+  ],
+  mlLearned: ['learned', 'مكتمل'],
+  markFinished: ['Mark as watched', 'علّم كمنتهي'],
+  finished: ['Finished', 'تمت المشاهدة'],
 };
 
 const en = (key) => T[key][0];
@@ -311,6 +321,10 @@ function nav(current = '') {
         <img class="wordmark__logo" src="assets/logo.png" alt="ML" width="28" height="28">
         ML VII <span ${A('السداسي 7')} dir="auto">Semester 7</span>
       </a>
+      <div class="nav__progress" id="nav-progress" title="Your overall ML learning progress" data-ar-title="نسبة تقدّمك العامة في تعلّم الآلة" aria-label="Learning progress" data-ar-aria="نسبة التعلّم">
+        <div class="nav__progress-track" aria-hidden="true"><div class="nav__progress-fill" id="nav-progress-fill" style="width: 0%;"></div></div>
+        <span class="nav__progress-text"><strong id="nav-progress-num">0%</strong> <span ${A('مكتمل')}>learned</span></span>
+      </div>
       <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
         <a href="index.html#chapters" ${A(ar('chapters'))}>Chapters</a>
         <a href="library.html"${libraryCurrent} ${A(ar('library'))}>Library</a>
@@ -334,6 +348,7 @@ function footer(short = false) {
           <a href="${meta.playlist}" target="_blank" rel="noopener" ${A('قائمة التشغيل')}>Playlist</a>
           <a href="${meta.channel}" target="_blank" rel="noopener" ${A('قناة StatQuest')}>StatQuest channel</a>
           <a href="library.html" ${A('كل الفيديوهات')}>All 106 videos</a>
+          <a href="privacy.html" ${A('الخصوصية وملفات تعريف الارتباط')}>Privacy &amp; Cookies</a>
         </nav>
         ${bi('p', 'letter__legal', en('letterLegal'), ar('letterLegal'))}
       </div>
@@ -346,6 +361,10 @@ function player() {
     <div class="player__bar">
       <h2 id="player-title">Video</h2>
       <div class="player__actions">
+        <button type="button" class="player__watched-btn" id="player-mark-btn" aria-pressed="false" title="Mark video as finished" data-ar-title="علّم الفيديو كمنتهي">
+          <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false"><path d="M13.5 3.5 6 11 2.5 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="player__watched-text" ${A('تمت المشاهدة')}>Mark as watched</span>
+        </button>
         <div class="player__captions" role="group" aria-label="Caption language" data-ar-aria="لغة الترجمة المصاحبة">
           <span class="player__captions-label">
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/></svg>
@@ -362,6 +381,40 @@ function player() {
     <div class="player__foot">
       <p class="player__note" id="player-note" hidden></p>
       <a id="player-link" href="${meta.playlist}" target="_blank" rel="noopener" ${A('افتح على يوتيوب')}>Open on YouTube</a>
+    </div>
+  </dialog>`;
+}
+
+function cookieBanner() {
+  return `<aside class="cookie-banner" id="cookie-banner" hidden aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__content">
+        <p class="cookie-banner__title" ${A(ar('cookieTitle'))}>${esc(en('cookieTitle'))}</p>
+        <p class="cookie-banner__text" ${A(ar('cookieText'))}>
+          ${esc(en('cookieText'))}
+        </p>
+      </div>
+      <div class="cookie-banner__actions">
+        <button type="button" class="btn btn--primary btn--sm" id="cookie-accept" ${A(ar('cookieAccept'))}>${esc(en('cookieAccept'))}</button>
+        <a href="privacy.html" class="btn btn--quiet btn--sm" ${A(ar('privacy'))}>${esc(en('privacy'))}</a>
+      </div>
+    </div>
+  </aside>`;
+}
+
+function duaModal() {
+  return `<dialog class="dua-dialog" id="dua-dialog" aria-labelledby="dua-text">
+    <div class="dua-dialog__inner">
+      <span class="dua-dialog__icon" aria-hidden="true">🤲</span>
+      <p class="dua-dialog__text" id="dua-text" ${A('دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب')}>
+        دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب
+      </p>
+      <p class="dua-dialog__sub" ${A('اللهم وفّق كل طالب علم ويسّر له أمره')}>
+        Keep us in your prayers, for a supplication in absence is answered.
+      </p>
+      <button type="button" class="btn btn--primary dua-dialog__btn" id="dua-close" ${A('آمين يا رب')}>
+        آمين يا رب
+      </button>
     </div>
   </dialog>`;
 }
@@ -398,6 +451,8 @@ function shell({ title, arTitle, desc, arDesc, current, body }) {
   <main id="main">
 ${body}
   </main>
+  ${cookieBanner()}
+  ${duaModal()}
   ${footer(current !== 'home')}
   ${player()}
   <script src="assets/data.js" defer></script>
@@ -434,10 +489,11 @@ function contents() {
     const stat = chapterStat(ch);
     const lead = index === 0 ? `<span class="contents__line" ${A(ar('contentsLead'))}>${esc(T.contentsLead[0])}</span>` : '';
     return `<li class="contents__item${index === 0 ? ' contents__item--lead' : ''}">
-        <a class="contents__row" href="chapter-${ch.id}.html">
+        <a class="contents__row" href="chapter-${ch.id}.html" data-ch-row="${ch.id}">
           <span class="contents__num">${pad2(ch.id)}</span>
           <span class="contents__title" ${A(ch.ar.short)}>${esc(ch.en.short)}</span>
           <span class="contents__meta" ${A(stat.ar)}>${esc(stat.en)}</span>
+          <span class="contents__badge" data-ch-badge="${ch.id}" hidden>0%</span>
           ${lead}
         </a>
       </li>`;
@@ -613,7 +669,13 @@ function chapterHero(ch) {
     : `<a class="btn btn--primary" href="library.html"><span ${A('تصفّح المكتبة')}>Browse the library</span></a>`;
   return `<section class="chapter">
     <div class="container chapter__grid">
-      <span class="chapter__num" aria-hidden="true">${pad2(ch.id)}</span>
+      <div class="chapter__num-col">
+        <span class="chapter__num" aria-hidden="true">${pad2(ch.id)}</span>
+        <div class="chapter-progress-pill" data-chapter-pill="${ch.id}">
+          <span class="chapter-progress-pill__bar"><span class="chapter-progress-pill__fill" data-chapter-fill="${ch.id}" style="width: 0%;"></span></span>
+          <span class="chapter-progress-pill__text"><strong data-chapter-pct="${ch.id}">0%</strong> <span ${A('مكتمل')}>completed</span></span>
+        </div>
+      </div>
       <div class="chapter__copy">
         ${bi('h1', '', ch.en.title, ch.ar.title)}
         ${bi('p', 'lead', ch.en.standfirst, ch.ar.standfirst)}
@@ -655,11 +717,18 @@ function lessonSection(lesson, ch) {
   const groups = lesson.groups.map((group) => {
     const items = group.videos.map((ref) => {
       const video = byN.get(ref.n);
-      return `<li><a class="video" href="${video.url}" data-video="${video.n}">
-            <span class="video__n">${pad3(video.n)}</span>
-            <span class="video__title">${PLAY}<span>${esc(video.title)}</span></span>
-            <span class="video__time">${video.duration}</span>
-          </a></li>`;
+      const mark = T.markWatched(video.title);
+      return `<li class="video-row" data-n="${video.n}">
+            <label class="watch">
+              <input type="checkbox" data-watch="${video.n}" aria-label="${esc(mark[0])}" data-ar-aria="${esc(mark[1])}">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="${video.url}" data-video="${video.n}">
+              <span class="video__n">${pad3(video.n)}</span>
+              <span class="video__title">${PLAY}<span>${esc(video.title)}</span></span>
+              <span class="video__time">${video.duration}</span>
+            </a>
+          </li>`;
     }).join('\n');
     return `<div class="vgroup">
           <h4 ${A(group.ar)}>${esc(group.en)}</h4>
@@ -876,12 +945,71 @@ ${extrasSection()}`;
   });
 }
 
+function privacyPage() {
+  const body = `<section class="section">
+    <div class="container privacy-page">
+      <header class="section__head">
+        ${bi('h1', '', 'Privacy & Cookies Policy', 'سياسة الخصوصية وملفات تعريف الارتباط')}
+        <p class="section__aside"><span ${A('تحديث: أكتوبر 2026')}>Updated: October 2026</span></p>
+      </header>
+      ${bi('p', 'section__intro', 'Clear, transparent, and respectful of your autonomy. No trackers, no advertising, and no personal data collection.', 'واضحة وشفافة وتحترم خصوصيتك بالكامل. لا أدوات تتبع، لا إعلانات، ولا جمع لأي بيانات شخصية.')}
+
+      <div class="privacy-grid">
+        <article class="privacy-card">
+          ${bi('h2', 'privacy-card__title', '1. Zero Personal Data Collection', '1. عدم جمع أي بيانات شخصية')}
+          ${bi('p', '', 'ML VII is an educational study guide for university students. We do not require accounts, logins, email addresses, or names. We do not track your IP address, browser fingerprint, or geographic location. Nothing you read or study here is ever sent to a tracking database.', 'دليل ML VII هو موقع تعليمي مخصص لطلاب الجامعة. لا يتطلب أي تسجيل دخول، أو بريد إلكتروني، أو اسم. نحن لا نتتبع عنوان IP الخاص بك أو موقعك الجغرافي. لا يتم إرسال أي معلومة حول ما تدرسه إلى أي قاعدة بيانات تتبّع.')}
+        </article>
+
+        <article class="privacy-card">
+          ${bi('h2', 'privacy-card__title', '2. How Local Storage (LocalStorage) is Used', '2. كيف نستخدم التخزين المحلي (LocalStorage)')}
+          ${bi('p', '', 'Instead of using tracking cookies on a server, this website stores a few essential pieces of data directly inside your own web browser storage (LocalStorage). This data never leaves your device:', 'بدل استخدام ملفات تعريف ارتباط (Cookies) على خادم، يحفظ الموقع بعض البيانات الأساسية في ذاكرة متصفحك محلياً (LocalStorage). هذه البيانات لا تغادر جهازك أبداً:')}
+          <ul class="privacy-list">
+            <li><strong>ml7-lang:</strong> <span ${A('يحفظ لغة العرض التي اخترتها (العربية أو الإنجليزية).')}>Remembers your preferred interface language (Arabic or English).</span></li>
+            <li><strong>ml7-caption-lang:</strong> <span ${A('يحفظ لغة الترجمة المصاحبة الافتراضية لفيديوهات يوتيوب (العربية، الإنجليزية، أو إيقاف).')}>Remembers your preferred YouTube caption language (Arabic, English, or Off).</span></li>
+            <li><strong>ml7-watched:</strong> <span ${A('يحفظ أرقام الفيديوهات التي حددتها كمشاهدة لحساب نسبة تعلّمك في المادة (ML Progress %).')}>Stores an array of video IDs you have marked as watched to calculate your overall learning percentage (% of ML learned).</span></li>
+            <li><strong>ml7-consent:</strong> <span ${A('يحفظ موافقتك على إشعار الخصوصية والتخزين المحلي كي لا يظهر الشريط مجدداً.')}>Remembers that you acknowledged the privacy & local storage banner.</span></li>
+          </ul>
+        </article>
+
+        <article class="privacy-card">
+          ${bi('h2', 'privacy-card__title', '3. Third-Party Services (YouTube)', '3. الخدمات الخارجية (YouTube)')}
+          ${bi('p', '', 'Videos embedded in this site are hosted on YouTube (StatQuest channel). When you click to play a video, YouTube may set its own cookies and track playback metrics according to Google’s Privacy Policy. We do not control Google/YouTube cookies.', 'الفيديوهات المضمنة في هذا الموقع مستضافة على يوتيوب (قناة StatQuest). عند تشغيل أي فيديو، قد يقوم يوتيوب بوضع ملفات تعريف الارتباط الخاصة به وفقاً لسياسة خصوصية Google. ليس لدينا تحكم في ملفات تعريف ارتباط Google/YouTube.')}
+          <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener" ${A('اقرأ سياسة خصوصية Google')}>Read Google Privacy Policy &rarr;</a></p>
+        </article>
+
+        <article class="privacy-card">
+          ${bi('h2', 'privacy-card__title', '4. Manage & Clear Your Data', '4. إدارة ومسح بياناتك المخزنة')}
+          ${bi('p', '', 'Because all your progress and settings exist only in your browser, you have complete control. You can reset your progress, watched videos, and preferences with one click below, or by clearing your browser cache/cookies at any time.', 'نظراً لأن جميع بيانات تقدمك وتفضيلاتك موجودة فقط في متصفحك، فإنك تملك السيطرة الكاملة عليها. يمكنك تصفير تقدمك وحذف كافة التفضيلات بنقرة واحدة أدناه، أو عبر مسح بيانات التصفح من إعدادات متصفحك في أي وقت.')}
+          <div class="privacy-actions">
+            <button type="button" class="btn btn--quiet" id="privacy-clear-data" ${A('مسح كل بيانات التقدم والتفضيلات')}>Clear all saved progress &amp; settings</button>
+            <span class="privacy-clear-feedback" id="privacy-clear-feedback" hidden ${A('تم مسح جميع البيانات بنجاح!')}>All local data cleared successfully!</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="section__action" style="margin-top: 2.5rem;">
+        <a class="btn btn--primary" href="index.html"><span ${A('العودة إلى الصفحة الرئيسية')}>Return to Home</span></a>
+      </div>
+    </div>
+  </section>`;
+
+  return shell({
+    title: 'Privacy & Cookies Policy · ML VII',
+    arTitle: 'سياسة الخصوصية وملفات تعريف الارتباط · ML VII',
+    desc: 'Privacy and cookie policy for the ML VII study guide: local browser storage, zero tracking, and complete user autonomy.',
+    arDesc: 'سياسة الخصوصية وملفات تعريف الارتباط لدليل دراسة ML VII: تخزين محلي في المتصفح، بدون أي تتبع، وتحكم كامل للمستخدم.',
+    current: 'privacy',
+    body,
+  });
+}
+
 /* ---------- write ---------- */
 
 const pages = [
   ['index.html', homePage()],
   ...chapters.map((ch) => [`chapter-${ch.id}.html`, chapterPage(ch)]),
   ['library.html', libraryPage()],
+  ['privacy.html', privacyPage()],
 ];
 
 for (const [file, html] of pages) {

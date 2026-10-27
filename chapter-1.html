@@ -31,6 +31,10 @@
         <img class="wordmark__logo" src="assets/logo.png" alt="ML" width="28" height="28">
         ML VII <span data-ar="السداسي 7" dir="auto">Semester 7</span>
       </a>
+      <div class="nav__progress" id="nav-progress" title="Your overall ML learning progress" data-ar-title="نسبة تقدّمك العامة في تعلّم الآلة" aria-label="Learning progress" data-ar-aria="نسبة التعلّم">
+        <div class="nav__progress-track" aria-hidden="true"><div class="nav__progress-fill" id="nav-progress-fill" style="width: 0%;"></div></div>
+        <span class="nav__progress-text"><strong id="nav-progress-num">0%</strong> <span data-ar="مكتمل">learned</span></span>
+      </div>
       <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
         <a href="index.html#chapters" data-ar="الفصول">Chapters</a>
         <a href="library.html" data-ar="المكتبة">Library</a>
@@ -41,7 +45,13 @@
   <main id="main">
 <section class="chapter">
     <div class="container chapter__grid">
-      <span class="chapter__num" aria-hidden="true">01</span>
+      <div class="chapter__num-col">
+        <span class="chapter__num" aria-hidden="true">01</span>
+        <div class="chapter-progress-pill" data-chapter-pill="1">
+          <span class="chapter-progress-pill__bar"><span class="chapter-progress-pill__fill" data-chapter-fill="1" style="width: 0%;"></span></span>
+          <span class="chapter-progress-pill__text"><strong data-chapter-pct="1">0%</strong> <span data-ar="مكتمل">completed</span></span>
+        </div>
+      </div>
       <div class="chapter__copy">
         <h1 data-ar="مقدمة وأساسيات">Introduction and Fundamentals</h1>
         <p class="lead" data-ar="ما معنى التعلّم، وأنواعه الأربعة، والنموذج الذي يقف في الأساس.">What learning means, its four kinds, and the model underneath.</p>
@@ -130,36 +140,72 @@
 <div class="vgroup">
           <h4 data-ar="ابدأ من هنا">Start here</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=Gv9_4yMHFhI" data-video="1">
-            <span class="video__n">001</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>A Gentle Introduction to Machine Learning</span></span>
-            <span class="video__time">12:45</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=fSytzGwwBVw" data-video="2">
-            <span class="video__n">002</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Machine Learning Fundamentals: Cross Validation</span></span>
-            <span class="video__time">6:05</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=EuBBz3bI-aA" data-video="6">
-            <span class="video__n">006</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Machine Learning Fundamentals: Bias and Variance</span></span>
-            <span class="video__time">6:36</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=Kdsp6soqA7o" data-video="3">
-            <span class="video__n">003</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Machine Learning Fundamentals: The Confusion Matrix</span></span>
-            <span class="video__time">7:13</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=vP06aMoz4v8" data-video="4">
-            <span class="video__n">004</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Machine Learning Fundamentals: Sensitivity and Specificity</span></span>
-            <span class="video__time">11:47</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=7ArmBVF2dCs" data-video="10">
-            <span class="video__n">010</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Linear Regression, Clearly Explained!!!</span></span>
-            <span class="video__time">27:27</span>
-          </a></li>
+<li class="video-row" data-n="1">
+            <label class="watch">
+              <input type="checkbox" data-watch="1" aria-label="Mark A Gentle Introduction to Machine Learning as watched" data-ar-aria="علّم A Gentle Introduction to Machine Learning كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=Gv9_4yMHFhI" data-video="1">
+              <span class="video__n">001</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>A Gentle Introduction to Machine Learning</span></span>
+              <span class="video__time">12:45</span>
+            </a>
+          </li>
+<li class="video-row" data-n="2">
+            <label class="watch">
+              <input type="checkbox" data-watch="2" aria-label="Mark Machine Learning Fundamentals: Cross Validation as watched" data-ar-aria="علّم Machine Learning Fundamentals: Cross Validation كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=fSytzGwwBVw" data-video="2">
+              <span class="video__n">002</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Machine Learning Fundamentals: Cross Validation</span></span>
+              <span class="video__time">6:05</span>
+            </a>
+          </li>
+<li class="video-row" data-n="6">
+            <label class="watch">
+              <input type="checkbox" data-watch="6" aria-label="Mark Machine Learning Fundamentals: Bias and Variance as watched" data-ar-aria="علّم Machine Learning Fundamentals: Bias and Variance كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=EuBBz3bI-aA" data-video="6">
+              <span class="video__n">006</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Machine Learning Fundamentals: Bias and Variance</span></span>
+              <span class="video__time">6:36</span>
+            </a>
+          </li>
+<li class="video-row" data-n="3">
+            <label class="watch">
+              <input type="checkbox" data-watch="3" aria-label="Mark Machine Learning Fundamentals: The Confusion Matrix as watched" data-ar-aria="علّم Machine Learning Fundamentals: The Confusion Matrix كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=Kdsp6soqA7o" data-video="3">
+              <span class="video__n">003</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Machine Learning Fundamentals: The Confusion Matrix</span></span>
+              <span class="video__time">7:13</span>
+            </a>
+          </li>
+<li class="video-row" data-n="4">
+            <label class="watch">
+              <input type="checkbox" data-watch="4" aria-label="Mark Machine Learning Fundamentals: Sensitivity and Specificity as watched" data-ar-aria="علّم Machine Learning Fundamentals: Sensitivity and Specificity كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=vP06aMoz4v8" data-video="4">
+              <span class="video__n">004</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Machine Learning Fundamentals: Sensitivity and Specificity</span></span>
+              <span class="video__time">11:47</span>
+            </a>
+          </li>
+<li class="video-row" data-n="10">
+            <label class="watch">
+              <input type="checkbox" data-watch="10" aria-label="Mark Linear Regression, Clearly Explained!!! as watched" data-ar-aria="علّم Linear Regression, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=7ArmBVF2dCs" data-video="10">
+              <span class="video__n">010</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Linear Regression, Clearly Explained!!!</span></span>
+              <span class="video__time">27:27</span>
+            </a>
+          </li>
           </ul>
         </div>
 
@@ -186,36 +232,72 @@
 <div class="vgroup">
           <h4 data-ar="الاحتمال وبايز">Probability and Bayes</h4>
           <ul class="videos">
-<li><a class="video" href="https://www.youtube.com/watch?v=ARfXDSkQf1Y" data-video="14">
-            <span class="video__n">014</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Odds and Log(Odds), Clearly Explained!!!</span></span>
-            <span class="video__time">11:31</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=8nm0G-1uJzA" data-video="15">
-            <span class="video__n">015</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Odds Ratios and Log(Odds Ratios), Clearly Explained!!!</span></span>
-            <span class="video__time">16:20</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=O2L2Uv9pdDA" data-video="44">
-            <span class="video__n">044</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Naive Bayes, Clearly Explained!!!</span></span>
-            <span class="video__time">15:12</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=H3EjCKtlVog" data-video="45">
-            <span class="video__n">045</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gaussian Naive Bayes, Clearly Explained!!!</span></span>
-            <span class="video__time">9:26</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=YtebGVx-Fxw" data-video="7">
-            <span class="video__n">007</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Entropy (for data science) Clearly Explained!!!</span></span>
-            <span class="video__time">16:35</span>
-          </a></li>
-<li><a class="video" href="https://www.youtube.com/watch?v=eJIp_mgVLwE" data-video="8">
-            <span class="video__n">008</span>
-            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Mutual Information, Clearly Explained!!!</span></span>
-            <span class="video__time">16:14</span>
-          </a></li>
+<li class="video-row" data-n="14">
+            <label class="watch">
+              <input type="checkbox" data-watch="14" aria-label="Mark Odds and Log(Odds), Clearly Explained!!! as watched" data-ar-aria="علّم Odds and Log(Odds), Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=ARfXDSkQf1Y" data-video="14">
+              <span class="video__n">014</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Odds and Log(Odds), Clearly Explained!!!</span></span>
+              <span class="video__time">11:31</span>
+            </a>
+          </li>
+<li class="video-row" data-n="15">
+            <label class="watch">
+              <input type="checkbox" data-watch="15" aria-label="Mark Odds Ratios and Log(Odds Ratios), Clearly Explained!!! as watched" data-ar-aria="علّم Odds Ratios and Log(Odds Ratios), Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=8nm0G-1uJzA" data-video="15">
+              <span class="video__n">015</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Odds Ratios and Log(Odds Ratios), Clearly Explained!!!</span></span>
+              <span class="video__time">16:20</span>
+            </a>
+          </li>
+<li class="video-row" data-n="44">
+            <label class="watch">
+              <input type="checkbox" data-watch="44" aria-label="Mark Naive Bayes, Clearly Explained!!! as watched" data-ar-aria="علّم Naive Bayes, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=O2L2Uv9pdDA" data-video="44">
+              <span class="video__n">044</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Naive Bayes, Clearly Explained!!!</span></span>
+              <span class="video__time">15:12</span>
+            </a>
+          </li>
+<li class="video-row" data-n="45">
+            <label class="watch">
+              <input type="checkbox" data-watch="45" aria-label="Mark Gaussian Naive Bayes, Clearly Explained!!! as watched" data-ar-aria="علّم Gaussian Naive Bayes, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=H3EjCKtlVog" data-video="45">
+              <span class="video__n">045</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gaussian Naive Bayes, Clearly Explained!!!</span></span>
+              <span class="video__time">9:26</span>
+            </a>
+          </li>
+<li class="video-row" data-n="7">
+            <label class="watch">
+              <input type="checkbox" data-watch="7" aria-label="Mark Entropy (for data science) Clearly Explained!!! as watched" data-ar-aria="علّم Entropy (for data science) Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=YtebGVx-Fxw" data-video="7">
+              <span class="video__n">007</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Entropy (for data science) Clearly Explained!!!</span></span>
+              <span class="video__time">16:35</span>
+            </a>
+          </li>
+<li class="video-row" data-n="8">
+            <label class="watch">
+              <input type="checkbox" data-watch="8" aria-label="Mark Mutual Information, Clearly Explained!!! as watched" data-ar-aria="علّم Mutual Information, Clearly Explained!!! كمشاهد">
+              <span class="watch__box" aria-hidden="true"></span>
+            </label>
+            <a class="video" href="https://www.youtube.com/watch?v=eJIp_mgVLwE" data-video="8">
+              <span class="video__n">008</span>
+              <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Mutual Information, Clearly Explained!!!</span></span>
+              <span class="video__time">16:14</span>
+            </a>
+          </li>
           </ul>
         </div>
 
@@ -242,6 +324,34 @@
     </div>
   </nav>
   </main>
+  <aside class="cookie-banner" id="cookie-banner" hidden aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__content">
+        <p class="cookie-banner__title" data-ar="التخزين المحلي والخصوصية">Local Storage &amp; Privacy</p>
+        <p class="cookie-banner__text" data-ar="نستخدم التخزين المحلي (LocalStorage) في متصفحك لحفظ تقدمك الدراسي (% ما تعلمته في تعلّم الآلة)، وتفضيلات اللغة والترجمة. لا نجمع أي بيانات شخصية ولا نستخدم كوكيز إعلانية.">
+          We use local browser storage (LocalStorage) to save your study progress (% of ML learned), language, and caption preferences. No personal tracking or ad cookies.
+        </p>
+      </div>
+      <div class="cookie-banner__actions">
+        <button type="button" class="btn btn--primary btn--sm" id="cookie-accept" data-ar="قبول">Accept</button>
+        <a href="privacy.html" class="btn btn--quiet btn--sm" data-ar="الخصوصية وملفات تعريف الارتباط">Privacy &amp; Cookies</a>
+      </div>
+    </div>
+  </aside>
+  <dialog class="dua-dialog" id="dua-dialog" aria-labelledby="dua-text">
+    <div class="dua-dialog__inner">
+      <span class="dua-dialog__icon" aria-hidden="true">🤲</span>
+      <p class="dua-dialog__text" id="dua-text" data-ar="دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب">
+        دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب
+      </p>
+      <p class="dua-dialog__sub" data-ar="اللهم وفّق كل طالب علم ويسّر له أمره">
+        Keep us in your prayers, for a supplication in absence is answered.
+      </p>
+      <button type="button" class="btn btn--primary dua-dialog__btn" id="dua-close" data-ar="آمين يا رب">
+        آمين يا رب
+      </button>
+    </div>
+  </dialog>
   <footer class="letter letter--short" id="about">
     <div class="container letter__grid">
       <div>
@@ -254,6 +364,7 @@
           <a href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="قائمة التشغيل">Playlist</a>
           <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" data-ar="قناة StatQuest">StatQuest channel</a>
           <a href="library.html" data-ar="كل الفيديوهات">All 106 videos</a>
+          <a href="privacy.html" data-ar="الخصوصية وملفات تعريف الارتباط">Privacy &amp; Cookies</a>
         </nav>
         <p class="letter__legal" data-ar="المقرر: Halitim Amin. الفيديوهات: StatQuest على يوتيوب. الرسوم مرسومة لهذا الدليل. لا صور فوتوغرافية.">Course material: Halitim Amin. Videos: StatQuest, YouTube. Diagrams drawn for this guide. No photographs.</p>
       </div>
@@ -263,6 +374,10 @@
     <div class="player__bar">
       <h2 id="player-title">Video</h2>
       <div class="player__actions">
+        <button type="button" class="player__watched-btn" id="player-mark-btn" aria-pressed="false" title="Mark video as finished" data-ar-title="علّم الفيديو كمنتهي">
+          <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false"><path d="M13.5 3.5 6 11 2.5 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="player__watched-text" data-ar="تمت المشاهدة">Mark as watched</span>
+        </button>
         <div class="player__captions" role="group" aria-label="Caption language" data-ar-aria="لغة الترجمة المصاحبة">
           <span class="player__captions-label">
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/></svg>
