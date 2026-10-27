@@ -386,5 +386,59 @@
     applyFilters();
   }
 
+  /* ---------- remove Netlify badge ---------- */
+
+  function purgeNetlifyBadge() {
+    const candidates = all(
+      'iframe[src*="netlify"], iframe[src*="badge"], iframe[title*="Netlify" i], netlify-badge, netlify-drawer, [data-netlify-badge], [data-netlify-drawer], [id*="netlify-badge" i], [class*="netlify-badge" i], [id*="netlify_badge" i]'
+    );
+    for (const el of candidates) {
+      if (el.id !== 'player' && !el.closest('#player')) {
+        el.remove();
+      }
+    }
+    for (const a of all('a[href*="netlify.com"]')) {
+      const parent = a.parentElement;
+      if (parent && parent !== document.body && parent.id !== 'player') {
+        const style = window.getComputedStyle(parent);
+        if (style.position === 'fixed' || style.position === 'absolute') {
+          parent.remove();
+        }
+      }
+    }
+  }
+
+  try {
+    purgeNetlifyBadge();
+    const netlifyObserver = new MutationObserver((mutations) => {
+      let shouldPurge = false;
+      for (const m of mutations) {
+        for (const node of m.addedNodes) {
+          if (node.nodeType === 1) {
+            const tag = node.tagName.toLowerCase();
+            const src = node.getAttribute('src') || '';
+            const id = node.id || '';
+            const cls = typeof node.className === 'string' ? node.className : '';
+            if (
+              tag.includes('netlify') ||
+              src.includes('netlify') ||
+              src.includes('badge') ||
+              /netlify/i.test(id) ||
+              /netlify/i.test(cls)
+            ) {
+              shouldPurge = true;
+              break;
+            }
+          }
+        }
+        if (shouldPurge) break;
+      }
+      if (shouldPurge) purgeNetlifyBadge();
+    });
+    netlifyObserver.observe(document.documentElement, { childList: true, subtree: true });
+    window.addEventListener('DOMContentLoaded', purgeNetlifyBadge);
+    window.addEventListener('load', purgeNetlifyBadge);
+  } catch {}
+
   applyLanguage(currentLang, false);
 })();

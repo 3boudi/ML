@@ -1113,3 +1113,26 @@ html[lang="ar"] .km__fig {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* ---------- hide Netlify badge & drawer overlay ---------- */
+iframe[src*="netlify"],
+iframe[src*="badge"],
+iframe[title*="Netlify" i],
+netlify-badge,
+netlify-drawer,
+[data-netlify-badge],
+[data-netlify-drawer],
+[id*="netlify-badge" i],
+[class*="netlify-badge" i],
+[id*="netlify_badge" i],
+div:has(> a[href*="netlify.com"]),
+div:has(> iframe[src*="netlify"]) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
