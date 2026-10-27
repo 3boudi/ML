@@ -63,6 +63,7 @@
     }
 
     if (openVideo) renderPlayer(openVideo);
+    if (typeof updateCaptionButtons === 'function') updateCaptionButtons();
     if (applyFilters) applyFilters();
   }
 
@@ -90,9 +91,124 @@
     }
   }
 
-  /* ---------- the player ---------- */
+  /* ---------- the player & captions ---------- */
 
   const dialog = one('#player');
+  const CAPTION_KEY = 'ml7-caption-lang';
+  let preferredCaption = null;
+  try {
+    const saved = localStorage.getItem(CAPTION_KEY);
+    if (saved === 'ar' || saved === 'en' || saved === 'off') {
+      preferredCaption = saved;
+    }
+  } catch {}
+
+  function getEffectiveCaption() {
+    return preferredCaption || (currentLang === 'ar' ? 'ar' : 'en');
+  }
+
+  function updateCaptionButtons() {
+    if (!dialog) return;
+    const effective = getEffectiveCaption();
+    const btns = all('.caption-btn', dialog);
+    for (const btn of btns) {
+      const bLang = btn.getAttribute('data-caption-lang');
+      const isActive = bLang === effective;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    }
+  }
+
+  function buildEmbedUrl(videoId, caption, startTime = 0) {
+    const params = new URLSearchParams({
+      autoplay: '1',
+      rel: '0',
+      enablejsapi: '1'
+    });
+    if (startTime > 0) {
+      params.set('start', String(Math.floor(startTime)));
+    }
+    if (caption === 'ar') {
+      params.set('cc_load_policy', '1');
+      params.set('cc_lang_pref', 'ar');
+      params.set('hl', 'ar');
+    } else if (caption === 'en') {
+      params.set('cc_load_policy', '1');
+      params.set('cc_lang_pref', 'en');
+      params.set('hl', 'en');
+    } else if (caption === 'off') {
+      params.set('cc_load_policy', '0');
+    }
+    return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
+  }
+
+  let currentPlaybackTime = 0;
+  window.addEventListener('message', (event) => {
+    try {
+      const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+      if (data && data.info && typeof data.info.currentTime === 'number') {
+        currentPlaybackTime = data.info.currentTime;
+      }
+    } catch {}
+  });
+
+  function switchCaptionLanguage(target) {
+    preferredCaption = target;
+    try {
+      localStorage.setItem(CAPTION_KEY, target);
+    } catch {}
+    updateCaptionButtons();
+
+    if (!dialog || !openVideo) return;
+
+    const link = one('#player-link', dialog);
+    if (link) {
+      const hlParam = target === 'ar' ? '&hl=ar' : (target === 'en' ? '&hl=en' : '');
+      link.href = `${openVideo.url}${hlParam}`;
+    }
+
+    const frame = one('#player-frame', dialog);
+    if (!frame) return;
+
+    // Send postMessage to YouTube IFrame API to change captions immediately
+    const existingIframe = one('iframe', frame);
+    if (existingIframe && existingIframe.contentWindow) {
+      try {
+        if (target === 'off') {
+          existingIframe.contentWindow.postMessage(JSON.stringify({
+            event: 'command',
+            func: 'unloadModule',
+            args: ['captions']
+          }), '*');
+          existingIframe.contentWindow.postMessage(JSON.stringify({
+            event: 'command',
+            func: 'setOption',
+            args: ['captions', 'track', {}]
+          }), '*');
+        } else {
+          existingIframe.contentWindow.postMessage(JSON.stringify({
+            event: 'command',
+            func: 'loadModule',
+            args: ['captions']
+          }), '*');
+          existingIframe.contentWindow.postMessage(JSON.stringify({
+            event: 'command',
+            func: 'setOption',
+            args: ['captions', 'track', { languageCode: target }]
+          }), '*');
+        }
+      } catch (e) {}
+    }
+
+    // Seamlessly reload iframe with explicit cc_load_policy and cc_lang_pref
+    // at the preserved timestamp to guarantee YouTube renders the selected subtitle
+    const iframe = document.createElement('iframe');
+    iframe.src = buildEmbedUrl(openVideo.id, target, currentPlaybackTime);
+    iframe.title = openVideo.title;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    frame.replaceChildren(iframe);
+  }
 
   function videoFor(n) {
     const list = window.ML && window.ML.videos;
@@ -115,8 +231,11 @@
     const text = noteFor(video);
     note.textContent = text;
     note.hidden = !text;
-    if (link) link.href = video.url;
+    const effective = getEffectiveCaption();
+    const hlParam = effective === 'ar' ? '&hl=ar' : (effective === 'en' ? '&hl=en' : '');
+    if (link) link.href = `${video.url}${hlParam}`;
     if (video.n) dialog.setAttribute('data-playing', String(video.n));
+    updateCaptionButtons();
   }
 
   function openPlayer(n, trigger) {
@@ -125,11 +244,13 @@
     if (!video) return false;
     openVideo = video;
     lastTrigger = trigger || null;
+    currentPlaybackTime = 0;
     renderPlayer(video);
     const frame = one('#player-frame', dialog);
     frame.replaceChildren();
+    const effective = getEffectiveCaption();
     const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0`;
+    iframe.src = buildEmbedUrl(video.id, effective, 0);
     iframe.title = video.title;
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.allowFullscreen = true;
@@ -140,11 +261,20 @@
   }
 
   if (dialog) {
+    const captionBtns = all('.caption-btn', dialog);
+    for (const btn of captionBtns) {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-caption-lang');
+        if (target) switchCaptionLanguage(target);
+      });
+    }
+
     dialog.addEventListener('close', () => {
       const frame = one('#player-frame', dialog);
       if (frame) frame.replaceChildren();
       document.body.classList.remove('is-playing');
       openVideo = null;
+      currentPlaybackTime = 0;
       if (lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
     });
     dialog.addEventListener('click', (event) => {

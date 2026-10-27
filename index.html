@@ -373,7 +373,18 @@
   <dialog class="player" id="player" aria-labelledby="player-title">
     <div class="player__bar">
       <h2 id="player-title">Video</h2>
-      <form method="dialog"><button class="player__close" type="submit" data-ar="إغلاق">Close</button></form>
+      <div class="player__actions">
+        <div class="player__captions" role="group" aria-label="Caption language" data-ar-aria="لغة الترجمة المصاحبة">
+          <span class="player__captions-label">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/></svg>
+            <span class="captions-text" data-ar="الترجمة">CC</span>
+          </span>
+          <button type="button" class="caption-btn" data-caption-lang="ar" aria-pressed="false" data-ar="العربية">العربية</button>
+          <button type="button" class="caption-btn" data-caption-lang="en" aria-pressed="false" data-ar="الإنجليزية">English</button>
+          <button type="button" class="caption-btn" data-caption-lang="off" aria-pressed="false" data-ar="إيقاف">Off</button>
+        </div>
+        <form method="dialog"><button class="player__close" type="submit" data-ar="إغلاق">Close</button></form>
+      </div>
     </div>
     <div class="player__frame" id="player-frame"></div>
     <div class="player__foot">
