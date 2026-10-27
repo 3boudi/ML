@@ -294,7 +294,7 @@
 
   /* ---------- watched state & learning progress ---------- */
 
-  const CONSENT_KEY = 'ml7-consent';
+  const CONSENT_KEY = 'ml7-cookie-consent-v1';
   let watched = new Set();
 
   try {
@@ -444,15 +444,32 @@
   if (cookieBannerEl) {
     let consent = null;
     try { consent = localStorage.getItem(CONSENT_KEY); } catch {}
-    if (consent !== 'accepted') {
+    if (consent === 'accepted') {
+      cookieBannerEl.hidden = true;
+      cookieBannerEl.setAttribute('hidden', '');
+      document.documentElement.classList.add('cookie-accepted');
+    } else {
       cookieBannerEl.hidden = false;
+      cookieBannerEl.removeAttribute('hidden');
+      document.documentElement.classList.remove('cookie-accepted');
     }
+
     if (cookieAcceptBtn) {
       cookieAcceptBtn.addEventListener('click', () => {
         try { localStorage.setItem(CONSENT_KEY, 'accepted'); } catch {}
         cookieBannerEl.hidden = true;
-        if (duaDialog && typeof duaDialog.showModal === 'function') {
-          duaDialog.showModal();
+        cookieBannerEl.setAttribute('hidden', '');
+        document.documentElement.classList.add('cookie-accepted');
+        if (duaDialog) {
+          try {
+            if (typeof duaDialog.showModal === 'function') {
+              duaDialog.showModal();
+            } else {
+              duaDialog.setAttribute('open', '');
+            }
+          } catch (e) {
+            duaDialog.setAttribute('open', '');
+          }
         }
       });
     }
@@ -460,10 +477,24 @@
 
   if (duaDialog) {
     if (duaCloseBtn) {
-      duaCloseBtn.addEventListener('click', () => duaDialog.close());
+      duaCloseBtn.addEventListener('click', () => {
+        try {
+          if (typeof duaDialog.close === 'function') duaDialog.close();
+          else duaDialog.removeAttribute('open');
+        } catch (e) {
+          duaDialog.removeAttribute('open');
+        }
+      });
     }
     duaDialog.addEventListener('click', (event) => {
-      if (event.target === duaDialog) duaDialog.close();
+      if (event.target === duaDialog) {
+        try {
+          if (typeof duaDialog.close === 'function') duaDialog.close();
+          else duaDialog.removeAttribute('open');
+        } catch (e) {
+          duaDialog.removeAttribute('open');
+        }
+      }
     });
   }
 
@@ -477,8 +508,14 @@
         localStorage.removeItem(LANG_KEY);
         localStorage.removeItem(CAPTION_KEY);
         localStorage.removeItem(CONSENT_KEY);
+        localStorage.removeItem('ml7-consent');
       } catch {}
       watched.clear();
+      document.documentElement.classList.remove('cookie-accepted');
+      if (cookieBannerEl) {
+        cookieBannerEl.hidden = false;
+        cookieBannerEl.removeAttribute('hidden');
+      }
       syncAllWatchUI();
       if (clearFeedback) clearFeedback.hidden = false;
       setTimeout(() => {

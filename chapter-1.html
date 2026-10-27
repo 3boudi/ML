@@ -16,10 +16,21 @@
   <meta property="og:image" content="assets/logo.png">
   <meta property="og:locale" content="en_DZ">
   <script>
-    (function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');try{var l=localStorage.getItem('ml7-lang');if(l==='ar'){d.lang='ar';d.dir='rtl';}}catch(e){}})();
+    (function(){
+      var d=document.documentElement;
+      d.classList.remove('no-js');
+      d.classList.add('js');
+      try{
+        var l=localStorage.getItem('ml7-lang');
+        if(l==='ar'){d.lang='ar';d.dir='rtl';}
+        if(localStorage.getItem('ml7-cookie-consent-v1')==='accepted'){
+          d.classList.add('cookie-accepted');
+        }
+      }catch(e){}
+    })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,800&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -324,7 +335,7 @@
     </div>
   </nav>
   </main>
-  <aside class="cookie-banner" id="cookie-banner" hidden aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
+  <aside class="cookie-banner" id="cookie-banner" aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
     <div class="cookie-banner__inner">
       <div class="cookie-banner__content">
         <p class="cookie-banner__title" data-ar="التخزين المحلي والخصوصية">Local Storage &amp; Privacy</p>
@@ -341,9 +352,9 @@
   <dialog class="dua-dialog" id="dua-dialog" aria-labelledby="dua-text">
     <div class="dua-dialog__inner">
       <span class="dua-dialog__icon" aria-hidden="true">🤲</span>
-      <p class="dua-dialog__text" id="dua-text" data-ar="دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب">
+      <h2 class="dua-dialog__text" id="dua-text" data-ar="دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب">
         دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب
-      </p>
+      </h2>
       <p class="dua-dialog__sub" data-ar="اللهم وفّق كل طالب علم ويسّر له أمره">
         Keep us in your prayers, for a supplication in absence is answered.
       </p>

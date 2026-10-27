@@ -1315,21 +1315,22 @@ div:has(> iframe[src*="netlify"]) {
 }
 
 /* ---------- cookie banner ---------- */
+html.cookie-accepted .cookie-banner,
+.cookie-banner[hidden] {
+  display: none !important;
+}
 .cookie-banner {
   position: fixed;
   bottom: var(--space-md);
   left: 50%;
   transform: translateX(-50%);
   width: min(calc(100vw - 2 * var(--space-md)), 860px);
-  z-index: 900;
+  z-index: 99999;
   background: var(--color-paper);
-  border: var(--rule-strong);
-  box-shadow: 0 12px 32px color-mix(in oklab, var(--color-ink) 18%, transparent);
+  border: var(--rule-heavy) solid var(--color-ink);
+  box-shadow: 0 16px 40px color-mix(in oklab, var(--color-ink) 25%, transparent);
   padding: var(--space-md) var(--space-lg);
   animation: slideUp 0.3s var(--ease-out);
-}
-.cookie-banner[hidden] {
-  display: none !important;
 }
 .cookie-banner__inner {
   display: flex;
@@ -1386,25 +1387,31 @@ div:has(> iframe[src*="netlify"]) {
 .dua-dialog:not([open]) {
   display: none !important;
 }
+.dua-dialog[open] {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .dua-dialog {
   position: fixed;
   inset: 0;
   margin: auto;
-  width: min(92vw, 540px);
+  width: min(92vw, 560px);
   max-width: none;
   padding: var(--space-2xl) var(--space-xl);
   background: var(--color-paper);
-  border: var(--rule-heavy) solid var(--color-ink);
+  border: 3px solid var(--color-ink);
   color: var(--color-ink);
-  box-shadow: 0 20px 48px color-mix(in oklab, var(--color-ink) 25%, transparent);
+  box-shadow: 0 24px 64px color-mix(in oklab, var(--color-ink) 35%, transparent);
   text-align: center;
-  z-index: 10000;
+  z-index: 100000;
   border-radius: 0;
   animation: popDua 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .dua-dialog::backdrop {
-  background: color-mix(in oklab, var(--color-ink) 70%, transparent);
-  backdrop-filter: blur(4px);
+  background: color-mix(in oklab, var(--color-ink) 75%, transparent);
+  backdrop-filter: blur(6px);
 }
 .dua-dialog__inner {
   display: flex;
@@ -1413,7 +1420,7 @@ div:has(> iframe[src*="netlify"]) {
   gap: var(--space-md);
 }
 .dua-dialog__icon {
-  font-size: 2.75rem;
+  font-size: 3.25rem;
   line-height: 1;
 }
 .dua-dialog__text {
@@ -1421,8 +1428,8 @@ div:has(> iframe[src*="netlify"]) {
   font-family: var(--font-display);
   font-variation-settings: var(--display-settings);
   font-weight: 800;
-  font-size: clamp(1.4rem, 3vw, 1.85rem);
-  line-height: 1.45;
+  font-size: clamp(1.6rem, 3.8vw, 2.3rem);
+  line-height: 1.4;
   color: var(--color-ink);
   letter-spacing: -0.01em;
 }
@@ -1430,16 +1437,18 @@ div:has(> iframe[src*="netlify"]) {
   margin: 0;
   color: var(--color-muted);
   font-size: var(--text-md);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 .dua-dialog__btn {
   margin-top: var(--space-sm);
-  min-width: 170px;
-  min-height: 46px;
-  font-size: var(--text-md);
+  min-width: 180px;
+  min-height: 48px;
+  font-size: var(--text-lg);
+  font-weight: 800;
 }
 @keyframes popDua {
   from { opacity: 0; transform: scale(0.92) translateY(12px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
+
 

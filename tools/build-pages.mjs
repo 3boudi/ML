@@ -386,7 +386,7 @@ function player() {
 }
 
 function cookieBanner() {
-  return `<aside class="cookie-banner" id="cookie-banner" hidden aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
+  return `<aside class="cookie-banner" id="cookie-banner" aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
     <div class="cookie-banner__inner">
       <div class="cookie-banner__content">
         <p class="cookie-banner__title" ${A(ar('cookieTitle'))}>${esc(en('cookieTitle'))}</p>
@@ -406,9 +406,9 @@ function duaModal() {
   return `<dialog class="dua-dialog" id="dua-dialog" aria-labelledby="dua-text">
     <div class="dua-dialog__inner">
       <span class="dua-dialog__icon" aria-hidden="true">🤲</span>
-      <p class="dua-dialog__text" id="dua-text" ${A('دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب')}>
+      <h2 class="dua-dialog__text" id="dua-text" ${A('دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب')}>
         دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب
-      </p>
+      </h2>
       <p class="dua-dialog__sub" ${A('اللهم وفّق كل طالب علم ويسّر له أمره')}>
         Keep us in your prayers, for a supplication in absence is answered.
       </p>
@@ -438,10 +438,21 @@ function shell({ title, arTitle, desc, arDesc, current, body }) {
   <meta property="og:image" content="assets/logo.png">
   <meta property="og:locale" content="en_DZ">
   <script>
-    (function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');try{var l=localStorage.getItem('ml7-lang');if(l==='ar'){d.lang='ar';d.dir='rtl';}}catch(e){}})();
+    (function(){
+      var d=document.documentElement;
+      d.classList.remove('no-js');
+      d.classList.add('js');
+      try{
+        var l=localStorage.getItem('ml7-lang');
+        if(l==='ar'){d.lang='ar';d.dir='rtl';}
+        if(localStorage.getItem('ml7-cookie-consent-v1')==='accepted'){
+          d.classList.add('cookie-accepted');
+        }
+      }catch(e){}
+    })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,800&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
 </head>
