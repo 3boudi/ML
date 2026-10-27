@@ -307,7 +307,10 @@ function nav(current = '') {
   const libraryCurrent = current === 'library' ? ' aria-current="page"' : '';
   return `<header class="site-nav">
     <div class="container site-nav__inner">
-      <a class="wordmark" href="index.html">ML VII <span ${A('السداسي 7')} dir="auto">Semester 7</span></a>
+      <a class="wordmark" href="index.html">
+        <img class="wordmark__logo" src="assets/logo.png" alt="ML" width="28" height="28">
+        ML VII <span ${A('السداسي 7')} dir="auto">Semester 7</span>
+      </a>
       <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
         <a href="index.html#chapters" ${A(ar('chapters'))}>Chapters</a>
         <a href="library.html"${libraryCurrent} ${A(ar('library'))}>Library</a>
@@ -372,9 +375,14 @@ function shell({ title, arTitle, desc, arDesc, current, body }) {
   <title ${A(arTitle)}>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}" data-ar-content="${esc(arDesc)}">
   <meta name="author" content="Halitim Amin">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${esc(title)}" data-ar-content="${esc(arTitle)}">
   <meta property="og:description" content="${esc(desc)}" data-ar-content="${esc(arDesc)}">
+  <meta property="og:image" content="assets/logo.png">
   <meta property="og:locale" content="en_DZ">
   <script>
     (function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');try{var l=localStorage.getItem('ml7-lang');if(l==='ar'){d.lang='ar';d.dir='rtl';}}catch(e){}})();

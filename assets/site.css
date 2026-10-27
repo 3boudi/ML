@@ -83,13 +83,21 @@ figcaption { line-height: 1.45; }
 }
 .wordmark {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-xs);
   color: var(--color-ink);
   font-size: var(--text-lg);
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
+}
+.wordmark__logo {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  border-radius: 4px;
+  display: inline-block;
+  flex-shrink: 0;
 }
 .wordmark span { color: var(--color-muted); font-size: var(--text-sm); }
 .site-nav__links { display: flex; align-items: center; gap: var(--space-lg); }
