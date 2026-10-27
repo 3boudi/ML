@@ -294,7 +294,7 @@
 
   /* ---------- watched state & learning progress ---------- */
 
-  const CONSENT_KEY = 'ml7-cookie-consent-v1';
+  const CONSENT_KEY = 'ml7-consent-v2';
   let watched = new Set();
 
   try {
@@ -441,6 +441,19 @@
   const duaDialog = one('#dua-dialog');
   const duaCloseBtn = one('#dua-close');
 
+  // URL helper to force display or reset if requested (e.g. ?cookies=show or ?reset-cookies)
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('cookies') === 'show' || params.has('reset-cookies')) {
+      try {
+        localStorage.removeItem(CONSENT_KEY);
+        localStorage.removeItem('ml7-cookie-consent-v1');
+        localStorage.removeItem('ml7-consent');
+      } catch {}
+      document.documentElement.classList.remove('cookie-accepted');
+    }
+  } catch {}
+
   if (cookieBannerEl) {
     let consent = null;
     try { consent = localStorage.getItem(CONSENT_KEY); } catch {}
@@ -498,7 +511,24 @@
     });
   }
 
-  // Privacy page clear data button
+  // Privacy page reset consent & clear data buttons
+  const resetConsentBtn = one('#privacy-reset-consent');
+  if (resetConsentBtn) {
+    resetConsentBtn.addEventListener('click', () => {
+      try {
+        localStorage.removeItem(CONSENT_KEY);
+        localStorage.removeItem('ml7-cookie-consent-v1');
+        localStorage.removeItem('ml7-consent');
+      } catch {}
+      document.documentElement.classList.remove('cookie-accepted');
+      if (cookieBannerEl) {
+        cookieBannerEl.hidden = false;
+        cookieBannerEl.removeAttribute('hidden');
+        cookieBannerEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }
+
   const clearDataBtn = one('#privacy-clear-data');
   const clearFeedback = one('#privacy-clear-feedback');
   if (clearDataBtn) {
@@ -508,6 +538,7 @@
         localStorage.removeItem(LANG_KEY);
         localStorage.removeItem(CAPTION_KEY);
         localStorage.removeItem(CONSENT_KEY);
+        localStorage.removeItem('ml7-cookie-consent-v1');
         localStorage.removeItem('ml7-consent');
       } catch {}
       watched.clear();

@@ -406,7 +406,7 @@ function duaModal() {
   return `<dialog class="dua-dialog" id="dua-dialog" aria-labelledby="dua-text">
     <div class="dua-dialog__inner">
       <span class="dua-dialog__icon" aria-hidden="true">🤲</span>
-      <h2 class="dua-dialog__text" id="dua-text" ${A('دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب')}>
+      <h2 class="dua-dialog__text" id="dua-text" dir="rtl" ${A('دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب')}>
         دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب
       </h2>
       <p class="dua-dialog__sub" ${A('اللهم وفّق كل طالب علم ويسّر له أمره')}>
@@ -445,7 +445,7 @@ function shell({ title, arTitle, desc, arDesc, current, body }) {
       try{
         var l=localStorage.getItem('ml7-lang');
         if(l==='ar'){d.lang='ar';d.dir='rtl';}
-        if(localStorage.getItem('ml7-cookie-consent-v1')==='accepted'){
+        if(localStorage.getItem('ml7-consent-v2')==='accepted'){
           d.classList.add('cookie-accepted');
         }
       }catch(e){}
@@ -978,7 +978,7 @@ function privacyPage() {
             <li><strong>ml7-lang:</strong> <span ${A('يحفظ لغة العرض التي اخترتها (العربية أو الإنجليزية).')}>Remembers your preferred interface language (Arabic or English).</span></li>
             <li><strong>ml7-caption-lang:</strong> <span ${A('يحفظ لغة الترجمة المصاحبة الافتراضية لفيديوهات يوتيوب (العربية، الإنجليزية، أو إيقاف).')}>Remembers your preferred YouTube caption language (Arabic, English, or Off).</span></li>
             <li><strong>ml7-watched:</strong> <span ${A('يحفظ أرقام الفيديوهات التي حددتها كمشاهدة لحساب نسبة تعلّمك في المادة (ML Progress %).')}>Stores an array of video IDs you have marked as watched to calculate your overall learning percentage (% of ML learned).</span></li>
-            <li><strong>ml7-consent:</strong> <span ${A('يحفظ موافقتك على إشعار الخصوصية والتخزين المحلي كي لا يظهر الشريط مجدداً.')}>Remembers that you acknowledged the privacy & local storage banner.</span></li>
+            <li><strong>ml7-consent-v2:</strong> <span ${A('يحفظ موافقتك على إشعار الخصوصية والتخزين المحلي كي لا يظهر الشريط مجدداً.')}>Remembers that you acknowledged the privacy & local storage banner.</span></li>
           </ul>
         </article>
 
@@ -992,6 +992,7 @@ function privacyPage() {
           ${bi('h2', 'privacy-card__title', '4. Manage & Clear Your Data', '4. إدارة ومسح بياناتك المخزنة')}
           ${bi('p', '', 'Because all your progress and settings exist only in your browser, you have complete control. You can reset your progress, watched videos, and preferences with one click below, or by clearing your browser cache/cookies at any time.', 'نظراً لأن جميع بيانات تقدمك وتفضيلاتك موجودة فقط في متصفحك، فإنك تملك السيطرة الكاملة عليها. يمكنك تصفير تقدمك وحذف كافة التفضيلات بنقرة واحدة أدناه، أو عبر مسح بيانات التصفح من إعدادات متصفحك في أي وقت.')}
           <div class="privacy-actions">
+            <button type="button" class="btn btn--quiet" id="privacy-reset-consent" ${A('إعادة إظهار إشعار الكوكيز')}>Re-open Cookie Banner</button>
             <button type="button" class="btn btn--quiet" id="privacy-clear-data" ${A('مسح كل بيانات التقدم والتفضيلات')}>Clear all saved progress &amp; settings</button>
             <span class="privacy-clear-feedback" id="privacy-clear-feedback" hidden ${A('تم مسح جميع البيانات بنجاح!')}>All local data cleared successfully!</span>
           </div>

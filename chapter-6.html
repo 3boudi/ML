@@ -23,7 +23,7 @@
       try{
         var l=localStorage.getItem('ml7-lang');
         if(l==='ar'){d.lang='ar';d.dir='rtl';}
-        if(localStorage.getItem('ml7-cookie-consent-v1')==='accepted'){
+        if(localStorage.getItem('ml7-consent-v2')==='accepted'){
           d.classList.add('cookie-accepted');
         }
       }catch(e){}
@@ -409,7 +409,7 @@
   <dialog class="dua-dialog" id="dua-dialog" aria-labelledby="dua-text">
     <div class="dua-dialog__inner">
       <span class="dua-dialog__icon" aria-hidden="true">🤲</span>
-      <h2 class="dua-dialog__text" id="dua-text" data-ar="دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب">
+      <h2 class="dua-dialog__text" id="dua-text" dir="rtl" data-ar="دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب">
         دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب
       </h2>
       <p class="dua-dialog__sub" data-ar="اللهم وفّق كل طالب علم ويسّر له أمره">

@@ -23,7 +23,7 @@
       try{
         var l=localStorage.getItem('ml7-lang');
         if(l==='ar'){d.lang='ar';d.dir='rtl';}
-        if(localStorage.getItem('ml7-cookie-consent-v1')==='accepted'){
+        if(localStorage.getItem('ml7-consent-v2')==='accepted'){
           d.classList.add('cookie-accepted');
         }
       }catch(e){}
@@ -75,7 +75,7 @@
             <li><strong>ml7-lang:</strong> <span data-ar="يحفظ لغة العرض التي اخترتها (العربية أو الإنجليزية).">Remembers your preferred interface language (Arabic or English).</span></li>
             <li><strong>ml7-caption-lang:</strong> <span data-ar="يحفظ لغة الترجمة المصاحبة الافتراضية لفيديوهات يوتيوب (العربية، الإنجليزية، أو إيقاف).">Remembers your preferred YouTube caption language (Arabic, English, or Off).</span></li>
             <li><strong>ml7-watched:</strong> <span data-ar="يحفظ أرقام الفيديوهات التي حددتها كمشاهدة لحساب نسبة تعلّمك في المادة (ML Progress %).">Stores an array of video IDs you have marked as watched to calculate your overall learning percentage (% of ML learned).</span></li>
-            <li><strong>ml7-consent:</strong> <span data-ar="يحفظ موافقتك على إشعار الخصوصية والتخزين المحلي كي لا يظهر الشريط مجدداً.">Remembers that you acknowledged the privacy & local storage banner.</span></li>
+            <li><strong>ml7-consent-v2:</strong> <span data-ar="يحفظ موافقتك على إشعار الخصوصية والتخزين المحلي كي لا يظهر الشريط مجدداً.">Remembers that you acknowledged the privacy & local storage banner.</span></li>
           </ul>
         </article>
 
@@ -89,6 +89,7 @@
           <h2 class="privacy-card__title" data-ar="4. إدارة ومسح بياناتك المخزنة">4. Manage &amp; Clear Your Data</h2>
           <p data-ar="نظراً لأن جميع بيانات تقدمك وتفضيلاتك موجودة فقط في متصفحك، فإنك تملك السيطرة الكاملة عليها. يمكنك تصفير تقدمك وحذف كافة التفضيلات بنقرة واحدة أدناه، أو عبر مسح بيانات التصفح من إعدادات متصفحك في أي وقت.">Because all your progress and settings exist only in your browser, you have complete control. You can reset your progress, watched videos, and preferences with one click below, or by clearing your browser cache/cookies at any time.</p>
           <div class="privacy-actions">
+            <button type="button" class="btn btn--quiet" id="privacy-reset-consent" data-ar="إعادة إظهار إشعار الكوكيز">Re-open Cookie Banner</button>
             <button type="button" class="btn btn--quiet" id="privacy-clear-data" data-ar="مسح كل بيانات التقدم والتفضيلات">Clear all saved progress &amp; settings</button>
             <span class="privacy-clear-feedback" id="privacy-clear-feedback" hidden data-ar="تم مسح جميع البيانات بنجاح!">All local data cleared successfully!</span>
           </div>
@@ -118,7 +119,7 @@
   <dialog class="dua-dialog" id="dua-dialog" aria-labelledby="dua-text">
     <div class="dua-dialog__inner">
       <span class="dua-dialog__icon" aria-hidden="true">🤲</span>
-      <h2 class="dua-dialog__text" id="dua-text" data-ar="دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب">
+      <h2 class="dua-dialog__text" id="dua-text" dir="rtl" data-ar="دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب">
         دعاء لنا بالخير، فدعاء في ظهر الغيب مستجاب
       </h2>
       <p class="dua-dialog__sub" data-ar="اللهم وفّق كل طالب علم ويسّر له أمره">
