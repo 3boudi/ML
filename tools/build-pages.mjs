@@ -349,6 +349,7 @@ function footer(short = false) {
           <a href="${meta.channel}" target="_blank" rel="noopener" ${A('قناة StatQuest')}>StatQuest channel</a>
           <a href="library.html" ${A('كل الفيديوهات')}>All 106 videos</a>
           <a href="privacy.html" ${A('الخصوصية وملفات تعريف الارتباط')}>Privacy &amp; Cookies</a>
+          <button type="button" class="letter__consent-btn" id="footer-consent-trigger" ${A('إظهار إشعار الخصوصية')}>Cookie Banner</button>
         </nav>
         ${bi('p', 'letter__legal', en('letterLegal'), ar('letterLegal'))}
       </div>
@@ -386,16 +387,16 @@ function player() {
 }
 
 function cookieBanner() {
-  return `<aside class="cookie-banner" id="cookie-banner" aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
-    <div class="cookie-banner__inner">
-      <div class="cookie-banner__content">
-        <p class="cookie-banner__title" ${A(ar('cookieTitle'))}>${esc(en('cookieTitle'))}</p>
-        <p class="cookie-banner__text" ${A(ar('cookieText'))}>
+  return `<aside class="site-consent cookie-banner" id="site-consent-banner" aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
+    <div class="site-consent__inner cookie-banner__inner">
+      <div class="site-consent__content cookie-banner__content">
+        <p class="site-consent__title cookie-banner__title" ${A(ar('cookieTitle'))}>${esc(en('cookieTitle'))}</p>
+        <p class="site-consent__text cookie-banner__text" ${A(ar('cookieText'))}>
           ${esc(en('cookieText'))}
         </p>
       </div>
-      <div class="cookie-banner__actions">
-        <button type="button" class="btn btn--primary btn--sm" id="cookie-accept" ${A(ar('cookieAccept'))}>${esc(en('cookieAccept'))}</button>
+      <div class="site-consent__actions cookie-banner__actions">
+        <button type="button" class="btn btn--primary btn--sm" id="site-consent-accept" ${A(ar('cookieAccept'))}>${esc(en('cookieAccept'))}</button>
         <a href="privacy.html" class="btn btn--quiet btn--sm" ${A(ar('privacy'))}>${esc(en('privacy'))}</a>
       </div>
     </div>
@@ -445,7 +446,7 @@ function shell({ title, arTitle, desc, arDesc, current, body }) {
       try{
         var l=localStorage.getItem('ml7-lang');
         if(l==='ar'){d.lang='ar';d.dir='rtl';}
-        if(localStorage.getItem('ml7-consent-v2')==='accepted'){
+        if(localStorage.getItem('ml7-consent-v3')==='accepted'){
           d.classList.add('cookie-accepted');
         }
       }catch(e){}
@@ -978,7 +979,7 @@ function privacyPage() {
             <li><strong>ml7-lang:</strong> <span ${A('يحفظ لغة العرض التي اخترتها (العربية أو الإنجليزية).')}>Remembers your preferred interface language (Arabic or English).</span></li>
             <li><strong>ml7-caption-lang:</strong> <span ${A('يحفظ لغة الترجمة المصاحبة الافتراضية لفيديوهات يوتيوب (العربية، الإنجليزية، أو إيقاف).')}>Remembers your preferred YouTube caption language (Arabic, English, or Off).</span></li>
             <li><strong>ml7-watched:</strong> <span ${A('يحفظ أرقام الفيديوهات التي حددتها كمشاهدة لحساب نسبة تعلّمك في المادة (ML Progress %).')}>Stores an array of video IDs you have marked as watched to calculate your overall learning percentage (% of ML learned).</span></li>
-            <li><strong>ml7-consent-v2:</strong> <span ${A('يحفظ موافقتك على إشعار الخصوصية والتخزين المحلي كي لا يظهر الشريط مجدداً.')}>Remembers that you acknowledged the privacy & local storage banner.</span></li>
+            <li><strong>ml7-consent-v3:</strong> <span ${A('يحفظ موافقتك على إشعار الخصوصية والتخزين المحلي كي لا يظهر الشريط مجدداً.')}>Remembers that you acknowledged the privacy & local storage banner.</span></li>
           </ul>
         </article>
 

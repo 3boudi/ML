@@ -294,7 +294,7 @@
 
   /* ---------- watched state & learning progress ---------- */
 
-  const CONSENT_KEY = 'ml7-consent-v2';
+  const CONSENT_KEY = 'ml7-consent-v3';
   let watched = new Set();
 
   try {
@@ -435,22 +435,33 @@
     });
   }
 
-  // Cookie consent banner & Dua popup
-  const cookieBannerEl = one('#cookie-banner');
-  const cookieAcceptBtn = one('#cookie-accept');
+  // Cookie & storage consent banner & Dua popup
+  const cookieBannerEl = one('#site-consent-banner') || one('#cookie-banner');
+  const cookieAcceptBtn = one('#site-consent-accept') || one('#cookie-accept');
   const duaDialog = one('#dua-dialog');
   const duaCloseBtn = one('#dua-close');
 
-  // URL helper to force display or reset if requested (e.g. ?cookies=show or ?reset-cookies)
+  function showConsentBanner() {
+    try {
+      localStorage.removeItem(CONSENT_KEY);
+      localStorage.removeItem('ml7-consent-v2');
+      localStorage.removeItem('ml7-cookie-consent-v1');
+      localStorage.removeItem('ml7-consent');
+    } catch {}
+    document.documentElement.classList.remove('cookie-accepted');
+    if (cookieBannerEl) {
+      cookieBannerEl.hidden = false;
+      cookieBannerEl.removeAttribute('hidden');
+      cookieBannerEl.style.display = 'block';
+      cookieBannerEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  // URL helper to force display or reset if requested (e.g. ?cookies=show, ?reset-cookies, ?show-banner)
   try {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('cookies') === 'show' || params.has('reset-cookies')) {
-      try {
-        localStorage.removeItem(CONSENT_KEY);
-        localStorage.removeItem('ml7-cookie-consent-v1');
-        localStorage.removeItem('ml7-consent');
-      } catch {}
-      document.documentElement.classList.remove('cookie-accepted');
+    const s = (window.location.search || '').toLowerCase();
+    if (s.includes('cookie') || s.includes('consent') || s.includes('show') || s.includes('reset')) {
+      showConsentBanner();
     }
   } catch {}
 
@@ -511,21 +522,20 @@
     });
   }
 
-  // Privacy page reset consent & clear data buttons
+  // Footer and Privacy page triggers to re-open consent banner
+  const footerConsentTrigger = one('#footer-consent-trigger');
+  if (footerConsentTrigger) {
+    footerConsentTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      showConsentBanner();
+    });
+  }
+
   const resetConsentBtn = one('#privacy-reset-consent');
   if (resetConsentBtn) {
-    resetConsentBtn.addEventListener('click', () => {
-      try {
-        localStorage.removeItem(CONSENT_KEY);
-        localStorage.removeItem('ml7-cookie-consent-v1');
-        localStorage.removeItem('ml7-consent');
-      } catch {}
-      document.documentElement.classList.remove('cookie-accepted');
-      if (cookieBannerEl) {
-        cookieBannerEl.hidden = false;
-        cookieBannerEl.removeAttribute('hidden');
-        cookieBannerEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+    resetConsentBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showConsentBanner();
     });
   }
 
@@ -538,6 +548,7 @@
         localStorage.removeItem(LANG_KEY);
         localStorage.removeItem(CAPTION_KEY);
         localStorage.removeItem(CONSENT_KEY);
+        localStorage.removeItem('ml7-consent-v2');
         localStorage.removeItem('ml7-cookie-consent-v1');
         localStorage.removeItem('ml7-consent');
       } catch {}
@@ -546,6 +557,7 @@
       if (cookieBannerEl) {
         cookieBannerEl.hidden = false;
         cookieBannerEl.removeAttribute('hidden');
+        cookieBannerEl.style.display = 'block';
       }
       syncAllWatchUI();
       if (clearFeedback) clearFeedback.hidden = false;

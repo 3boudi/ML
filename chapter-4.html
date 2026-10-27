@@ -23,7 +23,7 @@
       try{
         var l=localStorage.getItem('ml7-lang');
         if(l==='ar'){d.lang='ar';d.dir='rtl';}
-        if(localStorage.getItem('ml7-consent-v2')==='accepted'){
+        if(localStorage.getItem('ml7-consent-v3')==='accepted'){
           d.classList.add('cookie-accepted');
         }
       }catch(e){}
@@ -240,16 +240,16 @@
     </div>
   </nav>
   </main>
-  <aside class="cookie-banner" id="cookie-banner" aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
-    <div class="cookie-banner__inner">
-      <div class="cookie-banner__content">
-        <p class="cookie-banner__title" data-ar="التخزين المحلي والخصوصية">Local Storage &amp; Privacy</p>
-        <p class="cookie-banner__text" data-ar="نستخدم التخزين المحلي (LocalStorage) في متصفحك لحفظ تقدمك الدراسي (% ما تعلمته في تعلّم الآلة)، وتفضيلات اللغة والترجمة. لا نجمع أي بيانات شخصية ولا نستخدم كوكيز إعلانية.">
+  <aside class="site-consent cookie-banner" id="site-consent-banner" aria-label="Privacy and cookies" data-ar-aria="الخصوصية والتخزين المحلي">
+    <div class="site-consent__inner cookie-banner__inner">
+      <div class="site-consent__content cookie-banner__content">
+        <p class="site-consent__title cookie-banner__title" data-ar="التخزين المحلي والخصوصية">Local Storage &amp; Privacy</p>
+        <p class="site-consent__text cookie-banner__text" data-ar="نستخدم التخزين المحلي (LocalStorage) في متصفحك لحفظ تقدمك الدراسي (% ما تعلمته في تعلّم الآلة)، وتفضيلات اللغة والترجمة. لا نجمع أي بيانات شخصية ولا نستخدم كوكيز إعلانية.">
           We use local browser storage (LocalStorage) to save your study progress (% of ML learned), language, and caption preferences. No personal tracking or ad cookies.
         </p>
       </div>
-      <div class="cookie-banner__actions">
-        <button type="button" class="btn btn--primary btn--sm" id="cookie-accept" data-ar="قبول">Accept</button>
+      <div class="site-consent__actions cookie-banner__actions">
+        <button type="button" class="btn btn--primary btn--sm" id="site-consent-accept" data-ar="قبول">Accept</button>
         <a href="privacy.html" class="btn btn--quiet btn--sm" data-ar="الخصوصية وملفات تعريف الارتباط">Privacy &amp; Cookies</a>
       </div>
     </div>
@@ -281,6 +281,7 @@
           <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" data-ar="قناة StatQuest">StatQuest channel</a>
           <a href="library.html" data-ar="كل الفيديوهات">All 106 videos</a>
           <a href="privacy.html" data-ar="الخصوصية وملفات تعريف الارتباط">Privacy &amp; Cookies</a>
+          <button type="button" class="letter__consent-btn" id="footer-consent-trigger" data-ar="إظهار إشعار الخصوصية">Cookie Banner</button>
         </nav>
         <p class="letter__legal" data-ar="المقرر: Halitim Amin. الفيديوهات: StatQuest على يوتيوب. الرسوم مرسومة لهذا الدليل. لا صور فوتوغرافية.">Course material: Halitim Amin. Videos: StatQuest, YouTube. Diagrams drawn for this guide. No photographs.</p>
       </div>
