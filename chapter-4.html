@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-ar="الفصل 4، تقنيات متخصصة · ML VII">Chapter 4, Specialized Techniques · ML VII</title>
+  <meta name="description" content="Two specialist families: probability graphs, and search borrowed from evolution. 4 videos mapped to this chapter." data-ar-content="عائلتان متخصصتان: شبكات احتمالية، وبحث مستعار من التطور. 4 فيديوهات مرتبطة بهذا الفصل.">
+  <meta name="author" content="Halitim Amin">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chapter 4, Specialized Techniques · ML VII" data-ar-content="الفصل 4، تقنيات متخصصة · ML VII">
+  <meta property="og:description" content="Two specialist families: probability graphs, and search borrowed from evolution. 4 videos mapped to this chapter." data-ar-content="عائلتان متخصصتان: شبكات احتمالية، وبحث مستعار من التطور. 4 فيديوهات مرتبطة بهذا الفصل.">
+  <meta property="og:locale" content="en_DZ">
+  <script>
+    (function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');try{var l=localStorage.getItem('ml7-lang');if(l==='ar'){d.lang='ar';d.dir='rtl';}}catch(e){}})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,800&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip" href="#main" data-ar="تجاوز إلى المحتوى">Skip to content</a>
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="wordmark" href="index.html">ML VII <span data-ar="السداسي 7" dir="auto">Semester 7</span></a>
+      <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
+        <a href="index.html#chapters" data-ar="الفصول">Chapters</a>
+        <a href="library.html" data-ar="المكتبة">Library</a>
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="التبديل إلى العربية" lang="ar">العربية</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+<section class="chapter">
+    <div class="container chapter__grid">
+      <span class="chapter__num" aria-hidden="true">04</span>
+      <div class="chapter__copy">
+        <h1 data-ar="تقنيات متخصصة">Specialized Techniques</h1>
+        <p class="lead" data-ar="عائلتان متخصصتان: شبكات احتمالية، وبحث مستعار من التطور.">Two specialist families: probability graphs, and search borrowed from evolution.</p>
+        <div class="chapter__action">
+          <a class="btn btn--primary" href="https://www.youtube.com/watch?v=O2L2Uv9pdDA" data-video="44"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span data-ar="شغّل أول فيديو">Play the first video</span></a>
+          <a class="btn btn--quiet" href="index.html#chapters"><span data-ar="كل الفصول">All chapters</span></a>
+        </div>
+        <p class="chapter__meta" data-ar="درسان، 4 فيديوهات، 57 د. لا تغطية.">2 lessons, 4 videos, 57 min. Not covered.</p>
+      </div>
+    </div>
+  </section>
+<section class="split" aria-labelledby="diagram-title">
+    <div class="container split__grid">
+      <div class="split__text">
+        <h2 id="diagram-title" data-ar="شبكة بايزية">A Bayesian network</h2>
+        <p data-ar="ثلاثة متغيرات، سببان، ورسم يمكنك الاستدلال به.">Three variables, two causes, one graph you can reason with.</p>
+        <ol class="split__points">
+<li>
+          <span>01</span>
+          <span data-ar="السهم يعني «يؤثر»، لا «يسبب كل شيء».">An arrow means “influences”, not “causes everything”.</span>
+        </li>
+<li>
+          <span>02</span>
+          <span data-ar="يتيح الرسم طلب احتمال بعد رؤية دليل.">The graph lets you ask for a probability after seeing evidence.</span>
+        </li>
+<li>
+          <span>03</span>
+          <span data-ar="تعلّم البنية هو الجزء الصعب: الأسهم عادة غير معطاة.">Structure learning is the hard part: the arrows are usually not given.</span>
+        </li>
+        </ol>
+      </div>
+      <figure class="split__fig">
+        
+<svg class="diagram" viewBox="0 0 360 230" role="img" aria-labelledby="bayes-title bayes-desc">
+  <title id="bayes-title">A Bayesian network</title>
+  <desc id="bayes-desc" data-ar="رطوبة العشب تعتمد على المطر والرشّاش. السهم يعني تأثيرًا مباشرًا. يتيح الرسم طلب احتمال المطر بعد رؤية العشب مبللًا.">Wet grass depends on rain and on the sprinkler. An arrow is a direct influence. The graph lets you ask for the probability of rain after seeing wet grass.</desc>
+  
+  <defs>
+    <marker id="bayes-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="arrowhead"/>
+    </marker>
+  </defs>
+  <path class="line" d="M 80 78 L 158 148" marker-end="url(#bayes-arrow)"/>
+  <path class="line" d="M 280 78 L 202 148" marker-end="url(#bayes-arrow)"/>
+  <rect class="node" x="30" y="40" width="100" height="38"/>
+  <rect class="node" x="230" y="40" width="100" height="38"/>
+  <rect class="node" x="130" y="150" width="100" height="38"/>
+  <text class="t" x="80" y="64" text-anchor="middle">rain</text>
+  <text class="t" x="280" y="64" text-anchor="middle">sprinkler</text>
+  <text class="t" x="180" y="174" text-anchor="middle">wet grass</text>
+  <text class="t t--muted" x="180" y="216" text-anchor="middle">P(rain | wet grass)</text>
+</svg>
+        <figcaption data-ar="مرسوم لهذا الدليل. العناوين تبقى بالإنجليزية.">Drawn for this guide. Labels stay in English.</figcaption>
+      </figure>
+    </div>
+  </section>
+<section class="lesson" id="lesson-4-1">
+    <div class="container">
+      <header class="lesson__head">
+        <span class="lesson__id">4.1</span>
+        <h2 data-ar="الشبكات البايزية والعمليات الغاوسية">Bayesian Networks and Gaussian Processes</h2>
+        <p class="lesson__practical"><span class="lesson__label" data-ar="العملي">Practical</span> <span data-ar="تنفيذ شبكة بايزية لمجموعة بيانات معطاة.">Implement a Bayesian network for a given dataset.</span></p>
+      </header>
+      <div class="lesson__syllabus">
+        <h3 data-ar="المقرر">Syllabus</h3>
+        <ul class="lesson__bullets">
+<li data-ar="مقدمة في الشبكات البايزية">Introduction to Bayesian networks</li>
+<li data-ar="تعلّم البنية وتعلّم المعاملات">Structure learning and parameter learning</li>
+<li data-ar="العمليات الغاوسية: الانحدار والتصنيف">Gaussian processes: regression and classification</li>
+<li data-ar="التطبيقات والأمثلة">Applications and examples</li>
+        </ul>
+      </div>
+      <div class="lesson__watch">
+        <h3 data-ar="شاهد">Watch</h3>
+<div class="vgroup">
+          <h4 data-ar="الأساس فقط">Groundwork only</h4>
+          <ul class="videos">
+<li><a class="video" href="https://www.youtube.com/watch?v=O2L2Uv9pdDA" data-video="44">
+            <span class="video__n">044</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Naive Bayes, Clearly Explained!!!</span></span>
+            <span class="video__time">15:12</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=H3EjCKtlVog" data-video="45">
+            <span class="video__n">045</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gaussian Naive Bayes, Clearly Explained!!!</span></span>
+            <span class="video__time">9:26</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=yIYKR4sgzI8" data-video="16">
+            <span class="video__n">016</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Logistic Regression</span></span>
+            <span class="video__time">8:48</span>
+          </a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<section class="lesson" id="lesson-4-2">
+    <div class="container">
+      <header class="lesson__head">
+        <span class="lesson__id">4.2</span>
+        <h2 data-ar="الخوارزميات الجينية ودوال الاعتقاد">Genetic Algorithms and Belief Functions</h2>
+        <p class="lesson__practical"><span class="lesson__label" data-ar="العملي">Practical</span> <span data-ar="حل مسألة تحسين بخوارزمية جينية.">Solve an optimization problem with a genetic algorithm.</span></p>
+      </header>
+      <div class="lesson__syllabus">
+        <h3 data-ar="المقرر">Syllabus</h3>
+        <ul class="lesson__bullets">
+<li data-ar="مقدمة في الخوارزميات الجينية">Introduction to genetic algorithms</li>
+<li data-ar="اللياقة، الانتخاب، التزاوج، الطفرة">Fitness, selection, crossover, mutation</li>
+<li data-ar="دوال الاعتقاد ونظرية ديمبستر-شيفر">Belief functions and Dempster-Shafer theory</li>
+<li data-ar="تطبيقات في التحسين ونمذجة عدم اليقين">Applications in optimization and uncertainty</li>
+        </ul>
+      </div>
+      <div class="lesson__watch">
+        <h3 data-ar="شاهد">Watch</h3>
+<div class="vgroup">
+          <h4 data-ar="مقارنة واحدة تُمسك بها">One contrast to hold on to</h4>
+          <ul class="videos">
+<li><a class="video" href="https://www.youtube.com/watch?v=sDv4f4s2SB8" data-video="56">
+            <span class="video__n">056</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Gradient Descent, Step-by-Step</span></span>
+            <span class="video__time">23:54</span>
+          </a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<section class="coverage" aria-labelledby="coverage-title">
+    <div class="container coverage__grid">
+      <div>
+        <h2 id="coverage-title" data-ar="ما تغطيه الفيديوهات.">What the videos cover.</h2>
+        <p class="coverage__fine" data-ar="مذكورة لكل فصل، لا معدّلة.">Marked per chapter, not averaged away.</p>
+      </div>
+      <div class="coverage__body">
+        <p data-ar="تقدّم القائمة أساس بايز، لا الشبكات ولا الخوارزميات الجينية.">The playlist gives the Bayesian groundwork, not the networks or the genetic algorithms.</p>
+        <p class="coverage__fine" data-ar="ناقص هنا">Missing here</p>
+        <ul class="coverage__list">
+<li data-ar="الخوارزميات الجينية، دوال الاعتقاد">Genetic algorithms, belief functions</li>
+        </ul>
+        <a class="coverage__link" href="index.html#gaps" data-ar="افتح جدول الفجوات">See the gap table</a>
+      </div>
+    </div>
+  </section>
+<nav class="pager" aria-label="Chapter navigation" data-ar-aria="التنقل بين الفصول">
+    <div class="container pager__grid">
+      <a href="chapter-3.html"><small data-ar="الفصل السابق">Previous chapter</small><b data-ar="غير الموجّه">Unsupervised</b></a>
+      <a href="chapter-5.html"><small data-ar="الفصل التالي">Next chapter</small><b data-ar="شبه موجّه، معزّز">Semi-supervised, RL</b></a>
+    </div>
+  </nav>
+  </main>
+  <footer class="letter letter--short" id="about">
+    <div class="container letter__grid">
+      <div>
+        <p class="letter__statement" data-ar="السداسي 7، وحدة UEF2، معامل 4. المقرر: Halitim Amin. صفحات المقرر 61 إلى 63.">Semester 7, UEF2, coefficient 4. Course by Halitim Amin. Syllabus pages 61 to 63.</p>
+        <p class="letter__sign">Halitim Amin</p>
+        <p class="letter__date" data-ar="26 أكتوبر 2026. UEF2، معامل 4.">26 October 2026. UEF2, coefficient 4.</p>
+      </div>
+      <div class="letter__side">
+        <nav class="letter__links" aria-label="Sources" data-ar-aria="المصادر">
+          <a href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="قائمة التشغيل">Playlist</a>
+          <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" data-ar="قناة StatQuest">StatQuest channel</a>
+          <a href="library.html" data-ar="كل الفيديوهات">All 106 videos</a>
+        </nav>
+        <p class="letter__legal" data-ar="المقرر: Halitim Amin. الفيديوهات: StatQuest على يوتيوب. الرسوم مرسومة لهذا الدليل. لا صور فوتوغرافية.">Course material: Halitim Amin. Videos: StatQuest, YouTube. Diagrams drawn for this guide. No photographs.</p>
+      </div>
+    </div>
+  </footer>
+  <dialog class="player" id="player" aria-labelledby="player-title">
+    <div class="player__bar">
+      <h2 id="player-title">Video</h2>
+      <form method="dialog"><button class="player__close" type="submit" data-ar="إغلاق">Close</button></form>
+    </div>
+    <div class="player__frame" id="player-frame"></div>
+    <div class="player__foot">
+      <p class="player__note" id="player-note" hidden></p>
+      <a id="player-link" href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="افتح على يوتيوب">Open on YouTube</a>
+    </div>
+  </dialog>
+  <script src="assets/data.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

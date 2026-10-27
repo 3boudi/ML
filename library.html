@@ -1,0 +1,1324 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-ar="كل فيديو في قائمة التشغيل · ML VII">Every video in the playlist · ML VII</title>
+  <meta name="description" content="All 106 StatQuest machine learning videos, each mapped to a chapter of the Semester 7 syllabus or marked unmapped." data-ar-content="106 فيديوهات من StatQuest لتعلّم الآلة، كل واحد مرتبط بفصل من مقرر السابع أو موسوم بغير مرتبط.">
+  <meta name="author" content="Halitim Amin">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Every video in the playlist · ML VII" data-ar-content="كل فيديو في قائمة التشغيل · ML VII">
+  <meta property="og:description" content="All 106 StatQuest machine learning videos, each mapped to a chapter of the Semester 7 syllabus or marked unmapped." data-ar-content="106 فيديوهات من StatQuest لتعلّم الآلة، كل واحد مرتبط بفصل من مقرر السابع أو موسوم بغير مرتبط.">
+  <meta property="og:locale" content="en_DZ">
+  <script>
+    (function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');try{var l=localStorage.getItem('ml7-lang');if(l==='ar'){d.lang='ar';d.dir='rtl';}}catch(e){}})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,800&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip" href="#main" data-ar="تجاوز إلى المحتوى">Skip to content</a>
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="wordmark" href="index.html">ML VII <span data-ar="السداسي 7" dir="auto">Semester 7</span></a>
+      <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
+        <a href="index.html#chapters" data-ar="الفصول">Chapters</a>
+        <a href="library.html" aria-current="page" data-ar="المكتبة">Library</a>
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="التبديل إلى العربية" lang="ar">العربية</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+<section class="library-head">
+    <div class="container library-head__grid">
+      <div>
+        <span class="library-figure" aria-hidden="true">106</span>
+        <span class="library-figure__unit" data-ar="فيديو في قائمة واحدة">videos in one playlist</span>
+      </div>
+      <div class="library-head__copy">
+        <h1 data-ar="106 فيديو، مرتبطة بالمقرر.">106 videos, mapped to the syllabus.</h1>
+        <p class="lead" data-ar="29 س 51 د من StatQuest، مرتبة حسب الفصل.">29 h 51 min of StatQuest, sorted by chapter.</p>
+        <div class="library-head__action"><a class="btn btn--primary" href="#library" data-ar="اذهب إلى القائمة">Jump to the list</a></div>
+        <p class="library-head__meta" data-ar="78 مرتبطًا، 28 إضافيًا. قائمة واحدة.">78 mapped, 28 extras. One playlist.</p>
+      </div>
+    </div>
+  </section>
+<section class="mapping" aria-labelledby="mapping-title">
+    <div class="container mapping__grid">
+      <div class="mapping__head">
+        <h2 id="mapping-title" data-ar="كيف يعمل الربط.">How the mapping works.</h2>
+        <p data-ar="المقرر يحدد ترتيب الفصول، والقائمة تحدد ترتيب الفيديوهات.">The syllabus sets chapter order. The playlist sets video order.</p>
+      </div>
+      <ul class="mapping__points">
+<li>
+        <b data-ar="فيديو واحد، فصلان.">One video, two chapters.</b>
+        <span data-ar="صفحات الفصول تضعها حسب الموضوع، والمكتبة تحفظ كل وسم.">Chapter pages place it by topic; the library keeps every tag.</span>
+      </li>
+<li>
+        <b data-ar="الفيديوهات المميّزة هي أقصر طريق.">Starred videos are the shortest route.</b>
+        <span data-ar="78 مرتبطًا، و28 للتمرين الإضافي.">78 are mapped, 28 are extra practice.</span>
+      </li>
+<li>
+        <b data-ar="لا شيء مولّد آليًا.">Nothing is auto-generated.</b>
+        <span data-ar="كل ربط تم التحقق منه مقابل بنود المقرر.">Each mapping was checked against the syllabus bullets.</span>
+      </li>
+      </ul>
+    </div>
+  </section>
+<section class="library" id="library">
+    <div class="container">
+      <div class="library__head">
+        <h2 data-ar="قائمة التشغيل، 106 كلها.">The playlist, all 106.</h2>
+        <p class="library__count" aria-live="polite">
+          <span><output id="lib-visible">106</output> <span data-ar="فيديو معروض">videos shown</span></span>
+          <span><output id="lib-watched">0</output> <span data-ar="تمت مشاهدته">watched</span></span>
+        </p>
+      </div>
+      <form class="filters" role="search" aria-label="Filter videos" data-ar-aria="رشّح الفيديوهات">
+        <div class="field field--search">
+          <label for="lib-search" data-ar="ابحث">Search</label>
+          <input id="lib-search" type="search" placeholder="Search titles" data-ar-placeholder="ابحث في العناوين" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="lib-chapter" data-ar="الفصل">Chapter</label>
+          <select id="lib-chapter">
+            <option value="all" data-ar="كل الفصول">All chapters</option>
+<option value="1" data-ar="1، المقدمة">1, Introduction</option>
+<option value="2" data-ar="2، الموجّه">2, Supervised</option>
+<option value="3" data-ar="3، غير الموجّه">3, Unsupervised</option>
+<option value="4" data-ar="4، متخصصة">4, Specialized</option>
+<option value="5" data-ar="5، شبه موجّه، معزّز">5, Semi-supervised, RL</option>
+<option value="6" data-ar="6، الخصائص، الشذوذ">6, Features, anomalies</option>
+<option value="7" data-ar="7، التوصية">7, Recommenders</option>
+<option value="8" data-ar="8، الخصوصية، الأخلاقيات">8, Privacy, ethics</option>
+            <option value="none" data-ar="غير مرتبط">Not mapped</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="lib-status" data-ar="الحالة">Status</label>
+          <select id="lib-status">
+            <option value="all" data-ar="كل الفيديوهات">All videos</option>
+            <option value="unwatched" data-ar="غير المشاهدة">Unwatched</option>
+            <option value="watched" data-ar="المشاهدة">Watched</option>
+          </select>
+        </div>
+        <button class="btn btn--quiet filters__reset" type="button" id="lib-reset" data-ar="امسح المرشّحات">Clear filters</button>
+      </form>
+      <p class="no-js-note" data-ar="البحث والتقدّم يحتاجان JavaScript. القائمة الكاملة أدناه.">Search and progress need JavaScript. The full list is below.</p>
+      <ul class="lib">
+<li class="lib__row" data-n="1" data-title="A Gentle Introduction to Machine Learning" data-chapters="1">
+      <label class="watch">
+        <input type="checkbox" data-watch="1" aria-label="Mark A Gentle Introduction to Machine Learning as watched" data-ar-aria="علّم A Gentle Introduction to Machine Learning كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">001</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=Gv9_4yMHFhI" data-video="1">
+        <span class="lib__title">A Gentle Introduction to Machine Learning</span>
+        <span class="lib__meta" data-ar="ف 1، 12:45">Ch 1, 12:45</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="2" data-title="Machine Learning Fundamentals: Cross Validation" data-chapters="1">
+      <label class="watch">
+        <input type="checkbox" data-watch="2" aria-label="Mark Machine Learning Fundamentals: Cross Validation as watched" data-ar-aria="علّم Machine Learning Fundamentals: Cross Validation كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">002</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=fSytzGwwBVw" data-video="2">
+        <span class="lib__title">Machine Learning Fundamentals: Cross Validation</span>
+        <span class="lib__meta" data-ar="ف 1، 6:05">Ch 1, 6:05</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="3" data-title="Machine Learning Fundamentals: The Confusion Matrix" data-chapters="1 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="3" aria-label="Mark Machine Learning Fundamentals: The Confusion Matrix as watched" data-ar-aria="علّم Machine Learning Fundamentals: The Confusion Matrix كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">003</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=Kdsp6soqA7o" data-video="3">
+        <span class="lib__title">Machine Learning Fundamentals: The Confusion Matrix</span>
+        <span class="lib__meta" data-ar="ف 1، 7:13">Ch 1, 7:13</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="4" data-title="Machine Learning Fundamentals: Sensitivity and Specificity" data-chapters="1">
+      <label class="watch">
+        <input type="checkbox" data-watch="4" aria-label="Mark Machine Learning Fundamentals: Sensitivity and Specificity as watched" data-ar-aria="علّم Machine Learning Fundamentals: Sensitivity and Specificity كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">004</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=vP06aMoz4v8" data-video="4">
+        <span class="lib__title">Machine Learning Fundamentals: Sensitivity and Specificity</span>
+        <span class="lib__meta" data-ar="ف 1، 11:47">Ch 1, 11:47</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="5" data-title="The Sensitivity, Specificity, Precision, Recall Sing-a-Long!!!" data-chapters="6">
+      <label class="watch">
+        <input type="checkbox" data-watch="5" aria-label="Mark The Sensitivity, Specificity, Precision, Recall Sing-a-Long!!! as watched" data-ar-aria="علّم The Sensitivity, Specificity, Precision, Recall Sing-a-Long!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">005</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=PWvfrTgaPBI" data-video="5">
+        <span class="lib__title">The Sensitivity, Specificity, Precision, Recall Sing-a-Long!!!</span>
+        <span class="lib__meta" data-ar="ف 6، 0:42">Ch 6, 0:42</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="6" data-title="Machine Learning Fundamentals: Bias and Variance" data-chapters="1">
+      <label class="watch">
+        <input type="checkbox" data-watch="6" aria-label="Mark Machine Learning Fundamentals: Bias and Variance as watched" data-ar-aria="علّم Machine Learning Fundamentals: Bias and Variance كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">006</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=EuBBz3bI-aA" data-video="6">
+        <span class="lib__title">Machine Learning Fundamentals: Bias and Variance</span>
+        <span class="lib__meta" data-ar="ف 1، 6:36">Ch 1, 6:36</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="7" data-title="Entropy (for data science) Clearly Explained!!!" data-chapters="1 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="7" aria-label="Mark Entropy (for data science) Clearly Explained!!! as watched" data-ar-aria="علّم Entropy (for data science) Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">007</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=YtebGVx-Fxw" data-video="7">
+        <span class="lib__title">Entropy (for data science) Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 1، 16:35">Ch 1, 16:35</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="8" data-title="Mutual Information, Clearly Explained!!!" data-chapters="1 3 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="8" aria-label="Mark Mutual Information, Clearly Explained!!! as watched" data-ar-aria="علّم Mutual Information, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">008</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=eJIp_mgVLwE" data-video="8">
+        <span class="lib__title">Mutual Information, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 1، 16:14">Ch 1, 16:14</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="9" data-title="The Main Ideas of Fitting a Line to Data (The Main Ideas of Least Squares and Linear Regression.)" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="9" aria-label="Mark The Main Ideas of Fitting a Line to Data (The Main Ideas of Least Squares and Linear Regression.) as watched" data-ar-aria="علّم The Main Ideas of Fitting a Line to Data (The Main Ideas of Least Squares and Linear Regression.) كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">009</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=PaFPbb66DxQ" data-video="9">
+        <span class="lib__title">The Main Ideas of Fitting a Line to Data (The Main Ideas of Least Squares and Linear Regression.)</span>
+        <span class="lib__meta" data-ar="ف 2، 9:22">Ch 2, 9:22</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="10" data-title="Linear Regression, Clearly Explained!!!" data-chapters="1 2 7">
+      <label class="watch">
+        <input type="checkbox" data-watch="10" aria-label="Mark Linear Regression, Clearly Explained!!! as watched" data-ar-aria="علّم Linear Regression, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">010</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=7ArmBVF2dCs" data-video="10">
+        <span class="lib__title">Linear Regression, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 1، 27:27">Ch 1, 27:27</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="11" data-title="Multiple Regression, Clearly Explained!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="11" aria-label="Mark Multiple Regression, Clearly Explained!!! as watched" data-ar-aria="علّم Multiple Regression, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">011</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=zITIFTsivN8" data-video="11">
+        <span class="lib__title">Multiple Regression, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 5:25">Ch 2, 5:25</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="12" data-title="Using Linear Models for t-tests and ANOVA, Clearly Explained!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="12" aria-label="Mark Using Linear Models for t-tests and ANOVA, Clearly Explained!!! as watched" data-ar-aria="علّم Using Linear Models for t-tests and ANOVA, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">012</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=NF5_btOaCig" data-video="12">
+        <span class="lib__title">Using Linear Models for t-tests and ANOVA, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 11:38">Ch 2, 11:38</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="13" data-title="Design Matrices For Linear Models, Clearly Explained!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="13" aria-label="Mark Design Matrices For Linear Models, Clearly Explained!!! as watched" data-ar-aria="علّم Design Matrices For Linear Models, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">013</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=CqLGvwi-5Pc" data-video="13">
+        <span class="lib__title">Design Matrices For Linear Models, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 14:40">Ch 2, 14:40</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="14" data-title="Odds and Log(Odds), Clearly Explained!!!" data-chapters="1">
+      <label class="watch">
+        <input type="checkbox" data-watch="14" aria-label="Mark Odds and Log(Odds), Clearly Explained!!! as watched" data-ar-aria="علّم Odds and Log(Odds), Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">014</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=ARfXDSkQf1Y" data-video="14">
+        <span class="lib__title">Odds and Log(Odds), Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 1، 11:31">Ch 1, 11:31</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="15" data-title="Odds Ratios and Log(Odds Ratios), Clearly Explained!!!" data-chapters="1">
+      <label class="watch">
+        <input type="checkbox" data-watch="15" aria-label="Mark Odds Ratios and Log(Odds Ratios), Clearly Explained!!! as watched" data-ar-aria="علّم Odds Ratios and Log(Odds Ratios), Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">015</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=8nm0G-1uJzA" data-video="15">
+        <span class="lib__title">Odds Ratios and Log(Odds Ratios), Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 1، 16:20">Ch 1, 16:20</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="16" data-title="StatQuest: Logistic Regression" data-chapters="2 4">
+      <label class="watch">
+        <input type="checkbox" data-watch="16" aria-label="Mark StatQuest: Logistic Regression as watched" data-ar-aria="علّم StatQuest: Logistic Regression كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">016</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=yIYKR4sgzI8" data-video="16">
+        <span class="lib__title">StatQuest: Logistic Regression</span>
+        <span class="lib__meta" data-ar="ف 2، 8:48">Ch 2, 8:48</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="17" data-title="Logistic Regression Details Pt1: Coefficients" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="17" aria-label="Mark Logistic Regression Details Pt1: Coefficients as watched" data-ar-aria="علّم Logistic Regression Details Pt1: Coefficients كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">017</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=vN5cNN2-HWE" data-video="17">
+        <span class="lib__title">Logistic Regression Details Pt1: Coefficients</span>
+        <span class="lib__meta" data-ar="ف 2، 19:02">Ch 2, 19:02</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="18" data-title="Logistic Regression Details Pt 2: Maximum Likelihood" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="18" aria-label="Mark Logistic Regression Details Pt 2: Maximum Likelihood as watched" data-ar-aria="علّم Logistic Regression Details Pt 2: Maximum Likelihood كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">018</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=BfKanl1aSG0" data-video="18">
+        <span class="lib__title">Logistic Regression Details Pt 2: Maximum Likelihood</span>
+        <span class="lib__meta" data-ar="ف 2، 10:23">Ch 2, 10:23</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="19" data-title="Logistic Regression Details Pt 3: R-squared and p-value" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="19" aria-label="Mark Logistic Regression Details Pt 3: R-squared and p-value as watched" data-ar-aria="علّم Logistic Regression Details Pt 3: R-squared and p-value كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">019</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=xxFYro8QuXA" data-video="19">
+        <span class="lib__title">Logistic Regression Details Pt 3: R-squared and p-value</span>
+        <span class="lib__meta" data-ar="ف 2، 15:25">Ch 2, 15:25</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="20" data-title="Saturated Models and Deviance" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="20" aria-label="Mark Saturated Models and Deviance as watched" data-ar-aria="علّم Saturated Models and Deviance كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">020</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=9T0wlKdew6I" data-video="20">
+        <span class="lib__title">Saturated Models and Deviance</span>
+        <span class="lib__meta" data-ar="ف 2، 18:40">Ch 2, 18:40</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="21" data-title="Logistic Regression in R, Clearly Explained!!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="21" aria-label="Mark Logistic Regression in R, Clearly Explained!!!! as watched" data-ar-aria="علّم Logistic Regression in R, Clearly Explained!!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">021</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=C4N3_XJJ-jU" data-video="21">
+        <span class="lib__title">Logistic Regression in R, Clearly Explained!!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 17:15">Ch 2, 17:15</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="22" data-title="Deviance Residuals" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="22" aria-label="Mark Deviance Residuals as watched" data-ar-aria="علّم Deviance Residuals كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">022</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=JC56jS2gVUE" data-video="22">
+        <span class="lib__title">Deviance Residuals</span>
+        <span class="lib__meta" data-ar="ف 2، 6:18">Ch 2, 6:18</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="23" data-title="ROC and AUC, Clearly Explained!" data-chapters="2 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="23" aria-label="Mark ROC and AUC, Clearly Explained! as watched" data-ar-aria="علّم ROC and AUC, Clearly Explained! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">023</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=4jRBRDbJemM" data-video="23">
+        <span class="lib__title">ROC and AUC, Clearly Explained!</span>
+        <span class="lib__meta" data-ar="ف 2، 16:17">Ch 2, 16:17</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="24" data-title="ROC and AUC in R" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="24" aria-label="Mark ROC and AUC in R as watched" data-ar-aria="علّم ROC and AUC in R كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">024</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=qcvAqAH60Yw" data-video="24">
+        <span class="lib__title">ROC and AUC in R</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 15:13">Unmapped, 15:13</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="25" data-title="Regularization Part 1: Ridge (L2) Regression" data-chapters="2 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="25" aria-label="Mark Regularization Part 1: Ridge (L2) Regression as watched" data-ar-aria="علّم Regularization Part 1: Ridge (L2) Regression كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">025</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=Q81RR3yKn30" data-video="25">
+        <span class="lib__title">Regularization Part 1: Ridge (L2) Regression</span>
+        <span class="lib__meta" data-ar="ف 2، 20:27">Ch 2, 20:27</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="26" data-title="Regularization Part 2: Lasso (L1) Regression" data-chapters="2 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="26" aria-label="Mark Regularization Part 2: Lasso (L1) Regression as watched" data-ar-aria="علّم Regularization Part 2: Lasso (L1) Regression كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">026</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=NGf0voTMlcs" data-video="26">
+        <span class="lib__title">Regularization Part 2: Lasso (L1) Regression</span>
+        <span class="lib__meta" data-ar="ف 2، 8:19">Ch 2, 8:19</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="27" data-title="Ridge vs Lasso Regression, Visualized!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="27" aria-label="Mark Ridge vs Lasso Regression, Visualized!!! as watched" data-ar-aria="علّم Ridge vs Lasso Regression, Visualized!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">027</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=Xm2C_gTAl8c" data-video="27">
+        <span class="lib__title">Ridge vs Lasso Regression, Visualized!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 9:06">Ch 2, 9:06</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="28" data-title="Regularization Part 3: Elastic Net Regression" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="28" aria-label="Mark Regularization Part 3: Elastic Net Regression as watched" data-ar-aria="علّم Regularization Part 3: Elastic Net Regression كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">028</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=1dKRdX9bfIo" data-video="28">
+        <span class="lib__title">Regularization Part 3: Elastic Net Regression</span>
+        <span class="lib__meta" data-ar="ف 2، 5:19">Ch 2, 5:19</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="29" data-title="Ridge, Lasso and Elastic-Net Regression in R" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="29" aria-label="Mark Ridge, Lasso and Elastic-Net Regression in R as watched" data-ar-aria="علّم Ridge, Lasso and Elastic-Net Regression in R كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">029</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=ctmNq7FgbvI" data-video="29">
+        <span class="lib__title">Ridge, Lasso and Elastic-Net Regression in R</span>
+        <span class="lib__meta" data-ar="ف 2، 17:51">Ch 2, 17:51</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="30" data-title="StatQuest: Principal Component Analysis (PCA), Step-by-Step" data-chapters="3 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="30" aria-label="Mark StatQuest: Principal Component Analysis (PCA), Step-by-Step as watched" data-ar-aria="علّم StatQuest: Principal Component Analysis (PCA), Step-by-Step كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">030</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=FgakZw6K1QQ" data-video="30">
+        <span class="lib__title">StatQuest: Principal Component Analysis (PCA), Step-by-Step</span>
+        <span class="lib__meta" data-ar="ف 3، 21:58">Ch 3, 21:58</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="31" data-title="StatQuest: PCA main ideas in only 5 minutes!!!" data-chapters="3">
+      <label class="watch">
+        <input type="checkbox" data-watch="31" aria-label="Mark StatQuest: PCA main ideas in only 5 minutes!!! as watched" data-ar-aria="علّم StatQuest: PCA main ideas in only 5 minutes!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">031</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=HMOI_lkzW08" data-video="31">
+        <span class="lib__title">StatQuest: PCA main ideas in only 5 minutes!!!</span>
+        <span class="lib__meta" data-ar="ف 3، 6:05">Ch 3, 6:05</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="32" data-title="StatQuest: PCA - Practical Tips" data-chapters="3 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="32" aria-label="Mark StatQuest: PCA - Practical Tips as watched" data-ar-aria="علّم StatQuest: PCA - Practical Tips كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">032</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=oRvgq966yZg" data-video="32">
+        <span class="lib__title">StatQuest: PCA - Practical Tips</span>
+        <span class="lib__meta" data-ar="ف 3، 8:20">Ch 3, 8:20</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="33" data-title="StatQuest: PCA in R" data-chapters="3">
+      <label class="watch">
+        <input type="checkbox" data-watch="33" aria-label="Mark StatQuest: PCA in R as watched" data-ar-aria="علّم StatQuest: PCA in R كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">033</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=0Jp4gsfOLMs" data-video="33">
+        <span class="lib__title">StatQuest: PCA in R</span>
+        <span class="lib__meta" data-ar="ف 3، 8:57">Ch 3, 8:57</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="34" data-title="StatQuest: PCA in Python" data-chapters="3">
+      <label class="watch">
+        <input type="checkbox" data-watch="34" aria-label="Mark StatQuest: PCA in Python as watched" data-ar-aria="علّم StatQuest: PCA in Python كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">034</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=Lsue2gEM9D0" data-video="34">
+        <span class="lib__title">StatQuest: PCA in Python</span>
+        <span class="lib__meta" data-ar="ف 3، 11:37">Ch 3, 11:37</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="35" data-title="StatQuest: Linear Discriminant Analysis (LDA) clearly explained." data-chapters="3 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="35" aria-label="Mark StatQuest: Linear Discriminant Analysis (LDA) clearly explained. as watched" data-ar-aria="علّم StatQuest: Linear Discriminant Analysis (LDA) clearly explained. كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">035</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=azXCzI57Yfc" data-video="35">
+        <span class="lib__title">StatQuest: Linear Discriminant Analysis (LDA) clearly explained.</span>
+        <span class="lib__meta" data-ar="ف 3، 15:12">Ch 3, 15:12</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="36" data-title="Bam!!! Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="36" aria-label="Mark Bam!!! Clearly Explained!!! as watched" data-ar-aria="علّم Bam!!! Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">036</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=i4iUvjsGCMc" data-video="36">
+        <span class="lib__title">Bam!!! Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 2:49">Unmapped, 2:49</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="37" data-title="StatQuest: MDS and PCoA" data-chapters="3">
+      <label class="watch">
+        <input type="checkbox" data-watch="37" aria-label="Mark StatQuest: MDS and PCoA as watched" data-ar-aria="علّم StatQuest: MDS and PCoA كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">037</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=GEn-_dAyYME" data-video="37">
+        <span class="lib__title">StatQuest: MDS and PCoA</span>
+        <span class="lib__meta" data-ar="ف 3، 8:18">Ch 3, 8:18</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="38" data-title="StatQuest: MDS and PCoA in R" data-chapters="3">
+      <label class="watch">
+        <input type="checkbox" data-watch="38" aria-label="Mark StatQuest: MDS and PCoA in R as watched" data-ar-aria="علّم StatQuest: MDS and PCoA in R كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">038</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=pGAUHhLYp5Q" data-video="38">
+        <span class="lib__title">StatQuest: MDS and PCoA in R</span>
+        <span class="lib__meta" data-ar="ف 3، 7:45">Ch 3, 7:45</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="39" data-title="StatQuest: t-SNE, Clearly Explained" data-chapters="3 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="39" aria-label="Mark StatQuest: t-SNE, Clearly Explained as watched" data-ar-aria="علّم StatQuest: t-SNE, Clearly Explained كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">039</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=NEaUSP4YerM" data-video="39">
+        <span class="lib__title">StatQuest: t-SNE, Clearly Explained</span>
+        <span class="lib__meta" data-ar="ف 3، 11:48">Ch 3, 11:48</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="40" data-title="StatQuest: Hierarchical Clustering" data-chapters="3">
+      <label class="watch">
+        <input type="checkbox" data-watch="40" aria-label="Mark StatQuest: Hierarchical Clustering as watched" data-ar-aria="علّم StatQuest: Hierarchical Clustering كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">040</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=7xHsRkOdVwo" data-video="40">
+        <span class="lib__title">StatQuest: Hierarchical Clustering</span>
+        <span class="lib__meta" data-ar="ف 3، 11:19">Ch 3, 11:19</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="41" data-title="StatQuest: K-means clustering" data-chapters="3">
+      <label class="watch">
+        <input type="checkbox" data-watch="41" aria-label="Mark StatQuest: K-means clustering as watched" data-ar-aria="علّم StatQuest: K-means clustering كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">041</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=4b5d3muPQmA" data-video="41">
+        <span class="lib__title">StatQuest: K-means clustering</span>
+        <span class="lib__meta" data-ar="ف 3، 8:30">Ch 3, 8:30</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="42" data-title="Clustering with DBSCAN, Clearly Explained!!!" data-chapters="3 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="42" aria-label="Mark Clustering with DBSCAN, Clearly Explained!!! as watched" data-ar-aria="علّم Clustering with DBSCAN, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">042</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=RDZUdRSDOok" data-video="42">
+        <span class="lib__title">Clustering with DBSCAN, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 3، 9:30">Ch 3, 9:30</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="43" data-title="StatQuest: K-nearest neighbors, Clearly Explained" data-chapters="6">
+      <label class="watch">
+        <input type="checkbox" data-watch="43" aria-label="Mark StatQuest: K-nearest neighbors, Clearly Explained as watched" data-ar-aria="علّم StatQuest: K-nearest neighbors, Clearly Explained كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">043</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=HVXime0nQeI" data-video="43">
+        <span class="lib__title">StatQuest: K-nearest neighbors, Clearly Explained</span>
+        <span class="lib__meta" data-ar="ف 6، 5:30">Ch 6, 5:30</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="44" data-title="Naive Bayes, Clearly Explained!!!" data-chapters="1 4">
+      <label class="watch">
+        <input type="checkbox" data-watch="44" aria-label="Mark Naive Bayes, Clearly Explained!!! as watched" data-ar-aria="علّم Naive Bayes, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">044</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=O2L2Uv9pdDA" data-video="44">
+        <span class="lib__title">Naive Bayes, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 1، 15:12">Ch 1, 15:12</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="45" data-title="Gaussian Naive Bayes, Clearly Explained!!!" data-chapters="1 4 5">
+      <label class="watch">
+        <input type="checkbox" data-watch="45" aria-label="Mark Gaussian Naive Bayes, Clearly Explained!!! as watched" data-ar-aria="علّم Gaussian Naive Bayes, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">045</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=H3EjCKtlVog" data-video="45">
+        <span class="lib__title">Gaussian Naive Bayes, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 1، 9:26">Ch 1, 9:26</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="46" data-title="Decision and Classification Trees, Clearly Explained!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="46" aria-label="Mark Decision and Classification Trees, Clearly Explained!!! as watched" data-ar-aria="علّم Decision and Classification Trees, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">046</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=_L39rN6gz7Y" data-video="46">
+        <span class="lib__title">Decision and Classification Trees, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 18:08">Ch 2, 18:08</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="47" data-title="StatQuest: Decision Trees, Part 2 - Feature Selection and Missing Data" data-chapters="2 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="47" aria-label="Mark StatQuest: Decision Trees, Part 2 - Feature Selection and Missing Data as watched" data-ar-aria="علّم StatQuest: Decision Trees, Part 2 - Feature Selection and Missing Data كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">047</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=wpNl-JwwplA" data-video="47">
+        <span class="lib__title">StatQuest: Decision Trees, Part 2 - Feature Selection and Missing Data</span>
+        <span class="lib__meta" data-ar="ف 2، 5:16">Ch 2, 5:16</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="48" data-title="Regression Trees, Clearly Explained!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="48" aria-label="Mark Regression Trees, Clearly Explained!!! as watched" data-ar-aria="علّم Regression Trees, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">048</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=g9c66TUylZ4" data-video="48">
+        <span class="lib__title">Regression Trees, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 22:33">Ch 2, 22:33</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="49" data-title="How to Prune Regression Trees, Clearly Explained!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="49" aria-label="Mark How to Prune Regression Trees, Clearly Explained!!! as watched" data-ar-aria="علّم How to Prune Regression Trees, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">049</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=D0efHEJsfHo" data-video="49">
+        <span class="lib__title">How to Prune Regression Trees, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 16:15">Ch 2, 16:15</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="50" data-title="One-Hot, Label, Target and K-Fold Target Encoding, Clearly Explained!!!" data-chapters="6">
+      <label class="watch">
+        <input type="checkbox" data-watch="50" aria-label="Mark One-Hot, Label, Target and K-Fold Target Encoding, Clearly Explained!!! as watched" data-ar-aria="علّم One-Hot, Label, Target and K-Fold Target Encoding, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">050</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=589nCGeWG1w" data-video="50">
+        <span class="lib__title">One-Hot, Label, Target and K-Fold Target Encoding, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 6، 15:23">Ch 6, 15:23</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="51" data-title="Classification Trees in Python from Start to Finish" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="51" aria-label="Mark Classification Trees in Python from Start to Finish as watched" data-ar-aria="علّم Classification Trees in Python from Start to Finish كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">051</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=q90UDEgYqeI" data-video="51">
+        <span class="lib__title">Classification Trees in Python from Start to Finish</span>
+        <span class="lib__meta" data-ar="ف 2، 1:06:24">Ch 2, 1:06:24</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="52" data-title="StatQuest: Random Forests Part 1 - Building, Using and Evaluating" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="52" aria-label="Mark StatQuest: Random Forests Part 1 - Building, Using and Evaluating as watched" data-ar-aria="علّم StatQuest: Random Forests Part 1 - Building, Using and Evaluating كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">052</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ" data-video="52">
+        <span class="lib__title">StatQuest: Random Forests Part 1 - Building, Using and Evaluating</span>
+        <span class="lib__meta" data-ar="ف 2، 9:54">Ch 2, 9:54</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="53" data-title="StatQuest: Random Forests Part 2: Missing data and clustering" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="53" aria-label="Mark StatQuest: Random Forests Part 2: Missing data and clustering as watched" data-ar-aria="علّم StatQuest: Random Forests Part 2: Missing data and clustering كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">053</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=mIlw5j3WyVk" data-video="53">
+        <span class="lib__title">StatQuest: Random Forests Part 2: Missing data and clustering</span>
+        <span class="lib__meta" data-ar="ف 2، 10:48">Ch 2, 10:48</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="54" data-title="StatQuest: Random Forests in R" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="54" aria-label="Mark StatQuest: Random Forests in R as watched" data-ar-aria="علّم StatQuest: Random Forests in R كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">054</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=6EXPYzbfLCE" data-video="54">
+        <span class="lib__title">StatQuest: Random Forests in R</span>
+        <span class="lib__meta" data-ar="ف 2، 15:10">Ch 2, 15:10</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="55" data-title="The Chain Rule, Clearly Explained!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="55" aria-label="Mark The Chain Rule, Clearly Explained!!! as watched" data-ar-aria="علّم The Chain Rule, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">055</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=wl1myxrtQHQ" data-video="55">
+        <span class="lib__title">The Chain Rule, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 18:24">Ch 2, 18:24</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="56" data-title="Gradient Descent, Step-by-Step" data-chapters="2 4">
+      <label class="watch">
+        <input type="checkbox" data-watch="56" aria-label="Mark Gradient Descent, Step-by-Step as watched" data-ar-aria="علّم Gradient Descent, Step-by-Step كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">056</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=sDv4f4s2SB8" data-video="56">
+        <span class="lib__title">Gradient Descent, Step-by-Step</span>
+        <span class="lib__meta" data-ar="ف 2، 23:54">Ch 2, 23:54</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="57" data-title="Stochastic Gradient Descent, Clearly Explained!!!" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="57" aria-label="Mark Stochastic Gradient Descent, Clearly Explained!!! as watched" data-ar-aria="علّم Stochastic Gradient Descent, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">057</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=vMh0zPT0tLI" data-video="57">
+        <span class="lib__title">Stochastic Gradient Descent, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 10:53">Ch 2, 10:53</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="58" data-title="AdaBoost, Clearly Explained" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="58" aria-label="Mark AdaBoost, Clearly Explained as watched" data-ar-aria="علّم AdaBoost, Clearly Explained كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">058</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=LsK-xG1cLYA" data-video="58">
+        <span class="lib__title">AdaBoost, Clearly Explained</span>
+        <span class="lib__meta" data-ar="ف 2، 20:54">Ch 2, 20:54</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="59" data-title="Gradient Boost Part 1 (of 4): Regression Main Ideas" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="59" aria-label="Mark Gradient Boost Part 1 (of 4): Regression Main Ideas as watched" data-ar-aria="علّم Gradient Boost Part 1 (of 4): Regression Main Ideas كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">059</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=3CC4N4z3GJc" data-video="59">
+        <span class="lib__title">Gradient Boost Part 1 (of 4): Regression Main Ideas</span>
+        <span class="lib__meta" data-ar="ف 2، 15:52">Ch 2, 15:52</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="60" data-title="Gradient Boost Part 2 (of 4): Regression Details" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="60" aria-label="Mark Gradient Boost Part 2 (of 4): Regression Details as watched" data-ar-aria="علّم Gradient Boost Part 2 (of 4): Regression Details كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">060</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=2xudPOBz-vs" data-video="60">
+        <span class="lib__title">Gradient Boost Part 2 (of 4): Regression Details</span>
+        <span class="lib__meta" data-ar="ف 2، 26:46">Ch 2, 26:46</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="61" data-title="Gradient Boost Part 3 (of 4): Classification" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="61" aria-label="Mark Gradient Boost Part 3 (of 4): Classification as watched" data-ar-aria="علّم Gradient Boost Part 3 (of 4): Classification كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">061</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=jxuNLH5dXCs" data-video="61">
+        <span class="lib__title">Gradient Boost Part 3 (of 4): Classification</span>
+        <span class="lib__meta" data-ar="ف 2، 17:03">Ch 2, 17:03</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="62" data-title="Gradient Boost Part 4 (of 4): Classification Details" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="62" aria-label="Mark Gradient Boost Part 4 (of 4): Classification Details as watched" data-ar-aria="علّم Gradient Boost Part 4 (of 4): Classification Details كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">062</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=StWY5QWMXCw" data-video="62">
+        <span class="lib__title">Gradient Boost Part 4 (of 4): Classification Details</span>
+        <span class="lib__meta" data-ar="ف 2، 37:00">Ch 2, 37:00</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="63" data-title="Troll 2, Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="63" aria-label="Mark Troll 2, Clearly Explained!!! as watched" data-ar-aria="علّم Troll 2, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">063</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=W4sYsXGeCls" data-video="63">
+        <span class="lib__title">Troll 2, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 5:06">Unmapped, 5:06</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="64" data-title="XGBoost Part 1 (of 4): Regression" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="64" aria-label="Mark XGBoost Part 1 (of 4): Regression as watched" data-ar-aria="علّم XGBoost Part 1 (of 4): Regression كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">064</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=OtD8wVaFm6E" data-video="64">
+        <span class="lib__title">XGBoost Part 1 (of 4): Regression</span>
+        <span class="lib__meta" data-ar="ف 2، 25:46">Ch 2, 25:46</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="65" data-title="XGBoost Part 2 (of 4): Classification" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="65" aria-label="Mark XGBoost Part 2 (of 4): Classification as watched" data-ar-aria="علّم XGBoost Part 2 (of 4): Classification كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">065</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=8b1JEDvenQU" data-video="65">
+        <span class="lib__title">XGBoost Part 2 (of 4): Classification</span>
+        <span class="lib__meta" data-ar="ف 2، 25:18">Ch 2, 25:18</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="66" data-title="XGBoost Part 3 (of 4): Mathematical Details" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="66" aria-label="Mark XGBoost Part 3 (of 4): Mathematical Details as watched" data-ar-aria="علّم XGBoost Part 3 (of 4): Mathematical Details كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">066</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=ZVFeW798-2I" data-video="66">
+        <span class="lib__title">XGBoost Part 3 (of 4): Mathematical Details</span>
+        <span class="lib__meta" data-ar="ف 2، 27:24">Ch 2, 27:24</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="67" data-title="XGBoost Part 4 (of 4): Crazy Cool Optimizations" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="67" aria-label="Mark XGBoost Part 4 (of 4): Crazy Cool Optimizations as watched" data-ar-aria="علّم XGBoost Part 4 (of 4): Crazy Cool Optimizations كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">067</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=oRrKeUCEbq8" data-video="67">
+        <span class="lib__title">XGBoost Part 4 (of 4): Crazy Cool Optimizations</span>
+        <span class="lib__meta" data-ar="ف 2، 24:27">Ch 2, 24:27</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="68" data-title="XGBoost in Python from Start to Finish" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="68" aria-label="Mark XGBoost in Python from Start to Finish as watched" data-ar-aria="علّم XGBoost in Python from Start to Finish كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">068</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=GrJP9FLV3FE" data-video="68">
+        <span class="lib__title">XGBoost in Python from Start to Finish</span>
+        <span class="lib__meta" data-ar="ف 2، 56:43">Ch 2, 56:43</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="69" data-title="CatBoost Part 1: Ordered Target Encoding" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="69" aria-label="Mark CatBoost Part 1: Ordered Target Encoding as watched" data-ar-aria="علّم CatBoost Part 1: Ordered Target Encoding كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">069</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=KXOTSkPL2X4" data-video="69">
+        <span class="lib__title">CatBoost Part 1: Ordered Target Encoding</span>
+        <span class="lib__meta" data-ar="ف 2، 8:32">Ch 2, 8:32</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="70" data-title="CatBoost Part 2: Building and Using Trees" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="70" aria-label="Mark CatBoost Part 2: Building and Using Trees as watched" data-ar-aria="علّم CatBoost Part 2: Building and Using Trees كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">070</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=3Bg2XRFOTzg" data-video="70">
+        <span class="lib__title">CatBoost Part 2: Building and Using Trees</span>
+        <span class="lib__meta" data-ar="ف 2، 16:16">Ch 2, 16:16</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="71" data-title="Cosine Similarity, Clearly Explained!!!" data-chapters="2 7">
+      <label class="watch">
+        <input type="checkbox" data-watch="71" aria-label="Mark Cosine Similarity, Clearly Explained!!! as watched" data-ar-aria="علّم Cosine Similarity, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">071</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=e9U0QAFbfLI" data-video="71">
+        <span class="lib__title">Cosine Similarity, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 10:14">Ch 2, 10:14</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="72" data-title="Support Vector Machines Part 1 (of 3): Main Ideas!!!" data-chapters="2 5 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="72" aria-label="Mark Support Vector Machines Part 1 (of 3): Main Ideas!!! as watched" data-ar-aria="علّم Support Vector Machines Part 1 (of 3): Main Ideas!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">072</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=efR1C6CvhmE" data-video="72">
+        <span class="lib__title">Support Vector Machines Part 1 (of 3): Main Ideas!!!</span>
+        <span class="lib__meta" data-ar="ف 2، 20:32">Ch 2, 20:32</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="73" data-title="Support Vector Machines Part 2: The Polynomial Kernel (Part 2 of 3)" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="73" aria-label="Mark Support Vector Machines Part 2: The Polynomial Kernel (Part 2 of 3) as watched" data-ar-aria="علّم Support Vector Machines Part 2: The Polynomial Kernel (Part 2 of 3) كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">073</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=Toet3EiSFcM" data-video="73">
+        <span class="lib__title">Support Vector Machines Part 2: The Polynomial Kernel (Part 2 of 3)</span>
+        <span class="lib__meta" data-ar="ف 2، 7:15">Ch 2, 7:15</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="74" data-title="Support Vector Machines Part 3: The Radial (RBF) Kernel (Part 3 of 3)" data-chapters="2 6">
+      <label class="watch">
+        <input type="checkbox" data-watch="74" aria-label="Mark Support Vector Machines Part 3: The Radial (RBF) Kernel (Part 3 of 3) as watched" data-ar-aria="علّم Support Vector Machines Part 3: The Radial (RBF) Kernel (Part 3 of 3) كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">074</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=Qc5IyLW_hns" data-video="74">
+        <span class="lib__title">Support Vector Machines Part 3: The Radial (RBF) Kernel (Part 3 of 3)</span>
+        <span class="lib__meta" data-ar="ف 2، 15:52">Ch 2, 15:52</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="75" data-title="Support Vector Machines in Python from Start to Finish." data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="75" aria-label="Mark Support Vector Machines in Python from Start to Finish. as watched" data-ar-aria="علّم Support Vector Machines in Python from Start to Finish. كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">075</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=8A7L0GsBiLQ" data-video="75">
+        <span class="lib__title">Support Vector Machines in Python from Start to Finish.</span>
+        <span class="lib__meta" data-ar="ف 2، 44:49">Ch 2, 44:49</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="76" data-title="The Essential Main Ideas of Neural Networks" data-chapters="6">
+      <label class="watch">
+        <input type="checkbox" data-watch="76" aria-label="Mark The Essential Main Ideas of Neural Networks as watched" data-ar-aria="علّم The Essential Main Ideas of Neural Networks كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">076</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=CqOfi41LfDw" data-video="76">
+        <span class="lib__title">The Essential Main Ideas of Neural Networks</span>
+        <span class="lib__meta" data-ar="ف 6، 18:54">Ch 6, 18:54</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="77" data-title="Neural Networks Pt. 2: Backpropagation Main Ideas" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="77" aria-label="Mark Neural Networks Pt. 2: Backpropagation Main Ideas as watched" data-ar-aria="علّم Neural Networks Pt. 2: Backpropagation Main Ideas كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">077</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=IN2XmBhILt4" data-video="77">
+        <span class="lib__title">Neural Networks Pt. 2: Backpropagation Main Ideas</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 17:34">Unmapped, 17:34</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="78" data-title="Backpropagation Details Pt. 1: Optimizing 3 parameters simultaneously." data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="78" aria-label="Mark Backpropagation Details Pt. 1: Optimizing 3 parameters simultaneously. as watched" data-ar-aria="علّم Backpropagation Details Pt. 1: Optimizing 3 parameters simultaneously. كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">078</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=iyn2zdALii8" data-video="78">
+        <span class="lib__title">Backpropagation Details Pt. 1: Optimizing 3 parameters simultaneously.</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 18:32">Unmapped, 18:32</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="79" data-title="Backpropagation Details Pt. 2: Going bonkers with The Chain Rule" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="79" aria-label="Mark Backpropagation Details Pt. 2: Going bonkers with The Chain Rule as watched" data-ar-aria="علّم Backpropagation Details Pt. 2: Going bonkers with The Chain Rule كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">079</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=GKZoOHXGcLo" data-video="79">
+        <span class="lib__title">Backpropagation Details Pt. 2: Going bonkers with The Chain Rule</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 13:09">Unmapped, 13:09</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="80" data-title="Neural Networks Pt. 3: ReLU In Action!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="80" aria-label="Mark Neural Networks Pt. 3: ReLU In Action!!! as watched" data-ar-aria="علّم Neural Networks Pt. 3: ReLU In Action!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">080</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=68BZ5f7P94E" data-video="80">
+        <span class="lib__title">Neural Networks Pt. 3: ReLU In Action!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 8:58">Unmapped, 8:58</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="81" data-title="Neural Networks Pt. 4: Multiple Inputs and Outputs" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="81" aria-label="Mark Neural Networks Pt. 4: Multiple Inputs and Outputs as watched" data-ar-aria="علّم Neural Networks Pt. 4: Multiple Inputs and Outputs كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">081</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=83LYR-1IcjA" data-video="81">
+        <span class="lib__title">Neural Networks Pt. 4: Multiple Inputs and Outputs</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 13:50">Unmapped, 13:50</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="82" data-title="Neural Networks Part 5: ArgMax and SoftMax" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="82" aria-label="Mark Neural Networks Part 5: ArgMax and SoftMax as watched" data-ar-aria="علّم Neural Networks Part 5: ArgMax and SoftMax كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">082</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=KpKog-L9veg" data-video="82">
+        <span class="lib__title">Neural Networks Part 5: ArgMax and SoftMax</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 14:03">Unmapped, 14:03</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="83" data-title="The SoftMax Derivative, Step-by-Step!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="83" aria-label="Mark The SoftMax Derivative, Step-by-Step!!! as watched" data-ar-aria="علّم The SoftMax Derivative, Step-by-Step!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">083</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=M59JElEPgIg" data-video="83">
+        <span class="lib__title">The SoftMax Derivative, Step-by-Step!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 7:13">Unmapped, 7:13</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="84" data-title="Neural Networks Part 6: Cross Entropy" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="84" aria-label="Mark Neural Networks Part 6: Cross Entropy as watched" data-ar-aria="علّم Neural Networks Part 6: Cross Entropy كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">084</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=6ArSys5qHAU" data-video="84">
+        <span class="lib__title">Neural Networks Part 6: Cross Entropy</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 9:31">Unmapped, 9:31</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="85" data-title="Neural Networks Part 7: Cross Entropy Derivatives and Backpropagation" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="85" aria-label="Mark Neural Networks Part 7: Cross Entropy Derivatives and Backpropagation as watched" data-ar-aria="علّم Neural Networks Part 7: Cross Entropy Derivatives and Backpropagation كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">085</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=xBEh66V9gZo" data-video="85">
+        <span class="lib__title">Neural Networks Part 7: Cross Entropy Derivatives and Backpropagation</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 22:08">Unmapped, 22:08</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="86" data-title="Neural Networks Part 8: Image Classification with Convolutional Neural Networks (CNNs)" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="86" aria-label="Mark Neural Networks Part 8: Image Classification with Convolutional Neural Networks (CNNs) as watched" data-ar-aria="علّم Neural Networks Part 8: Image Classification with Convolutional Neural Networks (CNNs) كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">086</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=HGwBXDKFk9I" data-video="86">
+        <span class="lib__title">Neural Networks Part 8: Image Classification with Convolutional Neural Networks (CNNs)</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 15:24">Unmapped, 15:24</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="87" data-title="Recurrent Neural Networks (RNNs), Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="87" aria-label="Mark Recurrent Neural Networks (RNNs), Clearly Explained!!! as watched" data-ar-aria="علّم Recurrent Neural Networks (RNNs), Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">087</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=AsNTP8Kwu80" data-video="87">
+        <span class="lib__title">Recurrent Neural Networks (RNNs), Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 16:37">Unmapped, 16:37</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="88" data-title="Long Short-Term Memory (LSTM), Clearly Explained" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="88" aria-label="Mark Long Short-Term Memory (LSTM), Clearly Explained as watched" data-ar-aria="علّم Long Short-Term Memory (LSTM), Clearly Explained كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">088</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=YCzL96nL7j0" data-video="88">
+        <span class="lib__title">Long Short-Term Memory (LSTM), Clearly Explained</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 20:45">Unmapped, 20:45</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="89" data-title="Word Embedding and Word2Vec, Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="89" aria-label="Mark Word Embedding and Word2Vec, Clearly Explained!!! as watched" data-ar-aria="علّم Word Embedding and Word2Vec, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">089</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=viZrOnJclY0" data-video="89">
+        <span class="lib__title">Word Embedding and Word2Vec, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 16:12">Unmapped, 16:12</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="90" data-title="Sequence-to-Sequence (seq2seq) Encoder-Decoder Neural Networks, Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="90" aria-label="Mark Sequence-to-Sequence (seq2seq) Encoder-Decoder Neural Networks, Clearly Explained!!! as watched" data-ar-aria="علّم Sequence-to-Sequence (seq2seq) Encoder-Decoder Neural Networks, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">090</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=L8HKweZIOmg" data-video="90">
+        <span class="lib__title">Sequence-to-Sequence (seq2seq) Encoder-Decoder Neural Networks, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 16:50">Unmapped, 16:50</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="91" data-title="Attention for Neural Networks, Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="91" aria-label="Mark Attention for Neural Networks, Clearly Explained!!! as watched" data-ar-aria="علّم Attention for Neural Networks, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">091</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=PSs6nxngL6k" data-video="91">
+        <span class="lib__title">Attention for Neural Networks, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 15:51">Unmapped, 15:51</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="92" data-title="Transformer Neural Networks, ChatGPT’s foundation, Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="92" aria-label="Mark Transformer Neural Networks, ChatGPT’s foundation, Clearly Explained!!! as watched" data-ar-aria="علّم Transformer Neural Networks, ChatGPT’s foundation, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">092</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=zxQyTK8quyY" data-video="92">
+        <span class="lib__title">Transformer Neural Networks, ChatGPT’s foundation, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 36:15">Unmapped, 36:15</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="93" data-title="Decoder-Only Transformers, ChatGPTs specific Transformer, Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="93" aria-label="Mark Decoder-Only Transformers, ChatGPTs specific Transformer, Clearly Explained!!! as watched" data-ar-aria="علّم Decoder-Only Transformers, ChatGPTs specific Transformer, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">093</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=bQ5BoolX9Ag" data-video="93">
+        <span class="lib__title">Decoder-Only Transformers, ChatGPTs specific Transformer, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 36:45">Unmapped, 36:45</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="94" data-title="Encoder-Only Transformers (like BERT) for RAG, Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="94" aria-label="Mark Encoder-Only Transformers (like BERT) for RAG, Clearly Explained!!! as watched" data-ar-aria="علّم Encoder-Only Transformers (like BERT) for RAG, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">094</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=GDN649X_acE" data-video="94">
+        <span class="lib__title">Encoder-Only Transformers (like BERT) for RAG, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 18:52">Unmapped, 18:52</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="95" data-title="Tensors for Neural Networks, Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="95" aria-label="Mark Tensors for Neural Networks, Clearly Explained!!! as watched" data-ar-aria="علّم Tensors for Neural Networks, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">095</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=L35fFDpwIM4" data-video="95">
+        <span class="lib__title">Tensors for Neural Networks, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 9:40">Unmapped, 9:40</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="96" data-title="Essential Matrix Algebra for Neural Networks, Clearly Explained!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="96" aria-label="Mark Essential Matrix Algebra for Neural Networks, Clearly Explained!!! as watched" data-ar-aria="علّم Essential Matrix Algebra for Neural Networks, Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">096</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=ZTt9gsGcdDo" data-video="96">
+        <span class="lib__title">Essential Matrix Algebra for Neural Networks, Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 30:01">Unmapped, 30:01</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="97" data-title="The matrix math behind transformer neural networks, one step at a time!!!" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="97" aria-label="Mark The matrix math behind transformer neural networks, one step at a time!!! as watched" data-ar-aria="علّم The matrix math behind transformer neural networks, one step at a time!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">097</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=KphmOJnLAdI" data-video="97">
+        <span class="lib__title">The matrix math behind transformer neural networks, one step at a time!!!</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 23:43">Unmapped, 23:43</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="98" data-title="The StatQuest Introduction to PyTorch" data-chapters="2">
+      <label class="watch">
+        <input type="checkbox" data-watch="98" aria-label="Mark The StatQuest Introduction to PyTorch as watched" data-ar-aria="علّم The StatQuest Introduction to PyTorch كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">098</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=FHdlXe1bSe4" data-video="98">
+        <span class="lib__title">The StatQuest Introduction to PyTorch</span>
+        <span class="lib__meta" data-ar="ف 2، 23:22">Ch 2, 23:22</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="99" data-title="Introduction to Coding Neural Networks with PyTorch and Lightning" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="99" aria-label="Mark Introduction to Coding Neural Networks with PyTorch and Lightning as watched" data-ar-aria="علّم Introduction to Coding Neural Networks with PyTorch and Lightning كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">099</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=khMzi6xPbuM" data-video="99">
+        <span class="lib__title">Introduction to Coding Neural Networks with PyTorch and Lightning</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 20:43">Unmapped, 20:43</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="100" data-title="Long Short-Term Memory with PyTorch + Lightning" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="100" aria-label="Mark Long Short-Term Memory with PyTorch + Lightning as watched" data-ar-aria="علّم Long Short-Term Memory with PyTorch + Lightning كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">100</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=RHGiXPuo_pI" data-video="100">
+        <span class="lib__title">Long Short-Term Memory with PyTorch + Lightning</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 33:24">Unmapped, 33:24</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="101" data-title="Word Embedding in PyTorch + Lightning" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="101" aria-label="Mark Word Embedding in PyTorch + Lightning as watched" data-ar-aria="علّم Word Embedding in PyTorch + Lightning كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">101</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=Qf06XDYXCXI" data-video="101">
+        <span class="lib__title">Word Embedding in PyTorch + Lightning</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 32:02">Unmapped, 32:02</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="102" data-title="Coding a ChatGPT Like Transformer From Scratch in PyTorch" data-chapters="">
+      <label class="watch">
+        <input type="checkbox" data-watch="102" aria-label="Mark Coding a ChatGPT Like Transformer From Scratch in PyTorch as watched" data-ar-aria="علّم Coding a ChatGPT Like Transformer From Scratch in PyTorch كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">102</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=C9QSpl5nmrY" data-video="102">
+        <span class="lib__title">Coding a ChatGPT Like Transformer From Scratch in PyTorch</span>
+        <span class="lib__meta" data-ar="غير مرتبط، 31:11">Unmapped, 31:11</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="103" data-title="Reinforcement Learning: Essential Concepts" data-chapters="5">
+      <label class="watch">
+        <input type="checkbox" data-watch="103" aria-label="Mark Reinforcement Learning: Essential Concepts as watched" data-ar-aria="علّم Reinforcement Learning: Essential Concepts كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">103</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=Z-T0iJEXiwM" data-video="103">
+        <span class="lib__title">Reinforcement Learning: Essential Concepts</span>
+        <span class="lib__meta" data-ar="ف 5، 18:13">Ch 5, 18:13</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="104" data-title="Reinforcement Learning with Neural Networks: Essential Concepts" data-chapters="5">
+      <label class="watch">
+        <input type="checkbox" data-watch="104" aria-label="Mark Reinforcement Learning with Neural Networks: Essential Concepts as watched" data-ar-aria="علّم Reinforcement Learning with Neural Networks: Essential Concepts كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">104</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=9hbQieQh7-o" data-video="104">
+        <span class="lib__title">Reinforcement Learning with Neural Networks: Essential Concepts</span>
+        <span class="lib__meta" data-ar="ف 5، 24:00">Ch 5, 24:00</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="105" data-title="Reinforcement Learning with Neural Networks: Mathematical Details" data-chapters="5">
+      <label class="watch">
+        <input type="checkbox" data-watch="105" aria-label="Mark Reinforcement Learning with Neural Networks: Mathematical Details as watched" data-ar-aria="علّم Reinforcement Learning with Neural Networks: Mathematical Details كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">105</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=DVGmsnxB2UQ" data-video="105">
+        <span class="lib__title">Reinforcement Learning with Neural Networks: Mathematical Details</span>
+        <span class="lib__meta" data-ar="ف 5، 25:01">Ch 5, 25:01</span>
+      </a>
+    </li>
+<li class="lib__row" data-n="106" data-title="Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!!" data-chapters="5">
+      <label class="watch">
+        <input type="checkbox" data-watch="106" aria-label="Mark Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!! as watched" data-ar-aria="علّم Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!! كمشاهد">
+        <span class="watch__box" aria-hidden="true"></span>
+      </label>
+      <span class="lib__n">106</span>
+      <a class="lib__play" href="https://www.youtube.com/watch?v=qPN_XZcJf_s" data-video="106">
+        <span class="lib__title">Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!!</span>
+        <span class="lib__meta" data-ar="ف 5، 18:02">Ch 5, 18:02</span>
+      </a>
+    </li>
+      </ul>
+      <p class="lib__empty" id="lib-empty" hidden data-ar="لا فيديو يطابق. امسح المرشّحات أو جرّب بحثًا أقصر.">No videos match. Clear the filters or try a shorter search.</p>
+    </div>
+  </section>
+<section class="extras" aria-labelledby="extras-title">
+    <div class="container extras__grid">
+      <div>
+        <h2 id="extras-title" data-ar="الـ28 الإضافية.">The 28 extras.</h2>
+        <p data-ar="خلفية، وشروحات بايثون، وموضوعات خارج المقرر. تستحق المشاهدة، لكنها لا تسدّ فجوة.">Background, Python walkthroughs and topics outside the syllabus. They are worth watching, but they do not fill a gap.</p>
+      </div>
+      <div class="extras__action">
+        <a class="btn btn--quiet" href="#library" id="extras-filter" data-ar="اعرض الـ28">Show the 28</a>
+      </div>
+    </div>
+  </section>
+  </main>
+  <footer class="letter letter--short" id="about">
+    <div class="container letter__grid">
+      <div>
+        <p class="letter__statement" data-ar="السداسي 7، وحدة UEF2، معامل 4. المقرر: Halitim Amin. صفحات المقرر 61 إلى 63.">Semester 7, UEF2, coefficient 4. Course by Halitim Amin. Syllabus pages 61 to 63.</p>
+        <p class="letter__sign">Halitim Amin</p>
+        <p class="letter__date" data-ar="26 أكتوبر 2026. UEF2، معامل 4.">26 October 2026. UEF2, coefficient 4.</p>
+      </div>
+      <div class="letter__side">
+        <nav class="letter__links" aria-label="Sources" data-ar-aria="المصادر">
+          <a href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="قائمة التشغيل">Playlist</a>
+          <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" data-ar="قناة StatQuest">StatQuest channel</a>
+          <a href="library.html" data-ar="كل الفيديوهات">All 106 videos</a>
+        </nav>
+        <p class="letter__legal" data-ar="المقرر: Halitim Amin. الفيديوهات: StatQuest على يوتيوب. الرسوم مرسومة لهذا الدليل. لا صور فوتوغرافية.">Course material: Halitim Amin. Videos: StatQuest, YouTube. Diagrams drawn for this guide. No photographs.</p>
+      </div>
+    </div>
+  </footer>
+  <dialog class="player" id="player" aria-labelledby="player-title">
+    <div class="player__bar">
+      <h2 id="player-title">Video</h2>
+      <form method="dialog"><button class="player__close" type="submit" data-ar="إغلاق">Close</button></form>
+    </div>
+    <div class="player__frame" id="player-frame"></div>
+    <div class="player__foot">
+      <p class="player__note" id="player-note" hidden></p>
+      <a id="player-link" href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="افتح على يوتيوب">Open on YouTube</a>
+    </div>
+  </dialog>
+  <script src="assets/data.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

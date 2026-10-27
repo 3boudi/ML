@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-ar="الفصل 7، أنظمة التوصية وقواعد الارتباط · ML VII">Chapter 7, Recommender Systems and Association Rules · ML VII</title>
+  <meta name="description" content="Ratings that become factors, baskets that become rules. 2 videos mapped to this chapter." data-ar-content="تقييمات تصبح عوامل، وسلال تصبح قواعد. فيديوان مرتبطة بهذا الفصل.">
+  <meta name="author" content="Halitim Amin">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chapter 7, Recommender Systems and Association Rules · ML VII" data-ar-content="الفصل 7، أنظمة التوصية وقواعد الارتباط · ML VII">
+  <meta property="og:description" content="Ratings that become factors, baskets that become rules. 2 videos mapped to this chapter." data-ar-content="تقييمات تصبح عوامل، وسلال تصبح قواعد. فيديوان مرتبطة بهذا الفصل.">
+  <meta property="og:locale" content="en_DZ">
+  <script>
+    (function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');try{var l=localStorage.getItem('ml7-lang');if(l==='ar'){d.lang='ar';d.dir='rtl';}}catch(e){}})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,800&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip" href="#main" data-ar="تجاوز إلى المحتوى">Skip to content</a>
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="wordmark" href="index.html">ML VII <span data-ar="السداسي 7" dir="auto">Semester 7</span></a>
+      <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
+        <a href="index.html#chapters" data-ar="الفصول">Chapters</a>
+        <a href="library.html" data-ar="المكتبة">Library</a>
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="التبديل إلى العربية" lang="ar">العربية</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+<section class="chapter">
+    <div class="container chapter__grid">
+      <span class="chapter__num" aria-hidden="true">07</span>
+      <div class="chapter__copy">
+        <h1 data-ar="أنظمة التوصية وقواعد الارتباط">Recommender Systems and Association Rules</h1>
+        <p class="lead" data-ar="تقييمات تصبح عوامل، وسلال تصبح قواعد.">Ratings that become factors, baskets that become rules.</p>
+        <div class="chapter__action">
+          <a class="btn btn--primary" href="https://www.youtube.com/watch?v=e9U0QAFbfLI" data-video="71"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span data-ar="شغّل أول فيديو">Play the first video</span></a>
+          <a class="btn btn--quiet" href="index.html#chapters"><span data-ar="كل الفصول">All chapters</span></a>
+        </div>
+        <p class="chapter__meta" data-ar="درسان، فيديوان، 38 د. لا تغطية.">2 lessons, 2 videos, 38 min. Not covered.</p>
+      </div>
+    </div>
+  </section>
+<section class="split" aria-labelledby="diagram-title">
+    <div class="container split__grid">
+      <div class="split__text">
+        <h2 id="diagram-title" data-ar="تحليل المصفوفات">Matrix factorisation</h2>
+        <p data-ar="املأ مصفوفة تقييمات فارغة بقليل من الأذواق الخفية.">Fill an empty rating matrix with a few hidden tastes.</p>
+        <ol class="split__points">
+<li>
+          <span>01</span>
+          <span data-ar="يقيّم المستخدمون عناصر قليلة؛ معظم الخلايا فارغة.">Users rate a few items; most cells are empty.</span>
+        </li>
+<li>
+          <span>02</span>
+          <span data-ar="تتحول المصفوفة إلى مصفوفتين رفيعتين: متجه ذوق لكل مستخدم، ومتجه لكل عنصر.">The matrix becomes two thin matrices: one taste vector per user, one per item.</span>
+        </li>
+<li>
+          <span>03</span>
+          <span data-ar="التقييم المفقود هو الجداء النقطي للمتجهين.">A missing rating is the dot product of the two vectors.</span>
+        </li>
+        </ol>
+      </div>
+      <figure class="split__fig">
+        
+<svg class="diagram" viewBox="0 0 360 250" role="img" aria-labelledby="factor-title factor-desc">
+  <title id="factor-title">Matrix factorisation</title>
+  <desc id="factor-desc" data-ar="مصفوفة تقييمات ناقصة تتحلّل إلى مصفوفة أذواق المستخدمين ومصفوفة أذواق العناصر. التقييم المفقود هو الجداء النقطي للمتجهين.">A sparse rating matrix factorises into a user-taste matrix and an item-taste matrix. A missing rating is the dot product of the two vectors.</desc>
+  <text class="t t--muted" x="59" y="48" text-anchor="middle">ratings</text>
+  <text class="t t--muted" x="166" y="48" text-anchor="middle">user tastes</text>
+  <text class="t t--muted" x="292" y="48" text-anchor="middle">item tastes</text>
+  <g class="cells">
+    <rect class="cell" x="20" y="60" width="78" height="90"/>
+    <path class="line line--grid" d="M 46 60 L 46 150 M 72 60 L 72 150 M 20 90 L 98 90 M 20 120 L 98 120"/>
+    <rect class="cell-filled" x="22" y="62" width="22" height="26"/><rect class="cell-filled" x="74" y="62" width="22" height="26"/>
+    <rect class="cell-filled" x="48" y="92" width="22" height="26"/><rect class="cell-filled" x="22" y="122" width="22" height="26"/>
+    <rect class="cell-filled" x="74" y="122" width="22" height="26"/>
+  </g>
+  <text class="t t--big" x="118" y="112" text-anchor="middle">≈</text>
+  <g class="cells">
+    <rect class="cell" x="140" y="60" width="52" height="90"/>
+    <path class="line line--grid" d="M 166 60 L 166 150 M 140 90 L 192 90 M 140 120 L 192 120"/>
+    <rect class="cell-soft" x="142" y="62" width="22" height="26"/><rect class="cell-soft" x="168" y="92" width="22" height="26"/>
+    <rect class="cell-soft" x="142" y="122" width="22" height="26"/>
+  </g>
+  <text class="t t--big" x="211" y="112" text-anchor="middle">×</text>
+  <g class="cells">
+    <rect class="cell" x="240" y="60" width="78" height="60"/>
+    <path class="line line--grid" d="M 266 60 L 266 120 M 292 60 L 292 120 M 240 90 L 318 90"/>
+    <rect class="cell-soft" x="242" y="62" width="22" height="26"/><rect class="cell-soft" x="268" y="62" width="22" height="26"/>
+    <rect class="cell-soft" x="294" y="62" width="22" height="26"/><rect class="cell-soft" x="268" y="92" width="22" height="26"/>
+  </g>
+  <text class="t t--muted" x="20" y="168" text-anchor="start">3 users</text>
+  <text class="t t--muted" x="318" y="168" text-anchor="end">3 items</text>
+  <text class="t t--muted" x="166" y="168" text-anchor="middle">2 tastes</text>
+  <text class="t t--muted" x="292" y="168" text-anchor="middle">2 tastes</text>
+  <text class="t t--muted" x="180" y="200" text-anchor="middle">a missing cell becomes a dot product</text>
+  <text class="t t--muted" x="180" y="228" text-anchor="middle">of one user vector and one item vector</text>
+</svg>
+        <figcaption data-ar="مرسوم لهذا الدليل. العناوين تبقى بالإنجليزية.">Drawn for this guide. Labels stay in English.</figcaption>
+      </figure>
+    </div>
+  </section>
+<section class="lesson" id="lesson-7-1">
+    <div class="container">
+      <header class="lesson__head">
+        <span class="lesson__id">7.1</span>
+        <h2 data-ar="أنظمة التوصية">Recommender Systems</h2>
+        <p class="lesson__practical"><span class="lesson__label" data-ar="العملي">Practical</span> <span data-ar="بناء نظام توصية بسيط بالترشيح التعاوني وتحليل المصفوفات.">Build a simple recommender with collaborative filtering and matrix factorization.</span></p>
+      </header>
+      <div class="lesson__syllabus">
+        <h3 data-ar="المقرر">Syllabus</h3>
+        <ul class="lesson__bullets">
+<li data-ar="الترشيح القائم على المحتوى">Content-based filtering</li>
+<li data-ar="الترشيح التعاوني: حسب المستخدم وحسب العنصر">Collaborative filtering: user-based and item-based</li>
+<li data-ar="تحليل المصفوفات: SVD، ALS، NMF">Matrix factorization: SVD, ALS, NMF</li>
+<li data-ar="الطرق الهجينة">Hybrid methods</li>
+<li data-ar="المقاييس: MAE، RMSE، الإحكام عند K، MRR، NDCG">Metrics: MAE, RMSE, precision at K, MRR, NDCG</li>
+        </ul>
+      </div>
+      <div class="lesson__watch">
+        <h3 data-ar="شاهد">Watch</h3>
+<div class="vgroup">
+          <h4 data-ar="الفكرة المتقاطعة الوحيدة">The one overlapping idea</h4>
+          <ul class="videos">
+<li><a class="video" href="https://www.youtube.com/watch?v=e9U0QAFbfLI" data-video="71">
+            <span class="video__n">071</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Cosine Similarity, Clearly Explained!!!</span></span>
+            <span class="video__time">10:14</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=7ArmBVF2dCs" data-video="10">
+            <span class="video__n">010</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Linear Regression, Clearly Explained!!!</span></span>
+            <span class="video__time">27:27</span>
+          </a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<section class="lesson" id="lesson-7-2">
+    <div class="container">
+      <header class="lesson__head">
+        <span class="lesson__id">7.2</span>
+        <h2 data-ar="تعلّم قواعد الارتباط">Association Rule Learning</h2>
+        <p class="lesson__practical"><span class="lesson__label" data-ar="العملي">Practical</span> <span data-ar="تنفيذ وتحليل قواعد الارتباط على بيانات المعاملات.">Implement and analyse association rules on transactional data.</span></p>
+      </header>
+      <div class="lesson__syllabus">
+        <h3 data-ar="المقرر">Syllabus</h3>
+        <ul class="lesson__bullets">
+<li data-ar="تحليل سلة السوق">Market basket analysis</li>
+<li data-ar="Apriori">Apriori</li>
+<li data-ar="Eclat">Eclat</li>
+<li data-ar="FP-Growth">FP-Growth</li>
+<li data-ar="المقاييس: الدعم، الثقة، الرفع، الاقتناع">Metrics: support, confidence, lift, conviction</li>
+        </ul>
+      </div>
+      <div class="lesson__watch">
+        <h3 data-ar="شاهد">Watch</h3>
+
+<p class="video-empty"><span data-ar="لا فيديو مرتبط.">No video mapped.</span> <a href="index.html#gaps" data-ar="افتح جدول الفجوات">Open the gap table</a></p>
+      </div>
+    </div>
+  </section>
+<section class="coverage" aria-labelledby="coverage-title">
+    <div class="container coverage__grid">
+      <div>
+        <h2 id="coverage-title" data-ar="ما تغطيه الفيديوهات.">What the videos cover.</h2>
+        <p class="coverage__fine" data-ar="مذكورة لكل فصل، لا معدّلة.">Marked per chapter, not averaged away.</p>
+      </div>
+      <div class="coverage__body">
+        <p data-ar="لا يتقاطع إلا تشابه جيب التمام، والباقي من المقرر.">Only cosine similarity overlaps; the rest is course material.</p>
+        <p class="coverage__fine" data-ar="ناقص هنا">Missing here</p>
+        <ul class="coverage__list">
+<li data-ar="قواعد الارتباط">Association rules</li>
+<li data-ar="مقاييس التوصية">Recommendation metrics</li>
+        </ul>
+        <a class="coverage__link" href="index.html#gaps" data-ar="افتح جدول الفجوات">See the gap table</a>
+      </div>
+    </div>
+  </section>
+<nav class="pager" aria-label="Chapter navigation" data-ar-aria="التنقل بين الفصول">
+    <div class="container pager__grid">
+      <a href="chapter-6.html"><small data-ar="الفصل السابق">Previous chapter</small><b data-ar="الخصائص، الشذوذ">Features, anomalies</b></a>
+      <a href="chapter-8.html"><small data-ar="الفصل التالي">Next chapter</small><b data-ar="الخصوصية، الأخلاقيات">Privacy, ethics</b></a>
+    </div>
+  </nav>
+  </main>
+  <footer class="letter letter--short" id="about">
+    <div class="container letter__grid">
+      <div>
+        <p class="letter__statement" data-ar="السداسي 7، وحدة UEF2، معامل 4. المقرر: Halitim Amin. صفحات المقرر 61 إلى 63.">Semester 7, UEF2, coefficient 4. Course by Halitim Amin. Syllabus pages 61 to 63.</p>
+        <p class="letter__sign">Halitim Amin</p>
+        <p class="letter__date" data-ar="26 أكتوبر 2026. UEF2، معامل 4.">26 October 2026. UEF2, coefficient 4.</p>
+      </div>
+      <div class="letter__side">
+        <nav class="letter__links" aria-label="Sources" data-ar-aria="المصادر">
+          <a href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="قائمة التشغيل">Playlist</a>
+          <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" data-ar="قناة StatQuest">StatQuest channel</a>
+          <a href="library.html" data-ar="كل الفيديوهات">All 106 videos</a>
+        </nav>
+        <p class="letter__legal" data-ar="المقرر: Halitim Amin. الفيديوهات: StatQuest على يوتيوب. الرسوم مرسومة لهذا الدليل. لا صور فوتوغرافية.">Course material: Halitim Amin. Videos: StatQuest, YouTube. Diagrams drawn for this guide. No photographs.</p>
+      </div>
+    </div>
+  </footer>
+  <dialog class="player" id="player" aria-labelledby="player-title">
+    <div class="player__bar">
+      <h2 id="player-title">Video</h2>
+      <form method="dialog"><button class="player__close" type="submit" data-ar="إغلاق">Close</button></form>
+    </div>
+    <div class="player__frame" id="player-frame"></div>
+    <div class="player__foot">
+      <p class="player__note" id="player-note" hidden></p>
+      <a id="player-link" href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="افتح على يوتيوب">Open on YouTube</a>
+    </div>
+  </dialog>
+  <script src="assets/data.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

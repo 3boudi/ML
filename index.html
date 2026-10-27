@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-ar="تعلّم الآلة، السداسي السابع · ML VII">Machine learning, semester seven · ML VII</title>
+  <meta name="description" content="A bilingual study guide to the Semester 7 machine learning syllabus: 106 StatQuest videos mapped to eight chapters, with the maths drawn out." data-ar-content="دليل دراسة ثنائي اللغة لمقرر تعلّم الآلة في السداسي السابع: 106 فيديوهات من StatQuest مرتبطة بثمانية فصول، والرياضيات مرسومة.">
+  <meta name="author" content="Halitim Amin">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Machine learning, semester seven · ML VII" data-ar-content="تعلّم الآلة، السداسي السابع · ML VII">
+  <meta property="og:description" content="A bilingual study guide to the Semester 7 machine learning syllabus: 106 StatQuest videos mapped to eight chapters, with the maths drawn out." data-ar-content="دليل دراسة ثنائي اللغة لمقرر تعلّم الآلة في السداسي السابع: 106 فيديوهات من StatQuest مرتبطة بثمانية فصول، والرياضيات مرسومة.">
+  <meta property="og:locale" content="en_DZ">
+  <script>
+    (function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');try{var l=localStorage.getItem('ml7-lang');if(l==='ar'){d.lang='ar';d.dir='rtl';}}catch(e){}})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,800&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip" href="#main" data-ar="تجاوز إلى المحتوى">Skip to content</a>
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="wordmark" href="index.html">ML VII <span data-ar="السداسي 7" dir="auto">Semester 7</span></a>
+      <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
+        <a href="index.html#chapters" data-ar="الفصول">Chapters</a>
+        <a href="library.html" data-ar="المكتبة">Library</a>
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="التبديل إلى العربية" lang="ar">العربية</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+<section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <h1 data-ar="تعلّم الآلة، السداسي السابع.">Machine learning, semester seven.</h1>
+        <p class="lead" data-ar="كل موضوع في المقرر، تشرحه 106 فيديوهات، والرياضيات مرسومة.">Every syllabus topic, explained by 106 videos, with the maths drawn out.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://www.youtube.com/watch?v=Gv9_4yMHFhI" data-video="1"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span data-ar="شغّل الدرس الأول">Play the first lesson</span></a>
+          <a class="btn btn--quiet" href="#chapters"><span data-ar="اقرأ الفصول">Read the chapters</span></a>
+        </div>
+        <p class="hero__meta" data-ar="السداسي 7، وحدة UEF2، معامل 4. المقرر: Halitim Amin.">Semester 7, UEF2, coefficient 4. Course by Halitim Amin.</p>
+      </div>
+      <div class="hero__stage">
+        <figure class="descent">
+      <svg class="descent__chart" viewBox="0 0 360 280" role="img" aria-labelledby="descent-title descent-desc">
+        <title id="descent-title">Gradient descent on a loss curve</title>
+        <desc id="descent-desc" data-ar="منحنى خسارة محدّب. كل نقطة تحديث واحد. المعدل المنخفض يزحف، والمعدل المرتفع يتجاوز، والمعدل المناسب يصل إلى الحد الأدنى.">A convex loss curve. Each dot is one update. A low rate crawls, a high rate overshoots, a good rate lands at the minimum.</desc>
+        <path class="axis" d="M 32 236 L 342 236"/>
+        <path class="axis" d="M 32 236 L 32 30"/>
+        <path class="grid" d="M 44 60 L 336 60"/>
+        <path class="grid" d="M 44 120 L 336 120"/>
+        <path class="grid" d="M 44 180 L 336 180"/>
+        <path class="loss" d="M 44.0 47.2 L 46.4 53.4 L 48.9 59.4 L 51.3 65.3 L 53.7 71.2 L 56.2 76.9 L 58.6 82.5 L 61.0 88.0 L 63.5 93.4 L 65.9 98.7 L 68.3 104.0 L 70.8 109.1 L 73.2 114.1 L 75.6 119.0 L 78.1 123.8 L 80.5 128.5 L 82.9 133.0 L 85.4 137.5 L 87.8 141.9 L 90.2 146.2 L 92.7 150.4 L 95.1 154.5 L 97.5 158.4 L 100.0 162.3 L 102.4 166.1 L 104.8 169.7 L 107.3 173.3 L 109.7 176.7 L 112.1 180.1 L 114.6 183.3 L 117.0 186.5 L 119.4 189.5 L 121.9 192.5 L 124.3 195.3 L 126.7 198.0 L 129.2 200.7 L 131.6 203.2 L 134.0 205.6 L 136.5 207.9 L 138.9 210.2 L 141.3 212.3 L 143.8 214.3 L 146.2 216.2 L 148.6 218.0 L 151.1 219.7 L 153.5 221.3 L 155.9 222.8 L 158.4 224.2 L 160.8 225.5 L 163.2 226.7 L 165.7 227.7 L 168.1 228.7 L 170.5 229.6 L 173.0 230.4 L 175.4 231.0 L 177.8 231.6 L 180.3 232.1 L 182.7 232.4 L 185.1 232.7 L 187.6 232.9 L 190.0 232.9 L 192.4 232.9 L 194.9 232.7 L 197.3 232.4 L 199.7 232.1 L 202.2 231.6 L 204.6 231.0 L 207.0 230.4 L 209.5 229.6 L 211.9 228.7 L 214.3 227.7 L 216.8 226.7 L 219.2 225.5 L 221.6 224.2 L 224.1 222.8 L 226.5 221.3 L 228.9 219.7 L 231.4 218.0 L 233.8 216.2 L 236.2 214.3 L 238.7 212.3 L 241.1 210.2 L 243.5 207.9 L 246.0 205.6 L 248.4 203.2 L 250.8 200.7 L 253.3 198.0 L 255.7 195.3 L 258.1 192.5 L 260.6 189.5 L 263.0 186.5 L 265.4 183.3 L 267.9 180.1 L 270.3 176.7 L 272.7 173.3 L 275.2 169.7 L 277.6 166.1 L 280.0 162.3 L 282.5 158.4 L 284.9 154.5 L 287.3 150.4 L 289.8 146.2 L 292.2 141.9 L 294.6 137.5 L 297.1 133.0 L 299.5 128.5 L 301.9 123.8 L 304.4 119.0 L 306.8 114.1 L 309.2 109.1 L 311.7 104.0 L 314.1 98.7 L 316.5 93.4 L 319.0 88.0 L 321.4 82.5 L 323.8 76.9 L 326.3 71.2 L 328.7 65.3 L 331.1 59.4 L 333.6 53.4 L 336.0 47.2 "/>
+        <path class="guide" d="M 190.0 236 L 190.0 250"/>
+        <path class="axis" d="M 92.7 236 L 92.7 241"/>
+        <path class="axis" d="M 190.0 236 L 190.0 241"/>
+        <path class="axis" d="M 287.3 236 L 287.3 241"/>
+        <text class="tick" x="32" y="20" text-anchor="start">loss</text>
+        <text class="tick" x="92.7" y="256" text-anchor="middle">0</text>
+        <text class="tick" x="190.0" y="256" text-anchor="middle">minimum</text>
+        <text class="tick" x="287.3" y="256" text-anchor="middle">4</text>
+        <text class="tick" x="342" y="274" text-anchor="end">weight</text>
+        <g data-rate="low" hidden>
+      <path class="trail" d="M 68.3 104.0 L 80.5 128.5 L 91.5 148.3 L 101.3 164.4 L 110.2 177.4 L 118.2 187.9 L 125.3 196.5"/>
+      <circle class="step" cx="68.3" cy="104.0" r="3"/><circle class="step" cx="80.5" cy="128.5" r="3"/><circle class="step" cx="91.5" cy="148.3" r="3"/><circle class="step" cx="101.3" cy="164.4" r="3"/><circle class="step" cx="110.2" cy="177.4" r="3"/><circle class="step" cx="118.2" cy="187.9" r="3"/><circle class="step step--last" cx="125.3" cy="196.5" r="4"/>
+    </g>
+<g data-rate="good">
+      <path class="trail" d="M 68.3 104.0 L 153.5 221.3 L 179.0 231.9 L 186.7 232.8 L 189.0 232.9 L 189.7 232.9 L 189.9 232.9"/>
+      <circle class="step" cx="68.3" cy="104.0" r="3"/><circle class="step" cx="153.5" cy="221.3" r="3"/><circle class="step" cx="179.0" cy="231.9" r="3"/><circle class="step" cx="186.7" cy="232.8" r="3"/><circle class="step" cx="189.0" cy="232.9" r="3"/><circle class="step" cx="189.7" cy="232.9" r="3"/><circle class="step step--last" cx="189.9" cy="232.9" r="4"/>
+    </g>
+<g data-rate="high" hidden>
+      <path class="trail" d="M 68.3 104.0 L 311.7 104.0 L 68.3 104.0 L 311.7 104.0 L 68.3 104.0 L 311.7 104.0 L 68.3 104.0"/>
+      <circle class="step" cx="68.3" cy="104.0" r="3"/><circle class="step" cx="311.7" cy="104.0" r="3"/><circle class="step" cx="68.3" cy="104.0" r="3"/><circle class="step" cx="311.7" cy="104.0" r="3"/><circle class="step" cx="68.3" cy="104.0" r="3"/><circle class="step" cx="311.7" cy="104.0" r="3"/><circle class="step step--last" cx="68.3" cy="104.0" r="4"/>
+    </g>
+      </svg>
+      <div class="descent__readout">
+        <span><span data-ar="الخسارة">loss</span> <span data-loss-value>0.15</span></span>
+        <span data-ar="6 تحديثات">6 updates</span>
+      </div>
+      <fieldset class="descent__control">
+        <legend data-ar="معدل التعلّم">Learning rate</legend>
+        <div class="descent__rates">
+        <label>
+          <input type="radio" name="descent-rate" value="low" data-loss="1.75">
+          <span>0.05</span>
+          <small data-ar="بطيء">slow</small>
+        </label>
+        <label>
+          <input type="radio" name="descent-rate" value="good" data-loss="0.15" checked>
+          <span>0.35</span>
+          <small data-ar="يصل">lands</small>
+        </label>
+        <label>
+          <input type="radio" name="descent-rate" value="high" data-loss="6.40">
+          <span>1.00</span>
+          <small data-ar="يرتد">bounces</small>
+        </label></div>
+      </fieldset>
+      <div class="descent__caption">
+        <span data-ar="ستة تحديثات من w = −0.5.">Six updates from w = −0.5.</span>
+        <span dir="ltr">loss = (w − 2)² + 0.15</span>
+      </div>
+    </figure>
+      </div>
+    </div>
+  </section>
+<section class="section" id="chapters">
+    <div class="container">
+      <div class="section__head">
+        <h2 data-ar="ثمانية فصول، مسار واحد.">Eight chapters, one route.</h2>
+        <p class="section__aside"><span data-ar="106 فيديو، 29 س 51 د">106 videos, 29 h 51 min</span></p>
+      </div>
+      <p class="section__intro" data-ar="المقرر بالترتيب، مع الفيديوهات التي تطابق كل درس.">The syllabus in order, with the videos that match each lesson.</p>
+      <ol class="contents">
+<li class="contents__item contents__item--lead">
+        <a class="contents__row" href="chapter-1.html">
+          <span class="contents__num">01</span>
+          <span class="contents__title" data-ar="المقدمة">Introduction</span>
+          <span class="contents__meta" data-ar="12 فيديو، 2 س 37 د">12 videos, 2 h 37 min</span>
+          <span class="contents__line" data-ar="ابدأ بمعنى التعلّم، وكيف تختبره، والاحتمال الذي يقف تحت أول نموذج.">Start with what learning is, how to test it, and the probability under the first model.</span>
+        </a>
+      </li>
+<li class="contents__item">
+        <a class="contents__row" href="chapter-2.html">
+          <span class="contents__num">02</span>
+          <span class="contents__title" data-ar="الموجّه">Supervised</span>
+          <span class="contents__meta" data-ar="47 فيديو، 14 س 43 د">47 videos, 14 h 43 min</span>
+          
+        </a>
+      </li>
+<li class="contents__item">
+        <a class="contents__row" href="chapter-3.html">
+          <span class="contents__num">03</span>
+          <span class="contents__title" data-ar="غير الموجّه">Unsupervised</span>
+          <span class="contents__meta" data-ar="13 فيديو، 2 س 26 د">13 videos, 2 h 26 min</span>
+          
+        </a>
+      </li>
+<li class="contents__item">
+        <a class="contents__row" href="chapter-4.html">
+          <span class="contents__num">04</span>
+          <span class="contents__title" data-ar="متخصصة">Specialized</span>
+          <span class="contents__meta" data-ar="4 فيديوهات، 57 د">4 videos, 57 min</span>
+          
+        </a>
+      </li>
+<li class="contents__item">
+        <a class="contents__row" href="chapter-5.html">
+          <span class="contents__num">05</span>
+          <span class="contents__title" data-ar="شبه موجّه، معزّز">Semi-supervised, RL</span>
+          <span class="contents__meta" data-ar="6 فيديوهات، 1 س 55 د">6 videos, 1 h 55 min</span>
+          
+        </a>
+      </li>
+<li class="contents__item">
+        <a class="contents__row" href="chapter-6.html">
+          <span class="contents__num">06</span>
+          <span class="contents__title" data-ar="الخصائص، الشذوذ">Features, anomalies</span>
+          <span class="contents__meta" data-ar="18 فيديو، 3 س 54 د">18 videos, 3 h 54 min</span>
+          
+        </a>
+      </li>
+<li class="contents__item">
+        <a class="contents__row" href="chapter-7.html">
+          <span class="contents__num">07</span>
+          <span class="contents__title" data-ar="التوصية">Recommenders</span>
+          <span class="contents__meta" data-ar="فيديوان، 38 د">2 videos, 38 min</span>
+          
+        </a>
+      </li>
+<li class="contents__item">
+        <a class="contents__row" href="chapter-8.html">
+          <span class="contents__num">08</span>
+          <span class="contents__title" data-ar="الخصوصية، الأخلاقيات">Privacy, ethics</span>
+          <span class="contents__meta" data-ar="لا فيديو بعد">No videos yet</span>
+          
+        </a>
+      </li>
+      </ol>
+    </div>
+  </section>
+<section class="band section--band" aria-labelledby="featured-title">
+    <div class="container band__grid">
+      <figure class="poster">
+        <a class="poster__link" href="https://www.youtube.com/watch?v=sDv4f4s2SB8" data-video="56" aria-label="Play video 56: Gradient Descent, Step-by-Step" data-ar-aria="شغّل الفيديو 56: Gradient Descent, Step-by-Step">
+          <span class="poster__top">
+            <span class="poster__num">56</span>
+            <span class="poster__play"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span data-ar="شغّل، 23:54">Play, 23:54</span></span>
+          </span>
+          <span class="poster__bottom">
+            <span class="poster__title">Gradient Descent, Step-by-Step</span>
+            <span class="poster__meta" data-ar="الفصل 2، 23:54.">Chapter 2, 23:54.</span>
+          </span>
+        </a>
+      </figure>
+      <div class="band__copy">
+        <h2 id="featured-title" data-ar="الدرس الذي تشاهده أولًا.">The lesson to watch first.</h2>
+        <p data-ar="المفصل تحت كل نموذج يتعلّم. ستة تحديثات، وحد أدنى واحد.">The hinge under every model that learns. Six updates, one minimum.</p>
+        <div class="band__next">
+          <h3 data-ar="التالي">Next in chapter 2</h3>
+          <ul>
+<li><a href="https://www.youtube.com/watch?v=PaFPbb66DxQ" data-video="9"><span>The Main Ideas of Fitting a Line to Data (The Main Ideas of Least Squares and Linear Regression.)</span><span>9:22</span></a></li>
+<li><a href="https://www.youtube.com/watch?v=_L39rN6gz7Y" data-video="46"><span>Decision and Classification Trees, Clearly Explained!!!</span><span>18:08</span></a></li>
+<li><a href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ" data-video="52"><span>StatQuest: Random Forests Part 1 - Building, Using and Evaluating</span><span>9:54</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="rail-section" aria-labelledby="rail-title">
+    <div class="container">
+      <div class="section__head">
+        <h2 id="rail-title" data-ar="ستة أغلفة.">Six covers.</h2>
+      </div>
+      <p class="section__intro" data-ar="تُشغّل هنا.">They play here.</p>
+      <div class="rail-wrap" tabindex="0" role="region" aria-label="Six starting videos" data-ar-aria="ستة فيديوهات للبداية">
+        <ul class="rail">
+<li>
+          <a class="cover" href="https://www.youtube.com/watch?v=Gv9_4yMHFhI" data-video="1" aria-label="Play video 1: A Gentle Introduction to Machine Learning" data-ar-aria="شغّل الفيديو 1: A Gentle Introduction to Machine Learning">
+            <span class="cover__top"><span class="cover__num">01</span><span class="cover__play"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg></span></span>
+            <span class="cover__title">A Gentle Introduction to Machine Learning</span>
+            <span class="cover__meta" data-ar="الفصل 1، 12:45">Chapter 1, 12:45</span>
+          </a>
+        </li>
+<li>
+          <a class="cover" href="https://www.youtube.com/watch?v=sDv4f4s2SB8" data-video="56" aria-label="Play video 56: Gradient Descent, Step-by-Step" data-ar-aria="شغّل الفيديو 56: Gradient Descent, Step-by-Step">
+            <span class="cover__top"><span class="cover__num">56</span><span class="cover__play"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg></span></span>
+            <span class="cover__title">Gradient Descent, Step-by-Step</span>
+            <span class="cover__meta" data-ar="الفصل 2، 23:54">Chapter 2, 23:54</span>
+          </a>
+        </li>
+<li>
+          <a class="cover" href="https://www.youtube.com/watch?v=_L39rN6gz7Y" data-video="46" aria-label="Play video 46: Decision and Classification Trees, Clearly Explained!!!" data-ar-aria="شغّل الفيديو 46: Decision and Classification Trees, Clearly Explained!!!">
+            <span class="cover__top"><span class="cover__num">46</span><span class="cover__play"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg></span></span>
+            <span class="cover__title">Decision and Classification Trees, Clearly Explained!!!</span>
+            <span class="cover__meta" data-ar="الفصل 2، 18:08">Chapter 2, 18:08</span>
+          </a>
+        </li>
+<li>
+          <a class="cover" href="https://www.youtube.com/watch?v=4b5d3muPQmA" data-video="41" aria-label="Play video 41: StatQuest: K-means clustering" data-ar-aria="شغّل الفيديو 41: StatQuest: K-means clustering">
+            <span class="cover__top"><span class="cover__num">41</span><span class="cover__play"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg></span></span>
+            <span class="cover__title">StatQuest: K-means clustering</span>
+            <span class="cover__meta" data-ar="الفصل 3، 8:30">Chapter 3, 8:30</span>
+          </a>
+        </li>
+<li>
+          <a class="cover" href="https://www.youtube.com/watch?v=HMOI_lkzW08" data-video="31" aria-label="Play video 31: StatQuest: PCA main ideas in only 5 minutes!!!" data-ar-aria="شغّل الفيديو 31: StatQuest: PCA main ideas in only 5 minutes!!!">
+            <span class="cover__top"><span class="cover__num">31</span><span class="cover__play"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg></span></span>
+            <span class="cover__title">StatQuest: PCA main ideas in only 5 minutes!!!</span>
+            <span class="cover__meta" data-ar="الفصل 3، 6:05">Chapter 3, 6:05</span>
+          </a>
+        </li>
+<li>
+          <a class="cover" href="https://www.youtube.com/watch?v=Z-T0iJEXiwM" data-video="103" aria-label="Play video 103: Reinforcement Learning: Essential Concepts" data-ar-aria="شغّل الفيديو 103: Reinforcement Learning: Essential Concepts">
+            <span class="cover__top"><span class="cover__num">103</span><span class="cover__play"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg></span></span>
+            <span class="cover__title">Reinforcement Learning: Essential Concepts</span>
+            <span class="cover__meta" data-ar="الفصل 5، 18:13">Chapter 5, 18:13</span>
+          </a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+<section class="km section--well" aria-labelledby="km-title">
+    <div class="container">
+      <div class="section__head">
+        <h2 id="km-title" data-ar="K-means، في ثلاثة مشاهد.">K-means, in three panels.</h2>
+        <p class="section__aside"><a href="chapter-3.html" data-ar="الفصل 3">Chapter 3</a></p>
+      </div>
+      <p class="section__intro" data-ar="ضع، وزّع، حرّك، ثم كرّر.">Place, assign, move, repeat.</p>
+      <ol class="km__steps">
+<li class="km__step">
+        <figure class="km__fig">
+  <svg class="diagram" viewBox="0 0 180 180" role="img" aria-labelledby="km1-label">
+    <title id="km1-label">Panel 1: three starting centres among the points</title>
+    <circle class="dot-hollow" cx="35" cy="45" r="3.5"/><circle class="dot-hollow" cx="50" cy="60" r="3.5"/><circle class="dot-hollow" cx="30" cy="68" r="3.5"/><circle class="dot-hollow" cx="60" cy="40" r="3.5"/><circle class="dot-hollow" cx="42" cy="55" r="3.5"/><circle class="dot-hollow" cx="135" cy="40" r="3.5"/><circle class="dot-hollow" cx="152" cy="52" r="3.5"/><circle class="dot-hollow" cx="142" cy="68" r="3.5"/><circle class="dot-hollow" cx="128" cy="58" r="3.5"/><circle class="dot-hollow" cx="145" cy="45" r="3.5"/><circle class="dot-hollow" cx="80" cy="135" r="3.5"/><circle class="dot-hollow" cx="100" cy="150" r="3.5"/><circle class="dot-hollow" cx="72" cy="158" r="3.5"/><circle class="dot-hollow" cx="95" cy="125" r="3.5"/><circle class="dot-hollow" cx="88" cy="145" r="3.5"/>
+    <path class="cross" d="M 55 80 L 65 80 M 60 75 L 60 85"/><path class="cross" d="M 110 85 L 120 85 M 115 80 L 115 90"/><path class="cross" d="M 65 145 L 75 145 M 70 140 L 70 150"/>
+  </svg></figure>
+        <p class="km__label" data-ar="ضع k مراكز">Place k centres</p>
+        <p class="km__text" data-ar="ابدأ بثلاثة مراكز، مختارة يدويًا أو بـk-means++.">Start with three centres, chosen by hand or by k-means++.</p>
+      </li>
+<li class="km__step">
+        <figure class="km__fig">
+  <svg class="diagram" viewBox="0 0 180 180" role="img" aria-labelledby="km2-label">
+    <defs>
+    <marker id="km-arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="arrowhead--accent"/>
+    </marker>
+  </defs><title id="km2-label">Panel 2: points assigned to the nearest centre, then each centre moved to its mean</title>
+    <circle class="dot-filled" cx="35" cy="45" r="3.5"/><circle class="dot-filled" cx="50" cy="60" r="3.5"/><circle class="dot-filled" cx="30" cy="68" r="3.5"/><circle class="dot-filled" cx="60" cy="40" r="3.5"/><circle class="dot-filled" cx="42" cy="55" r="3.5"/><circle class="dot-hollow" cx="135" cy="40" r="3.5"/><circle class="dot-hollow" cx="152" cy="52" r="3.5"/><circle class="dot-hollow" cx="142" cy="68" r="3.5"/><circle class="dot-hollow" cx="128" cy="58" r="3.5"/><circle class="dot-hollow" cx="145" cy="45" r="3.5"/><rect class="dot-square" x="76.5" y="131.5" width="7" height="7"/><rect class="dot-square" x="96.5" y="146.5" width="7" height="7"/><rect class="dot-square" x="68.5" y="154.5" width="7" height="7"/><rect class="dot-square" x="91.5" y="121.5" width="7" height="7"/><rect class="dot-square" x="84.5" y="141.5" width="7" height="7"/>
+    <path class="cross cross--ghost" d="M 55 80 L 65 80 M 60 75 L 60 85"/><path class="cross cross--ghost" d="M 110 85 L 120 85 M 115 80 L 115 90"/><path class="cross cross--ghost" d="M 65 145 L 75 145 M 70 140 L 70 150"/>
+    <path class="cross" d="M 38 54 L 48 54 M 43 49 L 43 59"/><path class="cross" d="M 135 53 L 145 53 M 140 48 L 140 58"/><path class="cross" d="M 82 143 L 92 143 M 87 138 L 87 148"/>
+    <path class="line line--accent line--dash" d="M 58 78 L 45 56" marker-end="url(#km-arrow-a)"/>
+    <path class="line line--accent line--dash" d="M 114 83 L 138 56" marker-end="url(#km-arrow-a)"/>
+    <path class="line line--accent line--dash" d="M 71 142 L 85 142" marker-end="url(#km-arrow-a)"/>
+  </svg></figure>
+        <p class="km__label" data-ar="وزّع كل نقطة">Assign each point</p>
+        <p class="km__text" data-ar="كل نقطة تنضم إلى أقرب مركز؛ الخطوط لا تُرسم، المسافة هي التي تُحسب.">Each point joins the nearest centre; the lines are not drawn, the distance is.</p>
+      </li>
+<li class="km__step">
+        <figure class="km__fig">
+  <svg class="diagram" viewBox="0 0 180 180" role="img" aria-labelledby="km3-label">
+    <title id="km3-label">Panel 3: the centres have stopped moving</title>
+    <circle class="dot-filled" cx="35" cy="45" r="3.5"/><circle class="dot-filled" cx="50" cy="60" r="3.5"/><circle class="dot-filled" cx="30" cy="68" r="3.5"/><circle class="dot-filled" cx="60" cy="40" r="3.5"/><circle class="dot-filled" cx="42" cy="55" r="3.5"/><circle class="dot-hollow" cx="135" cy="40" r="3.5"/><circle class="dot-hollow" cx="152" cy="52" r="3.5"/><circle class="dot-hollow" cx="142" cy="68" r="3.5"/><circle class="dot-hollow" cx="128" cy="58" r="3.5"/><circle class="dot-hollow" cx="145" cy="45" r="3.5"/><rect class="dot-square" x="76.5" y="131.5" width="7" height="7"/><rect class="dot-square" x="96.5" y="146.5" width="7" height="7"/><rect class="dot-square" x="68.5" y="154.5" width="7" height="7"/><rect class="dot-square" x="91.5" y="121.5" width="7" height="7"/><rect class="dot-square" x="84.5" y="141.5" width="7" height="7"/>
+    <path class="cross" d="M 38 54 L 48 54 M 43 49 L 43 59"/><path class="cross" d="M 135 53 L 145 53 M 140 48 L 140 58"/><path class="cross" d="M 82 143 L 92 143 M 87 138 L 87 148"/>
+  </svg></figure>
+        <p class="km__label" data-ar="حرّك إلى المتوسط">Move to the mean</p>
+        <p class="km__text" data-ar="كل مركز ينتقل إلى متوسط نقاطه. كرّر حتى لا يتحرك شيء.">Each centre moves to the mean of its points. Repeat until nothing moves.</p>
+      </li>
+      </ol>
+      <p class="km__note" data-ar="تتوقف الحلقة عندما تتوقف المراكز عن الحركة. هذه هي الخوارزمية كلها.">The loop stops when the centres stop moving. That is the whole algorithm.</p>
+    </div>
+  </section>
+<section class="section" id="gaps">
+    <div class="container">
+      <div class="section__head">
+        <h2 data-ar="الفجوات، بالاسم.">The gaps, named.</h2>
+        <p class="section__aside"><span data-ar="6 صفوف">6 rows</span></p>
+      </div>
+      <p class="section__intro" data-ar="ستة موضوعات في المقرر لا فيديو لها في هذه القائمة. الصفحة تسمّيها بدل أن تخفيها.">Six syllabus areas have no video in this playlist. The page marks them rather than hiding them.</p>
+      <table class="gaps__table">
+        <thead><tr><th data-ar="الفصل">Chapter</th><th data-ar="الناقص">Missing</th></tr></thead>
+        <tbody>
+<tr>
+          <td class="gaps__chapter" data-label="Chapter" data-label-ar="الفصل"><a href="chapter-4.html" aria-label="Open chapter 4" data-ar-aria="افتح الفصل 4">Ch 4</a></td>
+          <td data-label="Missing" data-label-ar="الناقص"><span class="gaps__what" data-ar="الخوارزميات الجينية، دوال الاعتقاد">Genetic algorithms, belief functions</span><span class="gaps__note" data-ar="بحث، انتخاب، تزاوج، طفرة">Search, selection, crossover, mutation</span></td>
+        </tr>
+<tr>
+          <td class="gaps__chapter" data-label="Chapter" data-label-ar="الفصل"><a href="chapter-5.html" aria-label="Open chapter 5" data-ar-aria="افتح الفصل 5">Ch 5</a></td>
+          <td data-label="Missing" data-label-ar="الناقص"><span class="gaps__what" data-ar="التعلّم شبه الموجّه">Semi-supervised learning</span><span class="gaps__note" data-ar="التدريب الذاتي، التدريب المشترك، SVM شبه موجّه">Self-training, co-training, semi-supervised SVM</span></td>
+        </tr>
+<tr>
+          <td class="gaps__chapter" data-label="Chapter" data-label-ar="الفصل"><a href="chapter-5.html" aria-label="Open chapter 5" data-ar-aria="افتح الفصل 5">Ch 5</a></td>
+          <td data-label="Missing" data-label-ar="الناقص"><span class="gaps__what" data-ar="Q-Learning وSARSA وتدرج السياسة">Q-learning, SARSA, policy gradients</span><span class="gaps__note" data-ar="تتوقف القائمة عند المفاهيم">The playlist stops at the concepts</span></td>
+        </tr>
+<tr>
+          <td class="gaps__chapter" data-label="Chapter" data-label-ar="الفصل"><a href="chapter-7.html" aria-label="Open chapter 7" data-ar-aria="افتح الفصل 7">Ch 7</a></td>
+          <td data-label="Missing" data-label-ar="الناقص"><span class="gaps__what" data-ar="قواعد الارتباط">Association rules</span><span class="gaps__note" data-ar="Apriori، Eclat، FP-Growth، الرفع">Apriori, Eclat, FP-Growth, lift</span></td>
+        </tr>
+<tr>
+          <td class="gaps__chapter" data-label="Chapter" data-label-ar="الفصل"><a href="chapter-7.html" aria-label="Open chapter 7" data-ar-aria="افتح الفصل 7">Ch 7</a></td>
+          <td data-label="Missing" data-label-ar="الناقص"><span class="gaps__what" data-ar="مقاييس التوصية">Recommendation metrics</span><span class="gaps__note" data-ar="الإحكام عند K، MRR، NDCG">Precision at K, MRR, NDCG</span></td>
+        </tr>
+<tr>
+          <td class="gaps__chapter" data-label="Chapter" data-label-ar="الفصل"><a href="chapter-8.html" aria-label="Open chapter 8" data-ar-aria="افتح الفصل 8">Ch 8</a></td>
+          <td data-label="Missing" data-label-ar="الناقص"><span class="gaps__what" data-ar="التعلّم الفيدرالي، SHAP، LIME">Federated learning, SHAP, LIME</span><span class="gaps__note" data-ar="الخصوصية، الإنصاف، النشر">Privacy, fairness, deployment</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <p class="gaps__also" data-ar="ناقص أيضًا: LightGBM، والتكديس، وRFE، وICA وUMAP، ومعظم خوارزميات كشف الشذوذ.">Also missing: LightGBM, stacking, RFE, ICA and UMAP, and most anomaly-detection algorithms.</p>
+    </div>
+  </section>
+  </main>
+  <footer class="letter" id="about">
+    <div class="container letter__grid">
+      <div>
+        <p class="letter__statement" data-ar="دليل دراسة مستقل للسداسي السابع. المقرر يحدد الترتيب، وStatQuest يقدّم الصوت، وحيث تصمت القائمة تقول الصفحة ذلك.">An independent study guide for Semester 7. The syllabus sets the order, StatQuest supplies the voice, and where the playlist is silent, the page says so.</p>
+        <p class="letter__sign">Halitim Amin</p>
+        <p class="letter__date" data-ar="26 أكتوبر 2026. UEF2، معامل 4.">26 October 2026. UEF2, coefficient 4.</p>
+      </div>
+      <div class="letter__side">
+        <nav class="letter__links" aria-label="Sources" data-ar-aria="المصادر">
+          <a href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="قائمة التشغيل">Playlist</a>
+          <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" data-ar="قناة StatQuest">StatQuest channel</a>
+          <a href="library.html" data-ar="كل الفيديوهات">All 106 videos</a>
+        </nav>
+        <p class="letter__legal" data-ar="المقرر: Halitim Amin. الفيديوهات: StatQuest على يوتيوب. الرسوم مرسومة لهذا الدليل. لا صور فوتوغرافية.">Course material: Halitim Amin. Videos: StatQuest, YouTube. Diagrams drawn for this guide. No photographs.</p>
+      </div>
+    </div>
+  </footer>
+  <dialog class="player" id="player" aria-labelledby="player-title">
+    <div class="player__bar">
+      <h2 id="player-title">Video</h2>
+      <form method="dialog"><button class="player__close" type="submit" data-ar="إغلاق">Close</button></form>
+    </div>
+    <div class="player__frame" id="player-frame"></div>
+    <div class="player__foot">
+      <p class="player__note" id="player-note" hidden></p>
+      <a id="player-link" href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="افتح على يوتيوب">Open on YouTube</a>
+    </div>
+  </dialog>
+  <script src="assets/data.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

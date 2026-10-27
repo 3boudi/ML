@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-ar="الفصل 3، التعلّم غير الموجّه · ML VII">Chapter 3, Unsupervised Learning · ML VII</title>
+  <meta name="description" content="Structure without labels: clusters, fewer axes, and the distances between points. 13 videos mapped to this chapter." data-ar-content="بنية بلا وسوم: عناقيد، ومحاور أقل، والمسافات بين النقاط. 13 فيديو مرتبطة بهذا الفصل.">
+  <meta name="author" content="Halitim Amin">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chapter 3, Unsupervised Learning · ML VII" data-ar-content="الفصل 3، التعلّم غير الموجّه · ML VII">
+  <meta property="og:description" content="Structure without labels: clusters, fewer axes, and the distances between points. 13 videos mapped to this chapter." data-ar-content="بنية بلا وسوم: عناقيد، ومحاور أقل، والمسافات بين النقاط. 13 فيديو مرتبطة بهذا الفصل.">
+  <meta property="og:locale" content="en_DZ">
+  <script>
+    (function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');try{var l=localStorage.getItem('ml7-lang');if(l==='ar'){d.lang='ar';d.dir='rtl';}}catch(e){}})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,800&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip" href="#main" data-ar="تجاوز إلى المحتوى">Skip to content</a>
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="wordmark" href="index.html">ML VII <span data-ar="السداسي 7" dir="auto">Semester 7</span></a>
+      <nav class="site-nav__links" aria-label="Primary" data-ar-aria="التنقل الرئيسي">
+        <a href="index.html#chapters" data-ar="الفصول">Chapters</a>
+        <a href="library.html" data-ar="المكتبة">Library</a>
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="التبديل إلى العربية" lang="ar">العربية</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+<section class="chapter">
+    <div class="container chapter__grid">
+      <span class="chapter__num" aria-hidden="true">03</span>
+      <div class="chapter__copy">
+        <h1 data-ar="التعلّم غير الموجّه">Unsupervised Learning</h1>
+        <p class="lead" data-ar="بنية بلا وسوم: عناقيد، ومحاور أقل، والمسافات بين النقاط.">Structure without labels: clusters, fewer axes, and the distances between points.</p>
+        <div class="chapter__action">
+          <a class="btn btn--primary" href="https://www.youtube.com/watch?v=4b5d3muPQmA" data-video="41"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span data-ar="شغّل أول فيديو">Play the first video</span></a>
+          <a class="btn btn--quiet" href="index.html#chapters"><span data-ar="كل الفصول">All chapters</span></a>
+        </div>
+        <p class="chapter__meta" data-ar="درسان، 13 فيديو، 2 س 26 د. تغطية جزئية.">2 lessons, 13 videos, 2 h 26 min. Partly covered.</p>
+      </div>
+    </div>
+  </section>
+<section class="split split--triptych" aria-labelledby="diagram-title">
+    <div class="container split__grid">
+      <div class="split__text">
+        <h2 id="diagram-title" data-ar="K-means في ثلاث لوحات">K-means in three panels</h2>
+        <p data-ar="دورة واحدة من الخوارزمية، مرسومة بدلًا من وصفها.">One pass of the algorithm, drawn instead of described.</p>
+        <ol class="split__points">
+<li>
+          <span>01</span>
+          <span data-ar="اختر k مراكز. أعطِ كل نقطة أقرب مركز إليها.">Pick k centres. Give every point to its nearest centre.</span>
+        </li>
+<li>
+          <span>02</span>
+          <span data-ar="حرّك كل مركز إلى متوسط نقاطه.">Move each centre to the mean of its points.</span>
+        </li>
+<li>
+          <span>03</span>
+          <span data-ar="أعد حتى لا يتحرك شيء. تعتمد النتيجة على k ونقطة البداية.">Repeat until nothing moves. The answer depends on k and the start.</span>
+        </li>
+        </ol>
+      </div>
+      <figure class="split__fig">
+        <div class="km__triptych">
+      <figure>
+  <svg class="diagram" viewBox="0 0 180 180" role="img" aria-labelledby="km1-label">
+    <title id="km1-label">Panel 1: three starting centres among the points</title>
+    <circle class="dot-hollow" cx="35" cy="45" r="3.5"/><circle class="dot-hollow" cx="50" cy="60" r="3.5"/><circle class="dot-hollow" cx="30" cy="68" r="3.5"/><circle class="dot-hollow" cx="60" cy="40" r="3.5"/><circle class="dot-hollow" cx="42" cy="55" r="3.5"/><circle class="dot-hollow" cx="135" cy="40" r="3.5"/><circle class="dot-hollow" cx="152" cy="52" r="3.5"/><circle class="dot-hollow" cx="142" cy="68" r="3.5"/><circle class="dot-hollow" cx="128" cy="58" r="3.5"/><circle class="dot-hollow" cx="145" cy="45" r="3.5"/><circle class="dot-hollow" cx="80" cy="135" r="3.5"/><circle class="dot-hollow" cx="100" cy="150" r="3.5"/><circle class="dot-hollow" cx="72" cy="158" r="3.5"/><circle class="dot-hollow" cx="95" cy="125" r="3.5"/><circle class="dot-hollow" cx="88" cy="145" r="3.5"/>
+    <path class="cross" d="M 55 80 L 65 80 M 60 75 L 60 85"/><path class="cross" d="M 110 85 L 120 85 M 115 80 L 115 90"/><path class="cross" d="M 65 145 L 75 145 M 70 140 L 70 150"/>
+  </svg></figure>
+      <figure>
+  <svg class="diagram" viewBox="0 0 180 180" role="img" aria-labelledby="km2-label">
+    <defs>
+    <marker id="km-arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="arrowhead--accent"/>
+    </marker>
+  </defs><title id="km2-label">Panel 2: points assigned to the nearest centre, then each centre moved to its mean</title>
+    <circle class="dot-filled" cx="35" cy="45" r="3.5"/><circle class="dot-filled" cx="50" cy="60" r="3.5"/><circle class="dot-filled" cx="30" cy="68" r="3.5"/><circle class="dot-filled" cx="60" cy="40" r="3.5"/><circle class="dot-filled" cx="42" cy="55" r="3.5"/><circle class="dot-hollow" cx="135" cy="40" r="3.5"/><circle class="dot-hollow" cx="152" cy="52" r="3.5"/><circle class="dot-hollow" cx="142" cy="68" r="3.5"/><circle class="dot-hollow" cx="128" cy="58" r="3.5"/><circle class="dot-hollow" cx="145" cy="45" r="3.5"/><rect class="dot-square" x="76.5" y="131.5" width="7" height="7"/><rect class="dot-square" x="96.5" y="146.5" width="7" height="7"/><rect class="dot-square" x="68.5" y="154.5" width="7" height="7"/><rect class="dot-square" x="91.5" y="121.5" width="7" height="7"/><rect class="dot-square" x="84.5" y="141.5" width="7" height="7"/>
+    <path class="cross cross--ghost" d="M 55 80 L 65 80 M 60 75 L 60 85"/><path class="cross cross--ghost" d="M 110 85 L 120 85 M 115 80 L 115 90"/><path class="cross cross--ghost" d="M 65 145 L 75 145 M 70 140 L 70 150"/>
+    <path class="cross" d="M 38 54 L 48 54 M 43 49 L 43 59"/><path class="cross" d="M 135 53 L 145 53 M 140 48 L 140 58"/><path class="cross" d="M 82 143 L 92 143 M 87 138 L 87 148"/>
+    <path class="line line--accent line--dash" d="M 58 78 L 45 56" marker-end="url(#km-arrow-a)"/>
+    <path class="line line--accent line--dash" d="M 114 83 L 138 56" marker-end="url(#km-arrow-a)"/>
+    <path class="line line--accent line--dash" d="M 71 142 L 85 142" marker-end="url(#km-arrow-a)"/>
+  </svg></figure>
+      <figure>
+  <svg class="diagram" viewBox="0 0 180 180" role="img" aria-labelledby="km3-label">
+    <title id="km3-label">Panel 3: the centres have stopped moving</title>
+    <circle class="dot-filled" cx="35" cy="45" r="3.5"/><circle class="dot-filled" cx="50" cy="60" r="3.5"/><circle class="dot-filled" cx="30" cy="68" r="3.5"/><circle class="dot-filled" cx="60" cy="40" r="3.5"/><circle class="dot-filled" cx="42" cy="55" r="3.5"/><circle class="dot-hollow" cx="135" cy="40" r="3.5"/><circle class="dot-hollow" cx="152" cy="52" r="3.5"/><circle class="dot-hollow" cx="142" cy="68" r="3.5"/><circle class="dot-hollow" cx="128" cy="58" r="3.5"/><circle class="dot-hollow" cx="145" cy="45" r="3.5"/><rect class="dot-square" x="76.5" y="131.5" width="7" height="7"/><rect class="dot-square" x="96.5" y="146.5" width="7" height="7"/><rect class="dot-square" x="68.5" y="154.5" width="7" height="7"/><rect class="dot-square" x="91.5" y="121.5" width="7" height="7"/><rect class="dot-square" x="84.5" y="141.5" width="7" height="7"/>
+    <path class="cross" d="M 38 54 L 48 54 M 43 49 L 43 59"/><path class="cross" d="M 135 53 L 145 53 M 140 48 L 140 58"/><path class="cross" d="M 82 143 L 92 143 M 87 138 L 87 148"/>
+  </svg></figure>
+    </div>
+        <figcaption data-ar="مرسوم لهذا الدليل. العناوين تبقى بالإنجليزية.">Drawn for this guide. Labels stay in English.</figcaption>
+      </figure>
+    </div>
+  </section>
+<section class="lesson" id="lesson-3-1">
+    <div class="container">
+      <header class="lesson__head">
+        <span class="lesson__id">3.1</span>
+        <h2 data-ar="التجميع">Clustering</h2>
+        <p class="lesson__practical"><span class="lesson__label" data-ar="العملي">Practical</span> <span data-ar="تطبيق خوارزميات التجميع على مجموعة بيانات وتحليل النتائج.">Apply clustering algorithms to a dataset and analyse the results.</span></p>
+      </header>
+      <div class="lesson__syllabus">
+        <h3 data-ar="المقرر">Syllabus</h3>
+        <ul class="lesson__bullets">
+<li data-ar="تجميع K-means">K-means clustering</li>
+<li data-ar="التجميع الهرمي (التجميعي، التقسيمي)">Hierarchical clustering (agglomerative, divisive)</li>
+<li data-ar="DBSCAN وOPTICS">DBSCAN and OPTICS</li>
+<li data-ar="المقاييس: Silhouette، Davies-Bouldin، مؤشر Rand المعدل، المعلومات المتبادلة">Metrics: silhouette, Davies-Bouldin, adjusted Rand index, mutual information</li>
+        </ul>
+      </div>
+      <div class="lesson__watch">
+        <h3 data-ar="شاهد">Watch</h3>
+<div class="vgroup">
+          <h4 data-ar="ثلاث خوارزميات">Three algorithms</h4>
+          <ul class="videos">
+<li><a class="video" href="https://www.youtube.com/watch?v=4b5d3muPQmA" data-video="41">
+            <span class="video__n">041</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: K-means clustering</span></span>
+            <span class="video__time">8:30</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=7xHsRkOdVwo" data-video="40">
+            <span class="video__n">040</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Hierarchical Clustering</span></span>
+            <span class="video__time">11:19</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=RDZUdRSDOok" data-video="42">
+            <span class="video__n">042</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Clustering with DBSCAN, Clearly Explained!!!</span></span>
+            <span class="video__time">9:30</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=eJIp_mgVLwE" data-video="8">
+            <span class="video__n">008</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>Mutual Information, Clearly Explained!!!</span></span>
+            <span class="video__time">16:14</span>
+          </a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<section class="lesson" id="lesson-3-2">
+    <div class="container">
+      <header class="lesson__head">
+        <span class="lesson__id">3.2</span>
+        <h2 data-ar="تقليل الأبعاد">Dimensionality Reduction</h2>
+        <p class="lesson__practical"><span class="lesson__label" data-ar="العملي">Practical</span> <span data-ar="تطبيق تقليل الأبعاد على بيانات عالية الأبعاد.">Apply dimensionality reduction to high-dimensional data.</span></p>
+      </header>
+      <div class="lesson__syllabus">
+        <h3 data-ar="المقرر">Syllabus</h3>
+        <ul class="lesson__bullets">
+<li data-ar="تحليل المكونات الرئيسية (PCA)">Principal component analysis (PCA)</li>
+<li data-ar="t-SNE">t-SNE</li>
+<li data-ar="تحليل التمييز الخطي (LDA)">Linear discriminant analysis (LDA)</li>
+<li data-ar="تحليل المكونات المستقلة (ICA)">Independent component analysis (ICA)</li>
+<li data-ar="متقدم: UMAP، تحليل العوامل">Advanced: UMAP, factor analysis</li>
+        </ul>
+      </div>
+      <div class="lesson__watch">
+        <h3 data-ar="شاهد">Watch</h3>
+<div class="vgroup">
+          <h4 data-ar="PCA">PCA</h4>
+          <ul class="videos">
+<li><a class="video" href="https://www.youtube.com/watch?v=HMOI_lkzW08" data-video="31">
+            <span class="video__n">031</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: PCA main ideas in only 5 minutes!!!</span></span>
+            <span class="video__time">6:05</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=FgakZw6K1QQ" data-video="30">
+            <span class="video__n">030</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Principal Component Analysis (PCA), Step-by-Step</span></span>
+            <span class="video__time">21:58</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=oRvgq966yZg" data-video="32">
+            <span class="video__n">032</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: PCA - Practical Tips</span></span>
+            <span class="video__time">8:20</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=Lsue2gEM9D0" data-video="34">
+            <span class="video__n">034</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: PCA in Python</span></span>
+            <span class="video__time">11:37</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=0Jp4gsfOLMs" data-video="33">
+            <span class="video__n">033</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: PCA in R</span></span>
+            <span class="video__time">8:57</span>
+          </a></li>
+          </ul>
+        </div>
+<div class="vgroup">
+          <h4 data-ar="LDA وt-SNE والمسافات">LDA, t-SNE and distances</h4>
+          <ul class="videos">
+<li><a class="video" href="https://www.youtube.com/watch?v=azXCzI57Yfc" data-video="35">
+            <span class="video__n">035</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: Linear Discriminant Analysis (LDA) clearly explained.</span></span>
+            <span class="video__time">15:12</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=NEaUSP4YerM" data-video="39">
+            <span class="video__n">039</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: t-SNE, Clearly Explained</span></span>
+            <span class="video__time">11:48</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=GEn-_dAyYME" data-video="37">
+            <span class="video__n">037</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: MDS and PCoA</span></span>
+            <span class="video__time">8:18</span>
+          </a></li>
+<li><a class="video" href="https://www.youtube.com/watch?v=pGAUHhLYp5Q" data-video="38">
+            <span class="video__n">038</span>
+            <span class="video__title"><svg class="icon-play" viewBox="0 0 10 12" aria-hidden="true" focusable="false"><path d="M0 0 10 6 0 12Z"/></svg><span>StatQuest: MDS and PCoA in R</span></span>
+            <span class="video__time">7:45</span>
+          </a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<section class="coverage" aria-labelledby="coverage-title">
+    <div class="container coverage__grid">
+      <div>
+        <h2 id="coverage-title" data-ar="ما تغطيه الفيديوهات.">What the videos cover.</h2>
+        <p class="coverage__fine" data-ar="مذكورة لكل فصل، لا معدّلة.">Marked per chapter, not averaged away.</p>
+      </div>
+      <div class="coverage__body">
+        <p data-ar="الخوارزميات موجودة، لكن معظم مقاييس التقييم غير موجودة.">The algorithms are here; most of the evaluation metrics are not.</p>
+        
+        <a class="coverage__link" href="index.html#gaps" data-ar="افتح جدول الفجوات">See the gap table</a>
+      </div>
+    </div>
+  </section>
+<nav class="pager" aria-label="Chapter navigation" data-ar-aria="التنقل بين الفصول">
+    <div class="container pager__grid">
+      <a href="chapter-2.html"><small data-ar="الفصل السابق">Previous chapter</small><b data-ar="الموجّه">Supervised</b></a>
+      <a href="chapter-4.html"><small data-ar="الفصل التالي">Next chapter</small><b data-ar="متخصصة">Specialized</b></a>
+    </div>
+  </nav>
+  </main>
+  <footer class="letter letter--short" id="about">
+    <div class="container letter__grid">
+      <div>
+        <p class="letter__statement" data-ar="السداسي 7، وحدة UEF2، معامل 4. المقرر: Halitim Amin. صفحات المقرر 61 إلى 63.">Semester 7, UEF2, coefficient 4. Course by Halitim Amin. Syllabus pages 61 to 63.</p>
+        <p class="letter__sign">Halitim Amin</p>
+        <p class="letter__date" data-ar="26 أكتوبر 2026. UEF2، معامل 4.">26 October 2026. UEF2, coefficient 4.</p>
+      </div>
+      <div class="letter__side">
+        <nav class="letter__links" aria-label="Sources" data-ar-aria="المصادر">
+          <a href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="قائمة التشغيل">Playlist</a>
+          <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" data-ar="قناة StatQuest">StatQuest channel</a>
+          <a href="library.html" data-ar="كل الفيديوهات">All 106 videos</a>
+        </nav>
+        <p class="letter__legal" data-ar="المقرر: Halitim Amin. الفيديوهات: StatQuest على يوتيوب. الرسوم مرسومة لهذا الدليل. لا صور فوتوغرافية.">Course material: Halitim Amin. Videos: StatQuest, YouTube. Diagrams drawn for this guide. No photographs.</p>
+      </div>
+    </div>
+  </footer>
+  <dialog class="player" id="player" aria-labelledby="player-title">
+    <div class="player__bar">
+      <h2 id="player-title">Video</h2>
+      <form method="dialog"><button class="player__close" type="submit" data-ar="إغلاق">Close</button></form>
+    </div>
+    <div class="player__frame" id="player-frame"></div>
+    <div class="player__foot">
+      <p class="player__note" id="player-note" hidden></p>
+      <a id="player-link" href="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" target="_blank" rel="noopener" data-ar="افتح على يوتيوب">Open on YouTube</a>
+    </div>
+  </dialog>
+  <script src="assets/data.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
