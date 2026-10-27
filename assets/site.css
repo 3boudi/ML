@@ -802,6 +802,9 @@ html:not(.js) .lib__row { grid-template-columns: 3.5rem minmax(0, 1fr); }
 .extras__action { justify-self: end; }
 
 /* ---------- dialog ---------- */
+.player:not([open]) {
+  display: none !important;
+}
 .player {
   width: min(94vw, calc((92dvh - 110px) * 16 / 9), 1040px);
   max-width: none;
@@ -812,9 +815,14 @@ html:not(.js) .lib__row { grid-template-columns: 3.5rem minmax(0, 1fr); }
   background: var(--color-ink);
   color: var(--color-paper);
   overflow: hidden !important;
+  scrollbar-width: none;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+}
+.player[open] {
   display: flex;
   flex-direction: column;
-  scrollbar-width: none;
 }
 .player::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .player::backdrop { background: color-mix(in oklab, var(--color-ink) 84%, transparent); }
